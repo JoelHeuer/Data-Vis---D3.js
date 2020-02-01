@@ -1,0 +1,51 @@
+
+/*************************************/
+/************[GERMANY MAP]************/
+/*************************************/
+
+.background {
+  fill: none;
+  /*fill: rgb(239, 237, 245);*/
+  stroke: black;
+  stroke-width: 3.5px;
+  pointer-events: all;
+}
+
+#states {
+  fill: rgb(188, 189, 220);
+  stroke: #fff;
+  stroke-width: 1.25px;
+  opacity: 0.85;
+}
+
+#states .active {
+  /*fill: lightblue;*/
+  fill: rgb(117, 107, 177);
+}
+
+.graticuleLine {
+  fill: none;
+  stroke: #777;
+  stroke-width: 0.5px;
+}
+/*************************************/
+/**********[RADAR-DIAGRAMM]***********/
+/*************************************/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  fill: #242424;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  cursor: default;
+}
+
+.legend {
+  font-family: 'Raleway', sans-serif;
+  fill: #333333;
+}
+
+.tooltip {
+  fill: #333333;
+}
