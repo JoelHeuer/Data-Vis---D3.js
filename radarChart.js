@@ -1,5 +1,5 @@
 
-function RadarChart(id, data, options) {
+function RadarChart(id, data, radarChartOptions, zusatz) {
 	var cfg = {
 	 w: 600,				//Width of the circle
 	 h: 600,				//Height of the circle
@@ -8,7 +8,7 @@ function RadarChart(id, data, options) {
 	 maxValue: 0, 			//What is the value that the biggest circle will represent
 	 labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
 	 wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
-	 opacityArea: 0.35, 	//The opacity of the area of the blob
+	 opacityArea: 0.75, 	//The opacity of the area of the blob
 	 dotRadius: 4, 			//The size of the colored circles of each blog
 	 opacityCircles: 0.1, 	//The opacity of the circles of each blob
 	 strokeWidth: 2, 		//The width of the stroke around each blob
@@ -16,10 +16,10 @@ function RadarChart(id, data, options) {
 	 color: d3.scale.category10()	//Color function
 	};
 	
-	//Put all of the options into a variable called cfg
-	if('undefined' !== typeof options){
-	  for(var i in options){
-		if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
+	//Put all of the radarChartOptions into a variable called cfg
+	if('undefined' !== typeof radarChartOptions){
+	  for(var i in radarChartOptions){
+		if('undefined' !== typeof radarChartOptions[i]){ cfg[i] = radarChartOptions[i]; }
 	  }//for i
 	}//if
 	
@@ -153,18 +153,24 @@ function RadarChart(id, data, options) {
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("fill", function(d,i) { 
 			
-			return cfg.color(i); 
+			return i==zusatz ? "#FE0101" : "#000";
 		})
-		.style("fill-opacity", cfg.opacityArea)
+		// .style("fill-opacity", cfg.opacityArea)
+		.style("fill-opacity", function(d,i){
+			return i==zusatz ? cfg.opacityArea : 0.0;
+		})
 		.on('mouseover', function (d,i){
 			//Dim all blobs
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
-				.style("fill-opacity", 0.1); 
+				.style("fill-opacity", 0); 
 			//Bring back the hovered over blob
 			d3.select(this)
 				.transition().duration(200)
-				.style("fill-opacity", 0.7);	
+				.style("fill-opacity", 0.8);
+				
+			console.log(this)
+
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs
@@ -178,9 +184,15 @@ function RadarChart(id, data, options) {
 		.attr("class", "radarStroke")
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("stroke-width", cfg.strokeWidth + "px")
-		.style("stroke", function(d,i) { return cfg.color(i); })
+		.style("stroke", function(d,i) { 
+			return i==zusatz ? "#FE0101" : "#000";
+
+		})
 		.style("fill", "none")
-		.style("filter" , "url(#glow)");		
+		.style("filter" , "url(#glow)")
+		.style("opacity", function(d,i){
+			return i==zusatz ? 1 : 0.5;
+		});
 	
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
@@ -190,8 +202,12 @@ function RadarChart(id, data, options) {
 		.attr("r", cfg.dotRadius)
 		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
-		.style("fill", function(d,i,j) { return cfg.color(j); })
-		.style("fill-opacity", 0.8);
+		.style("fill", function(d,i,j) {
+			return j==zusatz ? "#FE0101" : "#000";
+		})
+		.style("fill-opacity", function(d,i, j){
+			return j==zusatz ? 1 : 0.2;
+		});
 
 	/////////////////////////////////////////////////////////
 	//////// Append invisible circles for tooltip ///////////
@@ -233,6 +249,9 @@ function RadarChart(id, data, options) {
 	var tooltip = g.append("text")
 		.attr("class", "tooltip")
 		.style("opacity", 0);
+
+
+	
 	
 	/////////////////////////////////////////////////////////
 	/////////////////// Helper Function /////////////////////
