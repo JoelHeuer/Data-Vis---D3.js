@@ -1,4 +1,3 @@
-
 function RadarChart(id, data, radarChartOptions, zusatz) {
 	var cfg = {
 	 w: 600,				//Width of the circle
@@ -13,9 +12,24 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 	 opacityCircles: 0.1, 	//The opacity of the circles of each blob
 	 strokeWidth: 2, 		//The width of the stroke around each blob
 	 roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
-	 color: d3.scale.category10()	//Color function
+	 color: d3.scale.category10(),	//Color function
+
+	 /* [NEW] */
+	 blobAreaColorRed: "#FE0101",
+	 blobAreaColorBlack: "#000",
+	 blobAreaOpacityHigh: 0.6,
+	 blobAreaOpacityOff: 0.0,
+
+	 circleLabelColor: "#000",
+	 circleLabelPx:	"25px",
+
+	 axisLabelColor: "#000",
+	 axisLabelPx: "20px",
+
 	};
-	
+
+
+
 	//Put all of the radarChartOptions into a variable called cfg
 	if('undefined' !== typeof radarChartOptions){
 	  for(var i in radarChartOptions){
@@ -70,6 +84,7 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 	
 	//Wrapper for the grid & axes
 	var axisGrid = g.append("g").attr("class", "axisWrapper");
+
 	
 	//Draw the background circles
 	axisGrid.selectAll(".levels")
@@ -85,14 +100,19 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 
 	//Text indicating at what % each level is
 	axisGrid.selectAll(".axisLabel")
+		/*	[NEW]	[EXPLANATION]
+		 *	Style %-labels in radar-diagram
+		 * 
+		 */
 	   .data(d3.range(1,(cfg.levels+1)).reverse())
-	   .enter().append("text")
+	   .enter()
+	   .append("text")
 	   .attr("class", "axisLabel")
 	   .attr("x", 4)
 	   .attr("y", function(d){return -d*radius/cfg.levels;})
-	   .attr("dy", "0.4em")
-	   .style("font-size", "10px")
-	   .attr("fill", "#737373")
+	   .attr("dy", "0.5em")
+	   .style("font-size", cfg.circleLabelPx)
+	   .attr("fill", cfg.circleLabelColor)
 	   .text(function(d,i) { return Format(maxValue * d/cfg.levels); });
 
 	/////////////////////////////////////////////////////////
@@ -112,13 +132,13 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 		.attr("x2", function(d, i){ return rScale(maxValue*1.1) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("y2", function(d, i){ return rScale(maxValue*1.1) * Math.sin(angleSlice*i - Math.PI/2); })
 		.attr("class", "line")
-		.style("stroke", "white")
+		.style("stroke", "#FFF")
 		.style("stroke-width", "2px");
 
 	//Append the labels at each axis
 	axis.append("text")
 		.attr("class", "legend")
-		.style("font-size", "11px")
+		.style("font-size", cfg.axisLabelPx)
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
@@ -133,7 +153,7 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 	//The radial line function
 	var radarLine = d3.svg.line.radial()
 		.interpolate("linear-closed")
-		.radius(function(d) { return rScale(d.value); })
+		.radius(function(d) { 	return rScale(d.value); })
 		.angle(function(d,i) {	return i*angleSlice; });
 		
 	if(cfg.roundStrokes) {
@@ -142,7 +162,16 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 				
 	//Create a wrapper for the blobs	
 	var blobWrapper = g.selectAll(".radarWrapper")
-		.data(data)
+		// .data(data)
+		.data(function(d,i){
+			/* 	[NEW]	[EXPLANATION]
+			 *	choose which entries of data you want to display in radardiagram
+			 *	push them into new array
+			 */ 
+			newData = [];
+			newData.push(data[zusatz]);
+			return newData;
+		})
 		.enter().append("g")
 		.attr("class", "radarWrapper");
 			
@@ -152,14 +181,24 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 		.attr("class", "radarArea")
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("fill", function(d,i) { 
-			
-			return i==zusatz ? "#FE0101" : "#000";
+			/* 	[NEW]	[EXPLANATION]
+			 *	change color of specific blobs in radar-diagram
+			 */
+			return d[0].name ==data[zusatz][0].name ? cfg.blobAreaColorRed : cfg.blobAreaColorBlack;
 		})
 		// .style("fill-opacity", cfg.opacityArea)
 		.style("fill-opacity", function(d,i){
-			return i==zusatz ? cfg.opacityArea : 0.0;
+			/* 	[NEW]	[EXPLANATION]
+			 *	change opacity of specific blobs in radar-diagram
+			 */
+			return d[0].name ==data[zusatz][0].name ? cfg.blobAreaOpacityHigh : cfg.blobAreaOpacityOff;
 		})
 		.on('mouseover', function (d,i){
+			/*	[EXPLANATION]
+			 *	behaviour when you hover over another blob:
+			 *	--> change opacities.
+			 *	
+			 */
 			//Dim all blobs
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
@@ -173,6 +212,12 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 
 		})
 		.on('mouseout', function(){
+			/*	[EXPLANATION]
+			 *	behaviour when you click on another blob:
+			 *	--> change opacities.
+			 *	
+			 */
+
 			//Bring back all blobs
 			d3.selectAll(".radarArea")
 				.transition().duration(200)
@@ -185,8 +230,10 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("stroke-width", cfg.strokeWidth + "px")
 		.style("stroke", function(d,i) { 
-			return i==zusatz ? "#FE0101" : "#000";
-
+			/*	[NEW]	[EXPLANATION]
+			 *	change color of specific blob-outlines in radar-diagram
+			 */
+			return d[0].name ==data[zusatz][0].name ? cfg.blobAreaColorRed : cfg.blobAreaColorBlack;
 		})
 		.style("fill", "none")
 		.style("filter" , "url(#glow)")
@@ -196,8 +243,17 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 	
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
-		.data(function(d,i) { return d; })
-		.enter().append("circle")
+		// .data(function(d,i) { return d; })
+		.data(function(d,i){
+			/*	[NEW]	[EXPLANATION]	[GUESS]
+			 *	i guess you can assign specific blobs to radarCircle
+			 *	
+			 */
+			return d;
+			// return (d[0].name == data[zusatz][0].name) ? d : [];
+		})
+		.enter()
+		.append("circle")
 		.attr("class", "radarCircle")
 		.attr("r", cfg.dotRadius)
 		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
@@ -221,7 +277,14 @@ function RadarChart(id, data, radarChartOptions, zusatz) {
 		
 	//Append a set of invisible circles on top for the mouseover pop-up
 	blobCircleWrapper.selectAll(".radarInvisibleCircle")
-		.data(function(d,i) { return d; })
+		//.data(function(d,i) { return d; })
+		.data(function(d,i){
+			/*	[NEW]	[EXPLANATION]	[GUESS]
+			 *	assign entries of data to css-class
+			 *	you can access one blob with mouseover
+			 */
+			return (d[0].name == data[zusatz][0].name) ? d : [];
+		})
 		.enter().append("circle")
 		.attr("class", "radarInvisibleCircle")
 		.attr("r", cfg.dotRadius*1.5)
