@@ -24,10 +24,14 @@
 </head>
 
 </body>
+<button onclick="dataAll()">Alles</button>
+<button onclick="dataInfo()">Informatik</button>
+
 <div class="germanyMap"></div>
 <div class="radarChart"></div>
 
 <script>
+
 
   /**********************************************************************************************/
   /******************************************[Radar Diagramm]************************************/
@@ -77,6 +81,8 @@
   ];
 
   data = bundeslaenderObjectData;
+  var categoryIndex = 0;
+  var bundeslandIndex = 0;
   ////////////////////////////////////////////////////////////// 
   //////////////////// Draw the Chart ////////////////////////// 
   ////////////////////////////////////////////////////////////// 
@@ -95,7 +101,7 @@
   };
 
   //Call function to draw the Radar chart
-  RadarChart(".radarChart", data,radarChartOptions, 1);
+  RadarChart(".radarChart", data,radarChartOptions, bundeslandIndex, categoryIndex);
 
 
   /**********************************************************************************************/
@@ -242,7 +248,6 @@
   /*==========================================================*/
   function changeVisualizations(bundeslandJsonObject) {
     let currentBundesland = bundeslandJsonObject.properties.NAME_1;
-    let index;
     console.log(currentBundesland);
     data = bundeslaenderObjectData;
 
@@ -250,19 +255,22 @@
      *  and update data for radardiagramm
      */
     if ((focused === null) || !(focused === bundeslandJsonObject)) {
-      index =mapBundeslandToNumber(currentBundesland);
+      bundeslandIndex = mapBundeslandToNumber(currentBundesland);
     }
     else {
       data = bundeslaenderObjectData;
-      index = -1;
+      bundeslandIndex = -1;
     }
 
 
     /*  update radardiagramm  */
     RadarChart(
       ".radarChart",
-      data,radarChartOptions,
-      index);
+      data,
+      radarChartOptions,
+      bundeslandIndex,
+      categoryIndex
+      );
 
     /* focus in germany-map */
     clickPath(bundeslandJsonObject);
@@ -277,6 +285,27 @@
       }
     }
     return -1;
+  }
+
+  function dataAll(){
+    categoryIndex = 0;
+    RadarChart(
+      ".radarChart",
+      data,
+      radarChartOptions,
+      bundeslandIndex,
+      categoryIndex
+      );
+  }
+  function dataInfo(){
+    categoryIndex = 1;
+    RadarChart(
+      ".radarChart",
+      data,
+      radarChartOptions,
+      bundeslandIndex,
+      categoryIndex
+      );
   }
 
 
