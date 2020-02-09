@@ -1,5 +1,33 @@
 
 /*************************************/
+/***************[BUTTONS]*************/
+/*************************************/
+.flex-container-button{
+  position: absolute;
+  left: 0;
+  top: 30vh;
+  display: flex;
+  flex-direction: column;
+  }
+
+.flex-child{
+  padding: 10px;
+  border: 1px solid white;
+  background-color: rgb(117, 107, 177);;
+  
+  opacity: 0.85;
+  color: white;
+  transform: all 0.5s ease;
+}
+
+.flex-child.active{
+  color: red;
+  opacity: 1;
+  transform: all 0.5s ease;
+}
+
+
+/*************************************/
 /************[GERMANY MAP]************/
 /*************************************/
 

@@ -29,6 +29,15 @@
 </head>
 
 </body>
+<div class="flex-container-button">
+  <div class="flex-child active" id="alle"  onclick="changeReviewBoardIndex(this.id, 0)">Alle</div>
+  <div class="flex-child" id="informatik"   onclick="changeReviewBoardIndex(this.id, 1)"> Informatik</div>
+  <div class="flex-child" id="sprachwissenschaften" onclick="changeReviewBoardIndex(this.id, 2)">Sprachwissenschaften</div>
+  <div class="flex-child" id="theologie"    onclick="changeReviewBoardIndex(this.id, 3)">Theologie</div>
+  <div class="flex-child" id="psychologie"  onclick="changeReviewBoardIndex(this.id, 4)">Psychologie</div>
+  <div class="flex-child" id="mathematik"   onclick="changeReviewBoardIndex(this.id, 5)">Mathematik</div>
+</div>
+
 <button onclick="dataAll()">Alles</button>
 <button onclick="dataInfo()">Informatik</button>
 
@@ -36,6 +45,34 @@
 <div class="radarChart"></div>
 
 <script>
+
+    /**********************************************************************************************/
+    /****************************************[GLOBAL VARIABLES]************************************/
+    /**********************************************************************************************/
+
+    //////////////////////// Set-Up ////////////////////////////// 
+
+    var margin = { top: 100, right: 100, bottom: 100, left: 100 },
+      width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20); 
+
+    var color = d3.scale.ordinal()
+      .range(["#EDC951", "#CC333F", "#00A0B0"]);
+
+    var radarChartOptions = {
+      w: width,
+      h: height,
+      margin: margin,
+      maxValue: 0.5,
+      levels: 5,
+      roundStrokes: true,
+      color: color
+    };
+
+    var data = bundeslaenderObjectData;
+    var i_bundesland = 0;
+    var i_reviewBoard = 0;
+
   /**********************************************************************************************/
   /******************************************[Load CSV-Files]************************************/
   /**********************************************************************************************/
@@ -84,56 +121,17 @@
       csvData = data;
       initBundeslaenderObjectData(csvData);
       console.log("[SUCCESS]  - csvData()")
-
-
-      // for(let i=0; i < 16; i++){
-      //   console.log(bundeslaenderObjectData[i][0].value[0])
-      // }
-      console.log(bundeslaenderObjectData);
-
+      data = csvData;
     } 
   );
   
-
   /*  wait until csv-files are loaded */
   setTimeout( () => {
 
     
-    /**********************************************************************************************/
-    /******************************************[Radar Diagramm]************************************/
-    /**********************************************************************************************/
-
-    ////////////////////////////////////////////////////////////// 
-    //////////////////////// Set-Up ////////////////////////////// 
-    ////////////////////////////////////////////////////////////// 
-
-    var margin = { top: 100, right: 100, bottom: 100, left: 100 },
-      width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
-      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-
-
-    var data = bundeslaenderObjectData;
-    var categoryIndex = 0;
-    var bundeslandIndex = 0;
-    ////////////////////////////////////////////////////////////// 
-    //////////////////// Draw the Chart ////////////////////////// 
-    ////////////////////////////////////////////////////////////// 
-
-    var color = d3.scale.ordinal()
-      .range(["#EDC951", "#CC333F", "#00A0B0"]);
-
-    var radarChartOptions = {
-      w: width,
-      h: height,
-      margin: margin,
-      maxValue: 0.5,
-      levels: 5,
-      roundStrokes: true,
-      color: color
-    };
-
     //Call function to draw the Radar chart
-    RadarChart(".radarChart", data,radarChartOptions, bundeslandIndex, categoryIndex);
+    drawRadarChart();
+
 
 
     /**********************************************************************************************/
@@ -204,18 +202,18 @@
         .attr("d", geoPath)
         .on("click", changeVisualizations);
 
-      console.log("d3.json: bounds = " + bounds);
-      console.log("d3.json: bottomLeft = " + bottomLeft);
-      console.log("d3.json: topRight = " + topRight);
-      console.log("d3.json: center = " + center);
-      console.log("d3.json: projection(center) = " + projection(center));
-      console.log("d3.json: projection(bottomLeft) = " + projection(bottomLeft));
-      console.log("d3.json: projection(topRight) = " + projection(topRight));
-      console.log("d3.json: topRightPx = " + topRightPx);
-      console.log("d3.json: bottomLeftPx = " + bottomLeftPx);
-      console.log("d3.json: scaleFactor x axis = " + width / (topRightPx[0] - bottomLeftPx[0]));
-      console.log("d3.json: scaleFactor y axis = " + height / (-topRightPx[1] + bottomLeftPx[1]));
-      console.log("d3.json: scaleFactor = " + scaleFactor);
+      // console.log("d3.json: bounds = " + bounds);
+      // console.log("d3.json: bottomLeft = " + bottomLeft);
+      // console.log("d3.json: topRight = " + topRight);
+      // console.log("d3.json: center = " + center);
+      // console.log("d3.json: projection(center) = " + projection(center));
+      // console.log("d3.json: projection(bottomLeft) = " + projection(bottomLeft));
+      // console.log("d3.json: projection(topRight) = " + projection(topRight));
+      // console.log("d3.json: topRightPx = " + topRightPx);
+      // console.log("d3.json: bottomLeftPx = " + bottomLeftPx);
+      // console.log("d3.json: scaleFactor x axis = " + width / (topRightPx[0] - bottomLeftPx[0]));
+      // console.log("d3.json: scaleFactor y axis = " + height / (-topRightPx[1] + bottomLeftPx[1]));
+      // console.log("d3.json: scaleFactor = " + scaleFactor);
     });
 
 
@@ -287,22 +285,16 @@
       *  and update data for radardiagramm
       */
       if ((focused === null) || !(focused === bundeslandJsonObject)) {
-        bundeslandIndex = mapBundeslandToNumber(currentBundesland);
+        i_bundesland = mapBundeslandToNumber(currentBundesland);
       }
       else {
         data = bundeslaenderObjectData;
-        bundeslandIndex = -1;
+        i_bundesland = -1;
       }
 
 
       /*  update radardiagramm  */
-      RadarChart(
-        ".radarChart",
-        data,
-        radarChartOptions,
-        bundeslandIndex,
-        categoryIndex
-        );
+      drawRadarChart();
 
       /* focus in germany-map */
       clickPath(bundeslandJsonObject);
@@ -320,28 +312,48 @@
     }
 
     function dataAll(){
-      categoryIndex = 0;
-      RadarChart(
-        ".radarChart",
-        data,
-        radarChartOptions,
-        bundeslandIndex,
-        categoryIndex
-        );
+      i_reviewBoard = 0;
+      drawRadarChart();
+
     }
     function dataInfo(){
-      categoryIndex = 1;
-      RadarChart(
-        ".radarChart",
-        data,
-        radarChartOptions,
-        bundeslandIndex,
-        categoryIndex
-        );
+      i_reviewBoard = 1;
+      drawRadarChart();
+
     }
 
   }, 1000); // wait 1s till csv-data is loaded
 
+/**********************************************************************************************/
+/****************************************[BUTTON-FUNCTIONS]************************************/
+/**********************************************************************************************/
+
+/**
+ *  onclick function for buttons, to change review_board
+ */
+function changeReviewBoardIndex(id,index){
+  if(i_reviewBoard != index){
+    i_reviewBoard = index;
+    toggleActive(id);
+    drawRadarChart();
+  }
+  return;
+}
+
+function toggleActive(id){
+  let activeObj = document.getElementsByClassName("flex-child active");
+  
+  for(let i=0; i < activeObj.length; i++){
+    activeObj[i].classList.remove("active")
+  }
+  let obj = document.getElementById(id);
+  obj.classList.toggle("active");
+}
+
+function drawRadarChart(){
+  RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard);
+
+}
 
 </script>
 
