@@ -5,6 +5,11 @@
   <!-- General -->
   <title>Bundeslandweite Betrachtung deutscher Forschung</title>
   <meta charset="utf-8">
+  
+  <!-- JSON-File for german states-->
+  <script type="text/javascript" src="setupBundeslaenderData.js"></script>
+
+  <!-- D3 -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
 
   <!-- Radar-Chart -->
@@ -31,282 +36,311 @@
 <div class="radarChart"></div>
 
 <script>
-
-
   /**********************************************************************************************/
-  /******************************************[Radar Diagramm]************************************/
+  /******************************************[Load CSV-Files]************************************/
   /**********************************************************************************************/
 
-  ////////////////////////////////////////////////////////////// 
-  //////////////////////// Set-Up ////////////////////////////// 
-  ////////////////////////////////////////////////////////////// 
+  /*  to access files in my folder with d3.csv-function */
+  const path = "../D3_Bundeslaender/";
+  const csvBundeslaenderAlle = "EXPORT_D3_all.csv";
+  const csvCompressedPercentage = "EXPORT_D3_compressed_percentage.csv";
+  
+  let csvSupportData = null;
+  let csvData = null;
+  const csvFileNames = [
+    "EXPORT_D3_Mecklenburg_Vorpommern.csv",
+    "EXPORT_D3_Schleswig_Holstein.csv",
+    "EXPORT_D3_Niedersachsen.csv",
+    "EXPORT_D3_Bremen.csv",
 
-  var margin = { top: 100, right: 100, bottom: 100, left: 100 },
-    width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
-    height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+    "EXPORT_D3_Sachsen_Anhalt.csv",
+    "EXPORT_D3_Brandenburg.csv",
+    "EXPORT_D3_Berlin.csv",
+    "EXPORT_D3_Nordrhein_Westfalen.csv",
 
-  ////////////////////////////////////////////////////////////// 
-  ////////////////////////// Data ////////////////////////////// 
-  ////////////////////////////////////////////////////////////// 
+    "EXPORT_D3_Hessen.csv",
+    "EXPORT_D3_Thueringen.csv",
+    "EXPORT_D3_Sachsen.csv",
+    "EXPORT_D3_Rheinland_Pfalz.csv",
 
-  var data = [
-    [//iPhone
-      { axis: "Battery Life", value: 0.22 },
-      { axis: "Brand", value: 0.28 },
-      { axis: "Contract Cost", value: 0.29 },
-      { axis: "Design And Quality", value: 0.17 },
-      { axis: "Have Internet Connectivity", value: 0.22 },
-      { axis: "Large Screen", value: 0.02 },
-      { axis: "Price Of Device", value: 0.21 },
-      { axis: "To Be A Smartphone", value: 0.50 },
-    ], [//Samsung
-      { axis: "Battery Life", value: 0.27 },
-      { axis: "Brand", value: 0.16 },
-      { axis: "Contract Cost", value: 0.35 },
-      { axis: "Design And Quality", value: 0.13 },
-      { axis: "Have Internet Connectivity", value: 0.20 },
-      { axis: "Large Screen", value: 0.13 },
-      { axis: "Price Of Device", value: 0.35 },
-      { axis: "To Be A Smartphone", value: 0.38 }
-    ], [//Nokia Smartphone
-      { axis: "Battery Life", value: 0.26 },
-      { axis: "Brand", value: 0.10 },
-      { axis: "Contract Cost", value: 0.30 },
-      { axis: "Design And Quality", value: 0.14 },
-      { axis: "Have Internet Connectivity", value: 0.22 },
-      { axis: "Large Screen", value: 0.04 },
-      { axis: "Price Of Device", value: 0.41 },
-      { axis: "To Be A Smartphone", value: 0.30 }
-    ]
+    "EXPORT_D3_Saarland.csv",
+    "EXPORT_D3_Baden_Wuerttemberg.csv",
+    "EXPORT_D3_Bayern.csv",
+    "EXPORT_D3_Hamburg.csv",
   ];
 
-  data = bundeslaenderObjectData;
-  var categoryIndex = 0;
-  var bundeslandIndex = 0;
-  ////////////////////////////////////////////////////////////// 
-  //////////////////// Draw the Chart ////////////////////////// 
-  ////////////////////////////////////////////////////////////// 
+  /*  store csv-file in variable  */
+  let csvFilesNamesLen = csvFileNames.length;
+  d3.csv(path + csvBundeslaenderAlle, 
+      (supportData) => { 
+        csvSupportData = supportData;
+        initSupportData(csvSupportData)
+        console.log("[SUCCESS]  - initSupportData()")
+      }
+  );
 
-  var color = d3.scale.ordinal()
-    .range(["#EDC951", "#CC333F", "#00A0B0"]);
-
-  var radarChartOptions = {
-    w: width,
-    h: height,
-    margin: margin,
-    maxValue: 0.5,
-    levels: 5,
-    roundStrokes: true,
-    color: color
-  };
-
-  //Call function to draw the Radar chart
-  RadarChart(".radarChart", data,radarChartOptions, bundeslandIndex, categoryIndex);
+  d3.csv(path + csvCompressedPercentage,
+    (data) => {
+      csvData = data;
+      initBundeslaenderObjectData(csvData);
+      console.log("[SUCCESS]  - csvData()")
 
 
-  /**********************************************************************************************/
-  /*********************************************[Germany Map]************************************/
-  /**********************************************************************************************/
-  var width = 960,
-    height = 500,
-    focused = null,
-    geoPath;
+      // for(let i=0; i < 16; i++){
+      //   console.log(bundeslaenderObjectData[i][0].value[0])
+      // }
+      console.log(bundeslaenderObjectData);
 
-  var svg = d3.select(".germanyMap")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    } 
+  );
+  
 
-  svg.append("rect")
-    .attr("class", "background")
-    .attr("width", width)
-    .attr("height", height);
+  /*  wait until csv-files are loaded */
+  setTimeout( () => {
 
-  var g = svg.append("g")
-    .append("g")
-    .attr("id", "states");
+    
+    /**********************************************************************************************/
+    /******************************************[Radar Diagramm]************************************/
+    /**********************************************************************************************/
 
+    ////////////////////////////////////////////////////////////// 
+    //////////////////////// Set-Up ////////////////////////////// 
+    ////////////////////////////////////////////////////////////// 
 
-  d3.json("./bundeslaenderJSON.json", function (collection) {
-
-    var bounds = d3.geo.bounds(collection),
-      bottomLeft = bounds[0],
-      topRight = bounds[1],
-      rotLong = -(topRight[0] + bottomLeft[0]) / 2;
-    center = [(topRight[0] + bottomLeft[0]) / 2 + rotLong, (topRight[1] + bottomLeft[1]) / 2],
-
-      //default scale projection
-      projection = d3.geo.albers()
-        .parallels([bottomLeft[1], topRight[1]])
-        .rotate([rotLong, 0, 0])
-        .translate([width / 2, height / 2])
-        .center(center),
-
-      bottomLeftPx = projection(bottomLeft),
-      topRightPx = projection(topRight),
-      scaleFactor = 1.00 * Math.min(width / (topRightPx[0] - bottomLeftPx[0]), height / (-topRightPx[1] + bottomLeftPx[1])),
-
-      projection = d3.geo.albers()
-        .parallels([bottomLeft[1], topRight[1]])
-        .rotate([rotLong, 0, 0])
-        .translate([width / 2, height / 2])
-        .scale(scaleFactor * 0.975 * 1000)
-        //.scale(4*1000)  //1000 is default for USA map
-        .center(center);
-
-    geoPath = d3.geo.path().projection(projection);
-
-    var graticule = d3.geo.graticule()
-      .step([1, 1]);
-
-    g.append("path")
-      .datum(graticule)
-      .attr("class", "graticuleLine")
-      .attr("d", geoPath);
-
-    g.selectAll("path.feature")
-      .data(collection.features)
-      .enter()
-      .append("path")
-      .attr("class", "feature")
-      .attr("d", geoPath)
-      .on("click", changeVisualizations);
-
-    console.log("d3.json: bounds = " + bounds);
-    console.log("d3.json: bottomLeft = " + bottomLeft);
-    console.log("d3.json: topRight = " + topRight);
-    console.log("d3.json: center = " + center);
-    console.log("d3.json: projection(center) = " + projection(center));
-    console.log("d3.json: projection(bottomLeft) = " + projection(bottomLeft));
-    console.log("d3.json: projection(topRight) = " + projection(topRight));
-    console.log("d3.json: topRightPx = " + topRightPx);
-    console.log("d3.json: bottomLeftPx = " + bottomLeftPx);
-    console.log("d3.json: scaleFactor x axis = " + width / (topRightPx[0] - bottomLeftPx[0]));
-    console.log("d3.json: scaleFactor y axis = " + height / (-topRightPx[1] + bottomLeftPx[1]));
-    console.log("d3.json: scaleFactor = " + scaleFactor);
-  });
+    var margin = { top: 100, right: 100, bottom: 100, left: 100 },
+      width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
 
+    var data = bundeslaenderObjectData;
+    var categoryIndex = 0;
+    var bundeslandIndex = 0;
+    ////////////////////////////////////////////////////////////// 
+    //////////////////// Draw the Chart ////////////////////////// 
+    ////////////////////////////////////////////////////////////// 
 
+    var color = d3.scale.ordinal()
+      .range(["#EDC951", "#CC333F", "#00A0B0"]);
 
-  function clickPath(d) {
-
-    var x = width / 2,
-      y = height / 2,
-      k = 1,
-      name = d.properties.NAME_1;
-
-    g.selectAll("text")
-      .remove();
-    if ((focused === null) || !(focused === d)) {
-      var centroid = geoPath.centroid(d),
-        x = +centroid[0],
-        y = +centroid[1],
-        k = 1.75;
-      focused = d;
-
-      g.append("text")
-        .text(name)
-        .attr("x", x)
-        .attr("y", y)
-        .style("text-anchor", "middle")
-        .style("font-size", "8px")
-        .style("stroke-width", "0px")
-        .style("fill", "black")
-        .style("font-family", "Times New Roman")
-        .on("click", clickText);
-    }
-    else {
-      focused = null;
+    var radarChartOptions = {
+      w: width,
+      h: height,
+      margin: margin,
+      maxValue: 0.5,
+      levels: 5,
+      roundStrokes: true,
+      color: color
     };
 
-    g.selectAll("path")
-      .classed("active", focused && function (d) { return d === focused; });
-
-    g.transition()
-      .duration(1000)
-      .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")scale(" + k + ")translate(" + (-x) + "," + (-y) + ")")
-      .style("stroke-width", 1.75 / k + "px");
-  }
+    //Call function to draw the Radar chart
+    RadarChart(".radarChart", data,radarChartOptions, bundeslandIndex, categoryIndex);
 
 
-  function clickText(d) {
-    focused = null;
-    g.selectAll("text")
-      .remove();
-    g.selectAll("path")
-      .classed("active", 0);
-    g.transition()
-      .duration(1000)
-      .attr("transform", "scale(" + 1 + ")translate(" + 0 + "," + 0 + ")")
-      .style("stroke-width", 1.00 + "px");
-  }
+    /**********************************************************************************************/
+    /*********************************************[Germany Map]************************************/
+    /**********************************************************************************************/
+    var width = 960,
+      height = 500,
+      focused = null,
+      geoPath;
+
+    var svg = d3.select(".germanyMap")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    svg.append("rect")
+      .attr("class", "background")
+      .attr("width", width)
+      .attr("height", height);
+
+    var g = svg.append("g")
+      .append("g")
+      .attr("id", "states");
 
 
-  /*==========================================================*/
-  /*===============[Combine all ELements]=====================*/
-  /*==========================================================*/
-  function changeVisualizations(bundeslandJsonObject) {
-    let currentBundesland = bundeslandJsonObject.properties.NAME_1;
-    console.log(currentBundesland);
-    data = bundeslaenderObjectData;
+    d3.json("./bundeslaenderJSON.json", function (collection) {
 
-    /*  check if view is already focused 
-     *  and update data for radardiagramm
-     */
-    if ((focused === null) || !(focused === bundeslandJsonObject)) {
-      bundeslandIndex = mapBundeslandToNumber(currentBundesland);
-    }
-    else {
-      data = bundeslaenderObjectData;
-      bundeslandIndex = -1;
-    }
+      var bounds = d3.geo.bounds(collection),
+        bottomLeft = bounds[0],
+        topRight = bounds[1],
+        rotLong = -(topRight[0] + bottomLeft[0]) / 2;
+      center = [(topRight[0] + bottomLeft[0]) / 2 + rotLong, (topRight[1] + bottomLeft[1]) / 2],
+
+        //default scale projection
+        projection = d3.geo.albers()
+          .parallels([bottomLeft[1], topRight[1]])
+          .rotate([rotLong, 0, 0])
+          .translate([width / 2, height / 2])
+          .center(center),
+
+        bottomLeftPx = projection(bottomLeft),
+        topRightPx = projection(topRight),
+        scaleFactor = 1.00 * Math.min(width / (topRightPx[0] - bottomLeftPx[0]), height / (-topRightPx[1] + bottomLeftPx[1])),
+
+        projection = d3.geo.albers()
+          .parallels([bottomLeft[1], topRight[1]])
+          .rotate([rotLong, 0, 0])
+          .translate([width / 2, height / 2])
+          .scale(scaleFactor * 0.975 * 1000)
+          //.scale(4*1000)  //1000 is default for USA map
+          .center(center);
+
+      geoPath = d3.geo.path().projection(projection);
+
+      var graticule = d3.geo.graticule()
+        .step([1, 1]);
+
+      g.append("path")
+        .datum(graticule)
+        .attr("class", "graticuleLine")
+        .attr("d", geoPath);
+
+      g.selectAll("path.feature")
+        .data(collection.features)
+        .enter()
+        .append("path")
+        .attr("class", "feature")
+        .attr("d", geoPath)
+        .on("click", changeVisualizations);
+
+      console.log("d3.json: bounds = " + bounds);
+      console.log("d3.json: bottomLeft = " + bottomLeft);
+      console.log("d3.json: topRight = " + topRight);
+      console.log("d3.json: center = " + center);
+      console.log("d3.json: projection(center) = " + projection(center));
+      console.log("d3.json: projection(bottomLeft) = " + projection(bottomLeft));
+      console.log("d3.json: projection(topRight) = " + projection(topRight));
+      console.log("d3.json: topRightPx = " + topRightPx);
+      console.log("d3.json: bottomLeftPx = " + bottomLeftPx);
+      console.log("d3.json: scaleFactor x axis = " + width / (topRightPx[0] - bottomLeftPx[0]));
+      console.log("d3.json: scaleFactor y axis = " + height / (-topRightPx[1] + bottomLeftPx[1]));
+      console.log("d3.json: scaleFactor = " + scaleFactor);
+    });
 
 
-    /*  update radardiagramm  */
-    RadarChart(
-      ".radarChart",
-      data,
-      radarChartOptions,
-      bundeslandIndex,
-      categoryIndex
-      );
 
-    /* focus in germany-map */
-    clickPath(bundeslandJsonObject);
 
-  }
+    function clickPath(d) {
 
-  function mapBundeslandToNumber(name){
-    let len = data.length;
-    for(let i=0; i<len; i++){
-      if(data[i][0].name == name){
-        return i;
+      var x = width / 2,
+        y = height / 2,
+        k = 1,
+        name = d.properties.NAME_1;
+
+      g.selectAll("text")
+        .remove();
+      if ((focused === null) || !(focused === d)) {
+        var centroid = geoPath.centroid(d),
+          x = +centroid[0],
+          y = +centroid[1],
+          k = 1.75;
+        focused = d;
+
+        g.append("text")
+          .text(name)
+          .attr("x", x)
+          .attr("y", y)
+          .style("text-anchor", "middle")
+          .style("font-size", "8px")
+          .style("stroke-width", "0px")
+          .style("fill", "black")
+          .style("font-family", "Times New Roman")
+          .on("click", clickText);
       }
-    }
-    return -1;
-  }
+      else {
+        focused = null;
+      };
 
-  function dataAll(){
-    categoryIndex = 0;
-    RadarChart(
-      ".radarChart",
-      data,
-      radarChartOptions,
-      bundeslandIndex,
-      categoryIndex
-      );
-  }
-  function dataInfo(){
-    categoryIndex = 1;
-    RadarChart(
-      ".radarChart",
-      data,
-      radarChartOptions,
-      bundeslandIndex,
-      categoryIndex
-      );
-  }
+      g.selectAll("path")
+        .classed("active", focused && function (d) { return d === focused; });
+
+      g.transition()
+        .duration(1000)
+        .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")scale(" + k + ")translate(" + (-x) + "," + (-y) + ")")
+        .style("stroke-width", 1.75 / k + "px");
+    }
+
+
+    function clickText(d) {
+      focused = null;
+      g.selectAll("text")
+        .remove();
+      g.selectAll("path")
+        .classed("active", 0);
+      g.transition()
+        .duration(1000)
+        .attr("transform", "scale(" + 1 + ")translate(" + 0 + "," + 0 + ")")
+        .style("stroke-width", 1.00 + "px");
+    }
+
+
+    /*==========================================================*/
+    /*===============[Combine all ELements]=====================*/
+    /*==========================================================*/
+    function changeVisualizations(bundeslandJsonObject) {
+      let currentBundesland = bundeslandJsonObject.properties.NAME_1;
+      console.log(currentBundesland);
+      data = bundeslaenderObjectData;
+
+      /*  check if view is already focused 
+      *  and update data for radardiagramm
+      */
+      if ((focused === null) || !(focused === bundeslandJsonObject)) {
+        bundeslandIndex = mapBundeslandToNumber(currentBundesland);
+      }
+      else {
+        data = bundeslaenderObjectData;
+        bundeslandIndex = -1;
+      }
+
+
+      /*  update radardiagramm  */
+      RadarChart(
+        ".radarChart",
+        data,
+        radarChartOptions,
+        bundeslandIndex,
+        categoryIndex
+        );
+
+      /* focus in germany-map */
+      clickPath(bundeslandJsonObject);
+
+    }
+
+    function mapBundeslandToNumber(name){
+      let len = data.length;
+      for(let i=0; i<len; i++){
+        if(data[i][0].name == name){
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    function dataAll(){
+      categoryIndex = 0;
+      RadarChart(
+        ".radarChart",
+        data,
+        radarChartOptions,
+        bundeslandIndex,
+        categoryIndex
+        );
+    }
+    function dataInfo(){
+      categoryIndex = 1;
+      RadarChart(
+        ".radarChart",
+        data,
+        radarChartOptions,
+        bundeslandIndex,
+        categoryIndex
+        );
+    }
+
+  }, 1000); // wait 1s till csv-data is loaded
 
 
 </script>

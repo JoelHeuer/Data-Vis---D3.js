@@ -4,6 +4,133 @@
  */
 
 
+/*===============================[GENERAL]==============================*/
+const bundeslaenderNames = [
+    "Mecklenburg-Vorpommern",
+    "Schleswig-Holstein",
+    "Niedersachsen",
+    "Bremen",
+
+    "Sachsen-Anhalt",
+    "Brandenburg",
+    "Berlin",
+    "Nordrhein-Westfalen",
+
+    "Hessen",
+    "Thüringen",
+    "Sachsen",
+    "Rheinland-Pfalz",
+
+    "Saarland",
+    "Baden-Württemberg",
+    "Bayern",
+    "Hamburg"
+];
+const lenBundeslaenderNames = bundeslaenderNames.length;
+
+/* possibilities for review_board in csv-files */
+const reviewBoards = [
+    "Alle",
+    "Theologie",
+    "Informatik",
+    "Mathematik",
+    "Sprachwissenschaften",
+    "Psychologie"
+];
+const lenReviewBoards = reviewBoards.length;
+
+
+/*  Strings for radar-chart axis-labels */
+const RADAR_AXIS_LABELS = {
+    BIP                 :   "BIP",
+    INSTITUTE           :   "Institute",
+    PROJEKTE            :   "Projekte",
+    SPEZIALISIERUNG     :   "Spezialisierungen",
+    FINANZIERUNGSDAUER  :   "Finanzierungsrate"
+}
+
+const CSV_KEYS = {
+    BUNDESLAND              :   "bundesland",
+    REVIEW_BOARD            :   "review_board",
+
+    BIP                     :   "bip",
+    MAX_BIP                 :   "max_bip",
+    PER_BIP                 :   "%bip",
+    
+    ANZ_SUBJECT_AREA        :   "#subject_area",
+    MAX_SUBJECT_AREA        :   "max_subject_area",
+    PER_SUBJECT_AREA        :   "%subject_area",
+    
+    ANZ_INSTITUTION_ID      :   "#institution_id",
+    MAX_INSTITUTION_ID      :   "max_institution_id",
+    PER_INSTITUTION_ID      :   "%institution_id",
+
+    ANZ_PROJECT_ID          :   "#project_id",
+    MAX_PROJECT_ID          :   "max_project_id",
+    PER_PROJECT_ID          :   "%project_id",
+
+    AVG_FUNDATION_DUR       :   "average_fundation",
+    MAX_AVG_FUNDATION_DUR   :   "max_average_fundation",
+    PER_AVG_FUNDATION_DUR   :   "%average_fundation"
+};
+
+const csvKeys_value = [
+    CSV_KEYS.PER_BIP,
+    CSV_KEYS.PER_INSTITUTION_ID,
+    CSV_KEYS.PER_PROJECT_ID,
+    CSV_KEYS.PER_SUBJECT_AREA,
+    CSV_KEYS.PER_AVG_FUNDATION_DUR
+];
+
+const csvKeys_valueAbsolute = [
+    CSV_KEYS.BIP,
+    CSV_KEYS.ANZ_INSTITUTION_ID,
+    CSV_KEYS.ANZ_PROJECT_ID,
+    CSV_KEYS.ANZ_SUBJECT_AREA,
+    CSV_KEYS.AVG_FUNDATION_DUR
+];
+
+/*==============================[EXPORT_D3_all.csv]=============================*/
+/**
+ *  variable for imported csv-Data (EXPORT_D3_all.csv)
+ */
+let supportData = [];
+
+/**
+ * creates new array for supportData based on csv-file
+ */
+function initSupportData(csv){
+
+    let bundesland = csv[0][CSV_KEYS.BUNDESLAND]
+
+    let newArray = [
+        {   axis: RADAR_AXIS_LABELS.BIP,                value: [],  valueAbsolute: [],  name: bundesland    },
+        {   axis: RADAR_AXIS_LABELS.INSTITUTE,          value: [],  valueAbsolute: [],  name: bundesland    },
+        {   axis: RADAR_AXIS_LABELS.PROJEKTE,           value: [],  valueAbsolute: [],  name: bundesland    },
+        {   axis: RADAR_AXIS_LABELS.SPEZIALISIERUNG,    value: [],  valueAbsolute: [],  name: bundesland    } ,
+        {   axis: RADAR_AXIS_LABELS.FINANZIERUNGSDAUER, value: [],  valueAbsolute: [],  name: bundesland    },
+    ];
+    let lenNewArray = newArray.length;
+
+    /*  fill value-array vertically */
+
+
+    // for each position in value-array
+    for(let i_reviewBoard =0; i_reviewBoard <lenReviewBoards; i_reviewBoard++){
+        // for each entry in newArray
+        for(let i_keys =0; i_keys < lenNewArray; i_keys++){
+            newArray[i_keys].value[i_reviewBoard]           = csv[i_reviewBoard][csvKeys_value[i_keys]];
+            newArray[i_keys].valueAbsolute[i_reviewBoard]   = csv[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
+
+        }
+    }
+    
+    supportData = newArray;
+
+}
+
+/*=======================[EXPORT_D3_compressed_percentage.csv]======================*/
+
 
 var bundeslaenderObjectData = [
     // Mecklenburg-Vorpommern
@@ -79,7 +206,7 @@ var bundeslaenderObjectData = [
         {   axis: "Forscher", value: [0.3 ,0.24 ], name: "Hessen"     },
         {   axis: "Spezialisierung", value: [0.52 ,0.56 ], name: "Hessen"     }
     ],
-    //  Thüringen
+    //  Thueringen
     [
         {   axis: "BIP", value: [0.10 ,0.65 ], name: "Thüringen"      },
         {   axis: "Institute", value: [0.33 ,0.45 ], name: "Thüringen"      },
@@ -137,3 +264,42 @@ var bundeslaenderObjectData = [
     ],
 ]
 
+/**
+ * creates new array for d3-radar-chart 
+ */
+function initBundeslaenderObjectData(csv){
+    let newArray = [];
+
+    /* for all german states --> one array  */
+    for(let i=0; i < lenBundeslaenderNames; i++){
+
+        const bundesland = bundeslaenderNames[i];
+
+        let currentBundesland = [
+            {   axis: RADAR_AXIS_LABELS.BIP,            value: [],  valueAbsolute: [],  name:   bundesland  },
+            {   axis: RADAR_AXIS_LABELS.INSTITUTE,          value: [],  valueAbsolute: [],  name:   bundesland  },
+            {   axis: RADAR_AXIS_LABELS.PROJEKTE,           value: [],  valueAbsolute: [],  name:   bundesland  },
+            {   axis: RADAR_AXIS_LABELS.SPEZIALISIERUNG,    value: [],  valueAbsolute: [],  name:   bundesland  } ,
+            {   axis: RADAR_AXIS_LABELS.FINANZIERUNGSDAUER, value: [],  valueAbsolute: [],  name:   bundesland  },
+        ];
+        const lenCurrentBundesland = currentBundesland.length;
+
+        /*  change value-arrays */
+        const bundeslandEntries = csv.filter( entry => entry[CSV_KEYS.BUNDESLAND] == bundesland )
+
+        // for each position in value-array
+        for(let i_reviewBoard =0; i_reviewBoard < lenCurrentBundesland; i_reviewBoard++){
+            // for each entry in currentBundesland
+            for(let i_keys =0; i_keys < lenCurrentBundesland; i_keys++){
+                currentBundesland[i_keys].value[i_reviewBoard]           = bundeslandEntries[i_reviewBoard][csvKeys_value[i_keys]];
+                currentBundesland[i_keys].valueAbsolute[i_reviewBoard]   = bundeslandEntries[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
+
+            }
+        }
+
+        newArray.push(currentBundesland);
+    }
+
+    
+    bundeslaenderObjectData = newArray;
+}

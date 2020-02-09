@@ -1,0 +1,3 @@
+[GEPRIS-DATA]
+	-	focuses on Germany
+	- 	review_boards: Informatik , Mathematik, Sprachwissenschaften, Theologie, Psychologie
