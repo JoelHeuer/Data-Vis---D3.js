@@ -1,19 +1,19 @@
 function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard) {
-	console.log("IN FKT DATA");
-	console.log("id")
-	console.log(id)
-	console.log("==================\n")
+	// console.log("IN FKT DATA");
+	// console.log("id")
+	// console.log(id)
+	// console.log("==================\n")
 
-	console.log("i_bundesland")
-	console.log(i_bundesland)
-	console.log("==================\n")
+	// console.log("i_bundesland")
+	// console.log(i_bundesland)
+	// console.log("==================\n")
 
-	console.log("i_reviewBoard")
-	console.log(i_reviewBoard)
-	console.log("==================\n")
+	// console.log("i_reviewBoard")
+	// console.log(i_reviewBoard)
+	// console.log("==================\n")
 
-	console.log("data")
-	console.log(data)
+	// console.log("data")
+	// console.log(data)
 
 	var cfg = {
 	 w: 600,				//Width of the circle

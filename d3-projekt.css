@@ -2,7 +2,7 @@
 /*************************************/
 /***************[BUTTONS]*************/
 /*************************************/
-.flex-container-button{
+.flex-container-review-board{
   position: absolute;
   left: 0;
   top: 30vh;
@@ -10,17 +10,41 @@
   flex-direction: column;
   }
 
-.flex-child{
+.flex-child-review-board{
   padding: 10px;
   border: 1px solid white;
-  background-color: rgb(117, 107, 177);;
+  background-color: rgb(123, 185, 220);;
   
   opacity: 0.85;
   color: white;
   transform: all 0.5s ease;
 }
 
-.flex-child.active{
+.flex-child-review-board.active{
+  color: red;
+  opacity: 1;
+  transform: all 0.5s ease;
+}
+
+
+.flex-container-axis{
+  position: absolute;
+  left: 0;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  }
+.flex-child-axis{
+  padding: 10px;
+  border: 1px solid white;
+  background-color: rgb(123, 185, 220);;
+  
+  opacity: 0.85;
+  color: white;
+  transform: all 0.5s ease;
+}
+
+.flex-child-axis.active{
   color: red;
   opacity: 1;
   transform: all 0.5s ease;
