@@ -5,6 +5,16 @@
 
 
 /*===============================[GENERAL]==============================*/
+
+const INDEX_AND_REVIEW_BOARD = [
+    {   reviewBoard: "Alle", index: 0   },
+    {   reviewBoard: "Informatik", index: 1   },
+    {   reviewBoard: "Mathematik", index: 2   },
+    {   reviewBoard: "Psychologie", index: 3   },
+    {   reviewBoard: "Theologie", index: 4   },
+    {   reviewBoard: "Sprachwissenschaften", index: 5   },
+]
+
 const bundeslaenderNames = [
     "Mecklenburg-Vorpommern",
     "Schleswig-Holstein",
@@ -119,13 +129,13 @@ function initSupportData(csv){
     for(let i_reviewBoard =0; i_reviewBoard <lenReviewBoards; i_reviewBoard++){
         // for each entry in newArray
         for(let i_keys =0; i_keys < lenNewArray; i_keys++){
-            newArray[i_keys].value[i_reviewBoard]           = csv[i_reviewBoard][csvKeys_value[i_keys]];
-            newArray[i_keys].valueAbsolute[i_reviewBoard]   = csv[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
+            newArray[i_keys].value[i_reviewBoard]           = +csv[i_reviewBoard][csvKeys_value[i_keys]];
+            newArray[i_keys].valueAbsolute[i_reviewBoard]   = +csv[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
 
         }
     }
-    
-    supportData = newArray;
+
+    return newArray;
 
 }
 
@@ -286,13 +296,17 @@ function initBundeslaenderObjectData(csv){
 
         /*  change value-arrays */
         const bundeslandEntries = csv.filter( entry => entry[CSV_KEYS.BUNDESLAND] == bundesland )
+        // console.log("Bundesland-Entries")
+        // console.log(bundeslandEntries)
+
 
         // for each position in value-array
-        for(let i_reviewBoard =0; i_reviewBoard < lenCurrentBundesland; i_reviewBoard++){
+        for(let i_reviewBoard =0; i_reviewBoard < lenReviewBoards; i_reviewBoard++){
             // for each entry in currentBundesland
             for(let i_keys =0; i_keys < lenCurrentBundesland; i_keys++){
-                currentBundesland[i_keys].value[i_reviewBoard]           = bundeslandEntries[i_reviewBoard][csvKeys_value[i_keys]];
-                currentBundesland[i_keys].valueAbsolute[i_reviewBoard]   = bundeslandEntries[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
+
+                currentBundesland[i_keys].value[i_reviewBoard]           = +bundeslandEntries[i_reviewBoard][csvKeys_value[i_keys]];
+                currentBundesland[i_keys].valueAbsolute[i_reviewBoard]   = +bundeslandEntries[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
 
             }
         }
@@ -301,5 +315,5 @@ function initBundeslaenderObjectData(csv){
     }
 
     
-    bundeslaenderObjectData = newArray;
+    return newArray;
 }

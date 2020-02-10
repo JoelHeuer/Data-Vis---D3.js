@@ -1,4 +1,20 @@
-function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
+function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard) {
+	console.log("IN FKT DATA");
+	console.log("id")
+	console.log(id)
+	console.log("==================\n")
+
+	console.log("i_bundesland")
+	console.log(i_bundesland)
+	console.log("==================\n")
+
+	console.log("i_reviewBoard")
+	console.log(i_reviewBoard)
+	console.log("==================\n")
+
+	console.log("data")
+	console.log(data)
+
 	var cfg = {
 	 w: 600,				//Width of the circle
 	 h: 600,				//Height of the circle
@@ -38,7 +54,7 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 	}//if
 	
 	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
-	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value[categoryIndex];}))}));
+	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value[i_reviewBoard];}))}));
 		
 	var allAxis = (data[0].map(function(i, j){return i.axis})),	//Names of each axis
 		total = allAxis.length,					//The number of different axes
@@ -153,7 +169,7 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 	//The radial line function
 	var radarLine = d3.svg.line.radial()
 		.interpolate("linear-closed")
-		.radius(function(d) { 	return rScale(d.value[categoryIndex]); })
+		.radius(function(d) { 	return rScale(d.value[i_reviewBoard]); })
 		.angle(function(d,i) {	return i*angleSlice; });
 		
 	if(cfg.roundStrokes) {
@@ -169,7 +185,7 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 			 *	push them into new array
 			 */ 
 			newData = [];
-			newData.push(data[zusatz]);
+			newData.push(data[i_bundesland]);
 			return newData;
 		})
 		.enter().append("g")
@@ -184,14 +200,14 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 			/* 	[NEW]	[EXPLANATION]
 			 *	change color of specific blobs in radar-diagram
 			 */
-			return d[0].name ==data[zusatz][0].name ? cfg.blobAreaColorRed : cfg.blobAreaColorBlack;
+			return d[0].name ==data[i_bundesland][0].name ? cfg.blobAreaColorRed : cfg.blobAreaColorBlack;
 		})
 		// .style("fill-opacity", cfg.opacityArea)
 		.style("fill-opacity", function(d,i){
 			/* 	[NEW]	[EXPLANATION]
 			 *	change opacity of specific blobs in radar-diagram
 			 */
-			return d[0].name ==data[zusatz][0].name ? cfg.blobAreaOpacityHigh : cfg.blobAreaOpacityOff;
+			return d[0].name ==data[i_bundesland][0].name ? cfg.blobAreaOpacityHigh : cfg.blobAreaOpacityOff;
 		})
 		.on('mouseover', function (d,i){
 			/*	[EXPLANATION]
@@ -233,12 +249,12 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 			/*	[NEW]	[EXPLANATION]
 			 *	change color of specific blob-outlines in radar-diagram
 			 */
-			return d[0].name ==data[zusatz][0].name ? cfg.blobAreaColorRed : cfg.blobAreaColorBlack;
+			return d[0].name ==data[i_bundesland][0].name ? cfg.blobAreaColorRed : cfg.blobAreaColorBlack;
 		})
 		.style("fill", "none")
 		.style("filter" , "url(#glow)")
 		.style("opacity", function(d,i){
-			return i==zusatz ? 1 : 0.5;
+			return i==i_bundesland ? 1 : 0.5;
 		});
 	
 	//Append the circles
@@ -250,19 +266,19 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 			 *	
 			 */
 			return d;
-			// return (d[0].name == data[zusatz][0].name) ? d : [];
+			// return (d[0].name == data[i_bundesland][0].name) ? d : [];
 		})
 		.enter()
 		.append("circle")
 		.attr("class", "radarCircle")
 		.attr("r", cfg.dotRadius)
-		.attr("cx", function(d,i){ return rScale(d.value[categoryIndex]) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("cy", function(d,i){ return rScale(d.value[categoryIndex]) * Math.sin(angleSlice*i - Math.PI/2); })
+		.attr("cx", function(d,i){ return rScale(d.value[i_reviewBoard]) * Math.cos(angleSlice*i - Math.PI/2); })
+		.attr("cy", function(d,i){ return rScale(d.value[i_reviewBoard]) * Math.sin(angleSlice*i - Math.PI/2); })
 		.style("fill", function(d,i,j) {
-			return j==zusatz ? "#FE0101" : "#000";
+			return j==i_bundesland ? "#FE0101" : "#000";
 		})
 		.style("fill-opacity", function(d,i, j){
-			return j==zusatz ? 1 : 0.2;
+			return j==i_bundesland ? 1 : 0.2;
 		});
 
 	/////////////////////////////////////////////////////////
@@ -283,13 +299,13 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 			 *	assign entries of data to css-class
 			 *	you can access one blob with mouseover
 			 */
-			return (d[0].name == data[zusatz][0].name) ? d : [];
+			return (d[0].name == data[i_bundesland][0].name) ? d : [];
 		})
 		.enter().append("circle")
 		.attr("class", "radarInvisibleCircle")
 		.attr("r", cfg.dotRadius*1.5)
-		.attr("cx", function(d,i){ return rScale(d.value[categoryIndex]) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("cy", function(d,i){ return rScale(d.value[categoryIndex]) * Math.sin(angleSlice*i - Math.PI/2); })
+		.attr("cx", function(d,i){ return rScale(d.value[i_reviewBoard]) * Math.cos(angleSlice*i - Math.PI/2); })
+		.attr("cy", function(d,i){ return rScale(d.value[i_reviewBoard]) * Math.sin(angleSlice*i - Math.PI/2); })
 		.style("fill", "none")
 		.style("pointer-events", "all")
 		.on("mouseover", function(d,i) {
@@ -299,7 +315,7 @@ function RadarChart(id, data, radarChartOptions, zusatz, categoryIndex) {
 			tooltip
 				.attr('x', newX)
 				.attr('y', newY)
-				.text(Format(d.value[categoryIndex]))
+				.text(Format(d.value[i_reviewBoard]))
 				.transition().duration(200)
 				.style('opacity', 1);
 		})

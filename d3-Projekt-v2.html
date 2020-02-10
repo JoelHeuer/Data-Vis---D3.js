@@ -32,10 +32,10 @@
 <div class="flex-container-button">
   <div class="flex-child active" id="alle"  onclick="changeReviewBoardIndex(this.id, 0)">Alle</div>
   <div class="flex-child" id="informatik"   onclick="changeReviewBoardIndex(this.id, 1)"> Informatik</div>
-  <div class="flex-child" id="sprachwissenschaften" onclick="changeReviewBoardIndex(this.id, 2)">Sprachwissenschaften</div>
-  <div class="flex-child" id="theologie"    onclick="changeReviewBoardIndex(this.id, 3)">Theologie</div>
-  <div class="flex-child" id="psychologie"  onclick="changeReviewBoardIndex(this.id, 4)">Psychologie</div>
-  <div class="flex-child" id="mathematik"   onclick="changeReviewBoardIndex(this.id, 5)">Mathematik</div>
+  <div class="flex-child" id="mathematik" onclick="changeReviewBoardIndex(this.id, 2)">Mathematik</div>
+  <div class="flex-child" id="psychologie"    onclick="changeReviewBoardIndex(this.id, 3)">Psychologie</div>
+  <div class="flex-child" id="theologie"  onclick="changeReviewBoardIndex(this.id, 4)">Theologie</div>
+  <div class="flex-child" id="sprachwissenschaften"   onclick="changeReviewBoardIndex(this.id, 5)">Sprachwissenschaften</div>
 </div>
 
 <button onclick="dataAll()">Alles</button>
@@ -110,28 +110,29 @@
   let csvFilesNamesLen = csvFileNames.length;
   d3.csv(path + csvBundeslaenderAlle, 
       (supportData) => { 
-        csvSupportData = supportData;
-        initSupportData(csvSupportData)
+        csvSupportData = initSupportData(supportData)
         console.log("[SUCCESS]  - initSupportData()")
       }
   );
 
   d3.csv(path + csvCompressedPercentage,
-    (data) => {
-      csvData = data;
-      initBundeslaenderObjectData(csvData);
+    (mainData) => {
+      csvData = initBundeslaenderObjectData(mainData);
       console.log("[SUCCESS]  - csvData()")
       data = csvData;
+      console.log(data);
     } 
   );
   
   /*  wait until csv-files are loaded */
   setTimeout( () => {
-
     
+    let test = data.filter(e => e[0].name == "Berlin")
+    console.log("test fuer berlin")
+    console.log(test)
+
     //Call function to draw the Radar chart
     drawRadarChart();
-
 
 
     /**********************************************************************************************/
@@ -279,7 +280,7 @@
     function changeVisualizations(bundeslandJsonObject) {
       let currentBundesland = bundeslandJsonObject.properties.NAME_1;
       console.log(currentBundesland);
-      data = bundeslaenderObjectData;
+      data = csvData;
 
       /*  check if view is already focused 
       *  and update data for radardiagramm
@@ -288,7 +289,7 @@
         i_bundesland = mapBundeslandToNumber(currentBundesland);
       }
       else {
-        data = bundeslaenderObjectData;
+        data = csvData;
         i_bundesland = -1;
       }
 
@@ -305,6 +306,7 @@
       let len = data.length;
       for(let i=0; i<len; i++){
         if(data[i][0].name == name){
+          console.log("Bundesland index: "+ i)
           return i;
         }
       }
@@ -351,6 +353,7 @@ function toggleActive(id){
 }
 
 function drawRadarChart(){
+
   RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard);
 
 }
