@@ -59,6 +59,16 @@ const RADAR_AXIS_LABELS = {
     FINANZIERUNGSDAUER  :   "Finanzierungsrate"
 }
 
+const radarAxis = [
+    RADAR_AXIS_LABELS.BIP,
+    RADAR_AXIS_LABELS.INSTITUTE,
+    RADAR_AXIS_LABELS.PROJEKTE,
+    RADAR_AXIS_LABELS.SPEZIALISIERUNG,
+    RADAR_AXIS_LABELS.FINANZIERUNGSDAUER
+];
+const lenRadarAxis = radarAxis.length;
+
+
 const CSV_KEYS = {
     BUNDESLAND              :   "bundesland",
     REVIEW_BOARD            :   "review_board",

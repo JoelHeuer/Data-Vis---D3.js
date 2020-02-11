@@ -164,3 +164,23 @@ body {
   position: relative;
   text-align: left;
 }
+
+/********************************************/
+/************[GRID ABS. Value]***************/
+/********************************************/
+.grid-container-absolute-values{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  
+  border: 1px solid black;
+}
+
+.grid-item-absolute-values{
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+  padding: 5%;
+}
+
+.grid-item-absolute-values.header{
+  font-weight: bold;
+}

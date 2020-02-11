@@ -149,6 +149,7 @@
 
     <!-- row 2 -->
     <div class="flex-child-germany-visu container-radar-chart">
+      
       <!-- col 1-->
       <div class="filter">
         <!-- Filter: Axis -->
@@ -161,11 +162,13 @@
           <div class="flex-child-review-board" id="rb-sprachwissenschaften"   onclick="onclickHandlerReviewBoard(this.id, 5)">Sprachwissenschaften</div>
         </div>
       </div>
+      
       <!-- col 2-->
       <div class="visualisation">
         <!-- Visu: radar-chart-->
         <div class="radarChart"></div>
       </div>
+      
       <!-- col 3-->
       <div class="checkbox-buttons">
         <!-- CHECKBOX: Bundeslaender  -->
@@ -267,12 +270,42 @@
           </fieldset>
         </form>
         
-      </div>      
+      </div>  
+      
+      <!-- col 4-->
+      <div>
+        <!-- DISPLAY: Absolute values -->
+        <div class="grid-container-absolute-values">
+
+          <div class="grid-item-absolute-values header" id="absolute-value-col-header-1"></div>
+          <div class="grid-item-absolute-values header" id="absolute-value-col-header-2">Maximalwert</div>
+          <div class="grid-item-absolute-values header" id="absolute-value-col-header-3">Bundeslandname</div>  
+          
+          <div class="grid-item-absolute-values"  id="absolute-value-row-header-BIP">BIP</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-BIP-max">0</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-BIP-current">0</div>  
+
+          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Institute">#Institute</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Institute-max">0</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Institute-current">0</div>  
+
+          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Projekte">#Projekte</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Projekte-max">0</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Projekte-current">0</div> 
+
+          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Spezialisierungen">#Spezialisierungen</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Spezialisierungen-max">0</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Spezialisierungen-current">0</div> 
+
+          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Finanzierungsrate">Finanzierungsrate</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Finanzierungsrate-max">0</div>
+          <div class="grid-item-absolute-values"  id="absolute-value-Finanzierungsrate-current">0</div> 
+
+        </div>
+      </div>
     </div>
 
   </div>
-
-
 
 <script>
 
@@ -305,6 +338,7 @@
      *  false == don't
      *  example: arr[4] == 1 means bundeslaenderNames[4]  is visulized in radarChart as a blob
      */
+    
     var blobIndizes = [];
     for(let i=0; i < lenBundeslaenderNames; i++){
       blobIndizes.push(false);
@@ -321,11 +355,7 @@
         checkboxObjects.push(allInputs[i])
       }
     }
-
-    console.log(checkboxObjects)
-
-
-    
+   
 
     //////////////////////// GERMANY-MAP ////////////////////////////// 
     var focused = null;
@@ -382,6 +412,7 @@
       (supportData) => { 
         csvSupportData = initSupportData(supportData)
         console.log("[SUCCESS]  - initSupportData()")
+        console.log(csvSupportData)
       }
   );
 
@@ -390,6 +421,7 @@
       csvData = initBundeslaenderObjectData(mainData);
       console.log("[SUCCESS]  - csvData()")
       data = csvData;
+      console.log(data)
     } 
   );
   
@@ -400,6 +432,9 @@
     //Call function to draw the Radar chart
     drawRadarChart();
 
+
+    // ### test
+    changeGridAbsoluteVales();
 
     /**********************************************************************************************/
     /*********************************************[Germany Map]************************************/
@@ -429,31 +464,31 @@
       germanyMapStatesObjects = collection.features;
 
       var bounds = d3.geo.bounds(collection),
-        bottomLeft = bounds[0],
-        topRight = bounds[1],
-        rotLong = -(topRight[0] + bottomLeft[0]) / 2;
-      center = [(topRight[0] + bottomLeft[0]) / 2 + rotLong, (topRight[1] + bottomLeft[1]) / 2],
+          bottomLeft = bounds[0],
+          topRight = bounds[1],
+          rotLong = -(topRight[0] + bottomLeft[0]) / 2;
+          center = [(topRight[0] + bottomLeft[0]) / 2 + rotLong, (topRight[1] + bottomLeft[1]) / 2],
 
-        //default scale projection
-        projection = d3.geo.albers()
-          .parallels([bottomLeft[1], topRight[1]])
-          .rotate([rotLong, 0, 0])
-          .translate([width / 2, height / 2])
-          .center(center),
+          //default scale projection
+          projection = d3.geo.albers()
+            .parallels([bottomLeft[1], topRight[1]])
+            .rotate([rotLong, 0, 0])
+            .translate([width / 2, height / 2])
+            .center(center),
 
-        bottomLeftPx = projection(bottomLeft),
-        topRightPx = projection(topRight),
-        scaleFactor = 1.00 * Math.min(width / (topRightPx[0] - bottomLeftPx[0]), height / (-topRightPx[1] + bottomLeftPx[1])),
+          bottomLeftPx = projection(bottomLeft),
+          topRightPx = projection(topRight),
+          scaleFactor = 1.00 * Math.min(width / (topRightPx[0] - bottomLeftPx[0]), height / (-topRightPx[1] + bottomLeftPx[1])),
 
-        projection = d3.geo.albers()
-          .parallels([bottomLeft[1], topRight[1]])
-          .rotate([rotLong, 0, 0])
-          .translate([width / 2, height / 2])
-          .scale(scaleFactor * 0.975 * 1000)
-          //.scale(4*1000)  //1000 is default for USA map
-          .center(center);
+          projection = d3.geo.albers()
+            .parallels([bottomLeft[1], topRight[1]])
+            .rotate([rotLong, 0, 0])
+            .translate([width / 2, height / 2])
+            .scale(scaleFactor * 0.975 * 1000)
+            //.scale(4*1000)  //1000 is default for USA map
+            .center(center);
 
-      geoPath = d3.geo.path().projection(projection);
+          geoPath = d3.geo.path().projection(projection);
 
       var graticule = d3.geo.graticule()
         .step([1, 1]);
@@ -562,11 +597,11 @@
   * 2)  refresh germany-map
   * 3)  draw radarChart again
   */
-  function onclickHandlerReviewBoard(id,index){
+function onclickHandlerReviewBoard(id,index){
     changeReviewBoardIndex(id, index);
     defineGermanStateColor();
     drawRadarChart();
-  }
+}
 
 
 /**
@@ -717,6 +752,40 @@ function uncheckAllCheckboxex(){
   }
 }
 
+
+
+/**********************************************************************************************/
+/**************************************[GRID-ABSOLUTE-FUNCTIONS]*******************************/
+/**********************************************************************************************/
+
+function changeGridAbsoluteVales(){
+
+  /*  calc max & current values  */
+  let valuesMax = [];
+  let valuesCurrent = [];
+
+  for(let i=0; i< lenRadarAxis; i++){
+    valuesMax.push(csvSupportData[i].valueAbsolute[i_reviewBoard]);
+    valuesCurrent.push(csvData[i_bundesland][i].valueAbsolute[i_reviewBoard])
+  }
+
+  /*  manipulate html-content (grid)  */
+  let idStart   = "absolute-value-";
+  let idEnd     = ["-max", "-current"];
+  let lenIdEnd  = idEnd.length;
+
+  for(let i=0; i < lenRadarAxis; i++){
+    for(let k=0; k < lenIdEnd; k++ ){
+      document.getElementById(idStart+radarAxis[i]+idEnd[k]).innerHTML =
+          (k%2 == 0) ?  valuesMax[i] : valuesCurrent[i];
+
+    }
+  }
+
+
+}
+
+
 /**********************************************************************************************/
 /****************************************[SUPPORT-FUNCTIONS]***********************************/
 /**********************************************************************************************/
@@ -745,12 +814,17 @@ function changeVisualizations(bundeslandObject) {
       /*  update radardiagramm  */
       drawRadarChart();
 
+
     }
 
 /*
  *  draws radar-chart completly new
  */
 function drawRadarChart(){
+
+  /*  update grid for absolute-values*/
+  changeGridAbsoluteVales();
+
   RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard, blobIndizes);
 }
 
@@ -815,6 +889,8 @@ function mapBundeslandToNumber(name){
   }
   return -1;
 }
+
+
 
 </script>
 
