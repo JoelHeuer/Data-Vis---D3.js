@@ -1,11 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/**************************************************/
+/**********[GERMAN-VISUALISATION (JOEL)]***********/
+/**************************************************/
+
+.flex-container-germany-visu{
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+  border: 1px solid black;
+
+}
+
+.flex-child-germany-visu{
+  border: 1px solid black;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-child-germany-visu > div{
+  border: 1px solid black;
+}
+
 
 /*************************************/
 /***************[BUTTONS]*************/
 /*************************************/
 .flex-container-review-board{
-  position: absolute;
-  left: 0;
-  top: 30vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   }
@@ -28,9 +62,7 @@
 
 
 .flex-container-axis{
-  position: absolute;
-  left: 0;
-  top: 10vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   }
