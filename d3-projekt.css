@@ -169,6 +169,9 @@ body {
 /************[GRID ABS. Value]***************/
 /********************************************/
 .grid-container-absolute-values{
+  position: relative;
+  top: 30%;
+
   display: grid;
   grid-template-columns: auto auto auto;
   
