@@ -201,7 +201,7 @@
 
     //////////////////////// GERMANY-MAP ////////////////////////////// 
     var focused = null;
-    var clickPath = null;
+    var focusStateObject = null;
     var defocusStateObject = null;
     var germanyMapStatesObjects = null;
 
@@ -362,9 +362,8 @@
 
 
 
-
-    // function clickPath(d) {
-   clickPath = (d) => {
+   focusStateObject = (d) => {
+      updateCheckedRadioButton(d.properties.NAME_1);
 
       var x = width / 2,
         y = height / 2,
@@ -522,6 +521,28 @@ function onclickHandlerRadioButton(radioButton){
   changeVisualizations(bundeslandObject)
 }
 
+/*
+ *  toggle radio-buttons for german-map based on a bundesland-name
+ *  radio-button with value=bundesland name has to be active, rest not
+ */
+function updateCheckedRadioButton(bundesland){
+  let radioButtons = document.getElementsByTagName("input");
+  let radioButtonsFiltered = [];
+
+  // filter only radio-buttons
+  for(let i=0; i<radioButtons.length; i++){
+    if(radioButtons[i].getAttribute("type") == "radio"){
+      radioButtonsFiltered.push(radioButtons[i])
+    }
+  }
+
+  // toggle checked-propertie
+  for(let i=0; i<radioButtonsFiltered.length; i++){
+    radioButtonsFiltered[i].checked = (radioButtonsFiltered[i].value == bundesland) ? true : false;
+  }
+
+}
+
 
 /**********************************************************************************************/
 /****************************************[SUPPORT-FUNCTIONS]***********************************/
@@ -541,7 +562,7 @@ function changeVisualizations(bundeslandObject) {
         i_bundesland = mapBundeslandToNumber(currentBundesland);
 
         /* focus in germany-map */
-        clickPath(bundeslandObject);
+        focusStateObject(bundeslandObject);
       }
       else {
         // i_bundesland = -1;
