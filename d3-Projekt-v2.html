@@ -52,7 +52,99 @@
       </div>
 
       <!-- col 3-->
-      <div class="radio-buttons">sfd</div>
+      <div class="radio-buttons">
+        <!-- Radio-Buttons: Bundeslaender-->
+        <form>
+          <fieldset>
+            <div>
+              <input type="radio" id="radio-Keins" name="BundeslandGermanyMap" value="Keins" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Keins">Keins</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Mecklenburg-Vorpommern" name="BundeslandGermanyMap" value="Mecklenburg-Vorpommern" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Schleswig-Holstein" name="BundeslandGermanyMap" value="Schleswig-Holstein" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Schleswig-Holstein">Schleswig-Holstein</label> 
+            </div>
+            
+            <div>
+              <input type="radio" id="radio-Niedersachsen" name="BundeslandGermanyMap" value="Niedersachsen" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Niedersachsen">Niedersachsen</label> 
+            </div>
+              
+            <div>
+              <input type="radio" id="radio-Bremen" name="BundeslandGermanyMap" value="Bremen" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Bremen">Bremen</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Sachsen-Anhalt" name="BundeslandGermanyMap" value="Sachsen-Anhalt" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Sachsen-Anhalt">Sachsen-Anhalt</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Brandenburg" name="BundeslandGermanyMap" value="Brandenburg" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Brandenburg">Brandenburg</label> 
+            </div>
+              
+            <div>
+              <input type="radio" id="radio-Berlin" name="BundeslandGermanyMap" value="Berlin" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Berlin">Berlin</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Nordrhein-Westfalen" name="BundeslandGermanyMap" value="Nordrhein-Westfalen" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Nordrhein-Westfalen">Nordrhein-Westfalen</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Hessen" name="BundeslandGermanyMap" value="Hessen" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Hessen">Hessen</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Thüringen" name="BundeslandGermanyMap" value="Thüringen" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Thüringen">Thüringen</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Sachsen" name="BundeslandGermanyMap" value="Sachsen" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Sachsen">Sachsen</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Rheinland-Pfalz" name="BundeslandGermanyMap" value="Rheinland-Pfalz" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Rheinland-Pfalz">Rheinland-Pfalz</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Saarland" name="BundeslandGermanyMap" value="Saarland" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Saarland">Saarland</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Baden-Württemberg" name="BundeslandGermanyMap" value="Baden-Württemberg" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Baden-Württemberg">Baden-Württemberg</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Bayern" name="BundeslandGermanyMap" value="Bayern" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Bayern">Bayern</label> 
+            </div>
+
+            <div>
+              <input type="radio" id="radio-Hamburg" name="BundeslandGermanyMap" value="Hamburg" onclick="onclickHandlerRadioButton(this)">
+              <label for="radio-Hamburg">Hamburg</label> 
+            </div>
+
+          </fieldset>
+        </form>
+
+      </div>
     </div>
 
     <!-- row 2 -->
@@ -88,7 +180,7 @@
     /****************************************[GLOBAL VARIABLES]************************************/
     /**********************************************************************************************/
 
-    //////////////////////// Set-Up ////////////////////////////// 
+    //////////////////////// RADAR-CHART ////////////////////////////// 
 
     var margin = { top: 100, right: 100, bottom: 100, left: 100 },
       width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
@@ -107,10 +199,19 @@
       color: color
     };
 
+    //////////////////////// GERMANY-MAP ////////////////////////////// 
+    var focused = null;
+    var clickPath = null;
+    var defocusStateObject = null;
+    var germanyMapStatesObjects = null;
+
+    /////////////////////// GENERAL ////////////////////////////// 
+
     var data = bundeslaenderObjectData;
     var i_bundesland = 0;
     var i_reviewBoard = 0;
     var i_axis = 0;
+
 
   /**********************************************************************************************/
   /******************************************[Load CSV-Files]************************************/
@@ -175,7 +276,7 @@
     /**********************************************************************************************/
     var width = 960,
       height = 500,
-      focused = null,
+      // focused = null,
       geoPath;
 
     var svg = d3.select(".germanyMap")
@@ -193,6 +294,9 @@
       .attr("id", "states")
 
     d3.json("./bundeslaenderJSON.json", function (collection) {
+
+      /*  store german states objects in global variable */
+      germanyMapStatesObjects = collection.features;
 
       var bounds = d3.geo.bounds(collection),
         bottomLeft = bounds[0],
@@ -234,7 +338,7 @@
        *
        */
 
-      g.selectAll("path.feature")
+       g.selectAll("path.feature")
         .data(collection.features)
         .enter()
         .append("path")
@@ -259,7 +363,8 @@
 
 
 
-    function clickPath(d) {
+    // function clickPath(d) {
+   clickPath = (d) => {
 
       var x = width / 2,
         y = height / 2,
@@ -284,7 +389,7 @@
           .style("stroke-width", "0px")
           .style("fill", "black")
           .style("font-family", "Times New Roman")
-          .on("click", clickText);
+          .on("click", defocusStateObject);
       }
       else {
         focused = null;
@@ -300,7 +405,7 @@
     }
 
 
-    function clickText(d) {
+    defocusStateObject = (d) => {
       focused = null;
       g.selectAll("text")
         .remove();
@@ -312,34 +417,6 @@
         .style("stroke-width", 1.00 + "px");
     }
 
-
-    /*==========================================================*/
-    /*===============[Combine all ELements]=====================*/
-    /*==========================================================*/
-    function changeVisualizations(bundeslandJsonObject) {
-      let currentBundesland = bundeslandJsonObject.properties.NAME_1;
-      console.log(currentBundesland);
-      data = csvData;
-
-      /*  check if view is already focused 
-      *  and update data for radardiagramm
-      */
-      if ((focused === null) || !(focused === bundeslandJsonObject)) {
-        i_bundesland = mapBundeslandToNumber(currentBundesland);
-      }
-      else {
-        data = csvData;
-        i_bundesland = -1;
-      }
-
-
-      /*  update radardiagramm  */
-      drawRadarChart();
-
-      /* focus in germany-map */
-      clickPath(bundeslandJsonObject);
-
-    }
 
   }, 1000); // wait 1s till csv-data is loaded
 
@@ -419,10 +496,66 @@ function toggleAxisActive(id){
   obj.classList.toggle("active");
 }
 
+/**********************************************************************************************/
+/*************************************[RADIO-BUTTON-FUNCTIONS]*********************************/
+/**********************************************************************************************/
+
+
+function onclickHandlerRadioButton(radioButton){
+  let bundesland = radioButton.value;
+  let index = mapBundeslandToNumber(bundesland);
+
+  let bundeslandObject = null;
+
+  // bundesland does exist
+  if(index >= 0){
+     let filteredObjects = germanyMapStatesObjects.filter(entry => entry.properties.NAME_1 == bundesland)
+     bundeslandObject = filteredObjects[0];
+  }
+  // no specif bundesland was chosen
+  else{
+    i_bundesland = -1;
+    defocusStateObject(bundeslandObject);
+    drawRadarChart();
+  }
+
+  changeVisualizations(bundeslandObject)
+}
+
 
 /**********************************************************************************************/
 /****************************************[SUPPORT-FUNCTIONS]***********************************/
 /**********************************************************************************************/
+
+/*
+ *  onclick-function for: germany-map-states
+ *  1.a)  updates global variable i_bundesland
+ *  2)    focuses on current state
+ *  3)    repaint radar
+ */
+function changeVisualizations(bundeslandObject) {
+      let currentBundesland = bundeslandObject.properties.NAME_1;
+
+      // check if view is already focused & update data for radardiagramm
+      if ((focused === null) || !(focused === bundeslandObject)) {
+        i_bundesland = mapBundeslandToNumber(currentBundesland);
+
+        /* focus in germany-map */
+        clickPath(bundeslandObject);
+      }
+      else {
+        // i_bundesland = -1;
+        defocusStateObject(bundeslandObject);
+      }
+
+      /*  update radardiagramm  */
+      drawRadarChart();
+
+    }
+
+/*
+ *  draws radar-chart completly new
+ */
 function drawRadarChart(){
   RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard);
 }

@@ -35,9 +35,11 @@
 }
 
 
-/*************************************/
-/***************[BUTTONS]*************/
-/*************************************/
+/********************************************/
+/***************[FILTER-BUTTONS]*************/
+/********************************************/
+
+/**************[REVIEW-BOARD]***************/
 .flex-container-review-board{
   position: relative;
   display: flex;
@@ -60,7 +62,7 @@
   transform: all 0.5s ease;
 }
 
-
+/**************[AXIS]***************/
 .flex-container-axis{
   position: relative;
   display: flex;
@@ -132,4 +134,17 @@ body {
 
 .tooltip {
   fill: #333333;
+}
+
+
+/********************************************/
+/***************[RADIO-BUTTONS]**************/
+/********************************************/
+.radio-buttons{
+
+}
+
+.radio-buttons > form > fieldset > div{
+  position: relative;
+  text-align: left;
 }
