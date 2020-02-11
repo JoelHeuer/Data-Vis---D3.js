@@ -1,4 +1,16 @@
-function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard) {
+ /**
+  * 	draws radarchart
+  * 
+  *		args:
+  *			id					-	manipulate html-object with this id
+  *			data				-	which data is used for radarchart (blob-content, axis, ...)
+  *			radarChartOptions	-	styling-attributes for radarchart
+  *			i_bundesland		- 	index for current bundesland & main-blob	(which entry of data)
+  *			i_reviewboard		- 	index for current reviewboard			(which entry of data[i_bundesland][i_axis].value)
+  * 		blobIndizes			- 	array/bitmask which informs about displayed blobs
+  * 
+  */ 
+function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard, blobIndizes) {
 	// console.log("IN FKT DATA");
 	// console.log("id")
 	// console.log(id)
@@ -185,7 +197,15 @@ function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard) {
 			 *	push them into new array
 			 */ 
 			newData = [];
-			newData.push(data[i_bundesland]);
+
+			for(let k=0; k<blobIndizes.length; k++){
+				if(k == i_bundesland){
+					newData.push(data[i_bundesland]);
+				}
+				else if(blobIndizes[k]){
+					newData.push(data[k])
+				}
+			}
 			return newData;
 		})
 		.enter().append("g")

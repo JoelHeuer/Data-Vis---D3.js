@@ -167,7 +167,102 @@
         <div class="radarChart"></div>
       </div>
       <!-- col 3-->
-      <div class="radio-buttons">sfd</div>      
+      <div class="checkbox-buttons">
+        <!-- CHECKBOX: Bundeslaender  -->
+        <form>
+          <fieldset>
+
+            <div>
+              <input type="checkbox" id="checkbox-Mecklenburg-Vorpommern" name="BundeslandRadarBlobs" value="Mecklenburg-Vorpommern" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Schleswig-Holstein" name="BundeslandRadarBlobs" value="Schleswig-Holstein" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Schleswig-Holstein">Schleswig-Holstein</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Niedersachsen" name="BundeslandRadarBlobs" value="Niedersachsen" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Niedersachsen">Niedersachsen</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Bremen" name="BundeslandRadarBlobs" value="Bremen" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Bremen">Bremen</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Sachsen-Anhalt" name="BundeslandRadarBlobs" value="Sachsen-Anhalt" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Sachsen-Anhalt">Sachsen-Anhalt</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Brandenburg" name="BundeslandRadarBlobs" value="Brandenburg" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Brandenburg">Brandenburg</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Berlin" name="BundeslandRadarBlobs" value="Berlin" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Berlin">Berlin</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Nordrhein-Westfalen" name="BundeslandRadarBlobs" value="Nordrhein-Westfalen" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Nordrhein-Westfalen">Nordrhein-Westfalen</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Hessen" name="BundeslandRadarBlobs" value="Hessen" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Hessen">Hessen</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Thüringen" name="BundeslandRadarBlobs" value="Thüringen" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Thüringen">Thüringen</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Sachsen" name="BundeslandRadarBlobs" value="Sachsen" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Sachsen">Sachsen</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Rheinland-Pfalz" name="BundeslandRadarBlobs" value="Rheinland-Pfalz" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Rheinland-Pfalz">Rheinland-Pfalz</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Saarland" name="BundeslandRadarBlobs" value="Saarland" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Saarland">Saarland</label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="checkbox-Baden-Württemberg" name="BundeslandRadarBlobs" value="Baden-Württemberg" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Baden-Württemberg">Baden-Württemberg</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Bayern" name="BundeslandRadarBlobs" value="Bayern" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Bayern">Bayern</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="checkbox-Hamburg" name="BundeslandRadarBlobs" value="Hamburg" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Hamburg">Hamburg</label>
+            </div>
+
+          </fieldset>
+        </form>
+        
+      </div>      
     </div>
 
   </div>
@@ -199,10 +294,38 @@
       color: color
     };
 
+
+    /*  bitmask for radarchart-blobs. 
+     *  true  == visualize blob
+     *  false == don't
+     *  example: arr[4] == 1 means bundeslaenderNames[4]  is visulized in radarChart as a blob
+     */
+    var blobIndizes = [];
+    for(let i=0; i < lenBundeslaenderNames; i++){
+      blobIndizes.push(false);
+    }
+
+    /*  alle HTML-Obj. for checkboxes (radarchart) */
+    var checkboxObjects = [];
+    let allInputs  = document.getElementsByTagName("input");
+
+    // filter only checkboxes
+    for(let i=0; i<allInputs.length; i++){
+      if(allInputs[i].getAttribute("type") == "checkbox"){
+        checkboxObjects.push(allInputs[i])
+      }
+    }
+
+
+
+    
+
     //////////////////////// GERMANY-MAP ////////////////////////////// 
     var focused = null;
     var focusStateObject = null;
     var defocusStateObject = null;
+
+    /*  alle HTML-Obj. for german-states (germany map) */
     var germanyMapStatesObjects = null;
 
     /////////////////////// GENERAL ////////////////////////////// 
@@ -543,6 +666,30 @@ function updateCheckedRadioButton(bundesland){
 
 }
 
+/**********************************************************************************************/
+/*****************************************[CHECKBOX-FUNCTIONS]*********************************/
+/**********************************************************************************************/
+
+/*  onclick-function for checkbox (radar-chart) 
+ *  
+ *  1)  manipulates bitmask for displayed blobs in radar-chart
+ *  2)  updates radar-chart
+ */
+function onclickHandlerCheckbox(checkbox){
+  let bundesland = checkbox.value;
+  let index = mapBundeslandToNumber(bundesland);
+
+  if(0 <= index && index <= blobIndizes.length){
+    blobIndizes[index] = checkboxObjects[index].checked
+
+    /*  update radardiagramm  */
+    drawRadarChart();
+  }
+
+
+}
+
+
 
 /**********************************************************************************************/
 /****************************************[SUPPORT-FUNCTIONS]***********************************/
@@ -578,7 +725,7 @@ function changeVisualizations(bundeslandObject) {
  *  draws radar-chart completly new
  */
 function drawRadarChart(){
-  RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard);
+  RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard, blobIndizes);
 }
 
 

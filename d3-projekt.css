@@ -143,8 +143,24 @@ body {
 .radio-buttons{
 
 }
-
+.radio-buttons > form > fieldset{
+  border: none;
+}
 .radio-buttons > form > fieldset > div{
+  position: relative;
+  text-align: left;
+}
+
+/********************************************/
+/***************[CHECKBOX]******************/
+/********************************************/
+.checkbox-buttons{
+  
+}
+.checkbox-buttons > form > fieldset{
+  border: none;
+}
+.checkbox-buttons > form > fieldset > div{
   position: relative;
   text-align: left;
 }
