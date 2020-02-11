@@ -173,6 +173,11 @@
           <fieldset>
 
             <div>
+              <input type="checkbox" id="checkbox-Keins" name="BundeslandRadarBlobs" value="Keins" onclick="onclickHandlerCheckbox(this)">
+              <label for="checkbox-Keins">Keins</label>
+            </div>
+
+            <div>
               <input type="checkbox" id="checkbox-Mecklenburg-Vorpommern" name="BundeslandRadarBlobs" value="Mecklenburg-Vorpommern" onclick="onclickHandlerCheckbox(this)">
               <label for="checkbox-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label>
             </div>
@@ -309,13 +314,15 @@
     var checkboxObjects = [];
     let allInputs  = document.getElementsByTagName("input");
 
-    // filter only checkboxes
+    // filter only checkboxes with value is a bundesland
     for(let i=0; i<allInputs.length; i++){
-      if(allInputs[i].getAttribute("type") == "checkbox"){
+      if( allInputs[i].getAttribute("type") == "checkbox" 
+      &&  bundeslaenderNames.includes(allInputs[i].getAttribute("value"))){
         checkboxObjects.push(allInputs[i])
       }
     }
 
+    console.log(checkboxObjects)
 
 
     
@@ -679,17 +686,36 @@ function onclickHandlerCheckbox(checkbox){
   let bundesland = checkbox.value;
   let index = mapBundeslandToNumber(bundesland);
 
+  // "Bundesland"
   if(0 <= index && index <= blobIndizes.length){
     blobIndizes[index] = checkboxObjects[index].checked
 
-    /*  update radardiagramm  */
-    drawRadarChart();
+    // uncheck "Keins" 
+    document.getElementById("checkbox-Keins").checked =  false;
+    
   }
 
+  // "Keins"
+  else{
+    // reset bitmask to false
+    for(let i=0; i< blobIndizes.length; i++){
+      blobIndizes[i] = false;
+    }
+
+    // uncheck all other checkboxes
+    uncheckAllCheckboxex();
+  }
+  /*  update radardiagramm  */
+  drawRadarChart();
 
 }
 
-
+function uncheckAllCheckboxex(){
+  let len = checkboxObjects.length;
+  for(let i=0; i<len; i++){
+    checkboxObjects[i].checked = false;
+  }
+}
 
 /**********************************************************************************************/
 /****************************************[SUPPORT-FUNCTIONS]***********************************/
