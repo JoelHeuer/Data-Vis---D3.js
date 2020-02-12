@@ -168,12 +168,12 @@
                                     <div class="flex-item filter-wrapper">
                                         <div class="filter-name">Fach</div>
                                         <div class="filter">
-                                            <div class="flex-item-fach active">Alle</div>
-                                            <div class="flex-item-fach">Informatik</div>
-                                            <div class="flex-item-fach">Mathematik</div>
-                                            <div class="flex-item-fach">Psychologie</div>
-                                            <div class="flex-item-fach">Theologie</div>
-                                            <div class="flex-item-fach">Sprachwissenschaften</div>
+                                            <div class="flex-item-fach active"  id="rb-alle"                    onclick="onclickHandlerReviewBoard(this.id, 0)">Alle</div>
+                                            <div class="flex-item-fach"         id="rb-informatik"              onclick="onclickHandlerReviewBoard(this.id, 1)">Informatik</div>
+                                            <div class="flex-item-fach"         id="rb-mathematik"              onclick="onclickHandlerReviewBoard(this.id, 2)">Mathematik</div>
+                                            <div class="flex-item-fach"         id="rb-psychologie"             onclick="onclickHandlerReviewBoard(this.id, 3)">Psychologie</div>
+                                            <div class="flex-item-fach"         id="rb-theologie"               onclick="onclickHandlerReviewBoard(this.id, 4)">Theologie</div>
+                                            <div class="flex-item-fach"         id="rb-sprachwissenschaften"    onclick="onclickHandlerReviewBoard(this.id, 5)">Sprachwissenschaften</div>
                                         </div>
                                     </div>
                                 
@@ -625,7 +625,7 @@ function changeReviewBoardIndex(id,index){
 }
 
 function toggleReviewBoardActive(id){
-  let activeObj = document.getElementsByClassName("flex-child-review-board active");
+  let activeObj = document.getElementsByClassName("flex-item-fach active");
   
   for(let i=0; i < activeObj.length; i++){
     activeObj[i].classList.remove("active")
