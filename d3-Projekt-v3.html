@@ -42,153 +42,234 @@
 
             <!--    INTERAKTION  -->
             <div class="flex-item interaction">
-                <div class="subheader">Interaktion</div>
+                <div class="subheader">[INTERAKTION]</div>
 
-                <!-- Bundeslaender (Radio & Checkbox)-->
-                <div class="container-bundeslaender">
-                    <h3>Bundesländer</h3>
-                    <div class="radio-and-checkbox">
+                <div class="flex-container">
 
-                        <!-- col 1 -->
-                        <div class="flex-item bundesland">
-                            <div class="col-title">Bundesland</div>
-                            <ol>
-                                <li>Keins</li>
-                                <li>Mecklenburg-Vorpommern</li>
-                                <li>Schleswig-Holstein</li>
-                                <li>Niedersachsen</li>
-                                <li>Bremen</li>
+                    <!-- Bundeslaender (Radio & Checkbox)-->
+                    <div class="container-bundeslaender">
+                        <h3>Auswahl des Bundeslands</h3>
+                        <div class="flex-container">
+                            <div class="radio-and-checkbox">
+                                <!-- col 1 -->
+                                <div class="flex-item bundesland">
+                                    <div class="col-title">Bundesland</div>
+                                    <ol>
+                                        <li>Keins</li>
+                                        <li>Meck.-Vorpommern</li>
+                                        <li>Schl.-Holstein</li>
+                                        <li>Niedersachsen</li>
+                                        <li>Bremen</li>
 
-                                <li>Sachsen-Anhalt</li>
-                                <li>Brandenburg</li>
-                                <li>Berlin</li>
-                                <li>Nordrhein-Westfalen</li>
+                                        <li>Sachsen-Anhalt</li>
+                                        <li>Brandenburg</li>
+                                        <li>Berlin</li>
+                                        <li>NRW</li>
 
-                                <li>Hessen</li>
-                                <li>Thüringen</li>
-                                <li>Sachsen</li>
-                                <li>Rheinland-Pfalz</li>
+                                        <li>Hessen</li>
+                                        <li>Thüringen</li>
+                                        <li>Sachsen</li>
+                                        <li>Rhein.-Pfalz</li>
+                                        
+                                        <li>Saarland</li>
+                                        <li>Baden-Würt.</li>
+                                        <li>Bayern</li>
+                                        <li>Hamburg</li>
+                                    </ol>
+                                </div>
+
+                                <!-- col 2 -->
+                                <div class="flex-item radio">
+                                    <div class="col-title">Fokus</div>
+                                    <form>
+                                        <fieldset>
+                                            <input type="radio" name="blob-focus">
+
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                            <input type="radio" name="blob-focus">
+                                        <fieldset>
+                                    </form>
+                                </div>
+
+                                <!-- col 3 -->
+                                <div class="flex-item checkbox">
+                                    <div class="col-title">Vergleich</div>
+                                    <form>
+                                        <fieldset>
+                                            <input type="checkbox" name="blob-comparision">
+
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+                                            <input type="checkbox" name="blob-comparision">
+
+                                        </fieldset>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>  
+
+                    <!-- Filter-->
+                    <div class="container-filter">
+                        <h3>Filter</h3> 
+                        <div class="flex-container">
+                            <div class="subcontainer-filter">
+
+                                    <!-- Filter Kategorie -->
+                                    <div class="flex-item filter-wrapper">
+                                        <div class="filter-name">Kategorie</div>
+                                        <div class="filter">
+                                            <div class="flex-item-kategorie active">BIP</div>
+                                            <div class="flex-item-kategorie">Institute</div>
+                                            <div class="flex-item-kategorie">Projekte</div>
+                                            <div class="flex-item-kategorie">Spezialisierungen</div>
+                                            <div class="flex-item-kategorie">Finanzierungsrate</div>
+                                            <div class="flex-item-kategorie">F</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Filter Fach -->
+                                    <div class="flex-item filter-wrapper">
+                                        <div class="filter-name">Fach</div>
+                                        <div class="filter">
+                                            <div class="flex-item-fach active">Alle</div>
+                                            <div class="flex-item-fach">Informatik</div>
+                                            <div class="flex-item-fach">Mathematik</div>
+                                            <div class="flex-item-fach">Psychologie</div>
+                                            <div class="flex-item-fach">Theologie</div>
+                                            <div class="flex-item-fach">Sprachwissenschaften</div>
+                                        </div>
+                                    </div>
                                 
-                                <li>Saarland</li>
-                                <li>Baden-Württemberg</li>
-                                <li>Bayern</li>
-                                <li>Hamburg</li>
-                            </ol>
+                            </div>
                         </div>
-
-                        <!-- col 2 -->
-                        <div class="flex-item radio">
-                            <div class="col-title">Fokus</div>
-                            <form>
-                                <fieldset>
-                                    <input type="radio" name="blob-focus">
-
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                    <input type="radio" name="blob-focus">
-                                <fieldset>
-                            </form>
-                        </div>
-
-                        <!-- col 3 -->
-                        <div class="flex-item checkbox">
-                            <div class="col-title">Vergleich</div>
-                            <form>
-                                <fieldset>
-                                    <input type="checkbox" name="blob-comparision">
-
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-                                    <input type="checkbox" name="blob-comparision">
-
-                                </fieldset>
-
-                            </form>
-                        </div>
-
                     </div>
 
                 </div>
 
-                <!-- Filter-->
-                <div class="container-filter">
-                   <h3>Filter</h3> 
-                   <div class="subcontainer-filter">
 
-                        <!-- Filter Kategorie -->
-                        <div class="flex-item filter-wrapper">
-                            <h5>Kategorie</h5>
-                            <div class="filter">
-                                <div class="flex-item-kategorie active">BIP</div>
-                                <div class="flex-item-kategorie">Institute</div>
-                                <div class="flex-item-kategorie">Projekte</div>
-                                <div class="flex-item-kategorie">Spezialisierungen</div>
-                                <div class="flex-item-kategorie">Finanzierungsrate</div>
-                                <div class="flex-item-kategorie">F</div>
+
+                <!--    ABSOLUTE DATA  -->
+                <div class="container-absolute-data">
+                    <div class="flex-item absolute-data">
+                        <div class="subheader">[ABSOLUTE DATEN]</div>
+                        
+                        <div class="flex-container">
+                            <!-- DISPLAY: Absolute values -->
+                            <div class="grid-container">
+
+                                <div class="grid-item header" id="absolute-value-col-header-1">Achse</div>
+                                <div class="grid-item header" id="absolute-value-col-header-2">Max-Wert (100%)</div>
+                                <div class="grid-item header focus" id="absolute-value-col-header-3">Bundeslandname</div>  
+                                
+                                <div class="grid-item"  id="absolute-value-row-header-BIP">BIP in €</div>
+                                <div class="grid-item"  id="absolute-value-BIP-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-BIP-current">0</div>  
+
+                                <div class="grid-item"  id="absolute-value-row-header-Institute">#Institute</div>
+                                <div class="grid-item"  id="absolute-value-Institute-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-Institute-current">0</div>  
+
+                                <div class="grid-item"  id="absolute-value-row-header-Projekte">#Projekte</div>
+                                <div class="grid-item"  id="absolute-value-Projekte-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-Projekte-current">0</div> 
+
+                                <div class="grid-item"  id="absolute-value-row-header-Spezialisierungen">#Spezialisierungen</div>
+                                <div class="grid-item"  id="absolute-value-Spezialisierungen-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-Spezialisierungen-current">0</div> 
+
+                                <div class="grid-item"  id="absolute-value-row-header-Finanzierungsrate">Finanzierungsrate</div>
+                                <div class="grid-item"  id="absolute-value-Finanzierungsrate-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-Finanzierungsrate-current">0</div> 
+
                             </div>
                         </div>
-
-                        <!-- Filter Fach -->
-                        <div class="flex-item filter-wrapper">
-                            <h5>Fach</h5>
-                            <div class="filter">
-                                <div class="flex-item-fach active">Alle</div>
-                                <div class="flex-item-fach">Informatik</div>
-                                <div class="flex-item-fach">Mathematik</div>
-                                <div class="flex-item-fach">Psychologie</div>
-                                <div class="flex-item-fach">Theologie</div>
-                                <div class="flex-item-fach">Sprachwissenschaften</div>
-                            </div>
-                        </div>
-                    
-                   </div>
+                    </div>
                 </div>
 
             </div>
 
             <!--    VISUALISIERUNG  -->
             <div class="flex-item visualisation">
-                <div class="subheader">Visualisierung</div>
+                <div class="subheader">[VISUALISIERUNGEN]</div>
+
+                <!-- GERMANY MAP    -->
+                <div class="flex-container map">
+                    <div class="flex-child">
+                        <div class="title">Interaktive Deutschlandkarte</div>
+                        <div class="germanyMap"></div>
+                        <div class="color-legend">
+                            <div class="wrapper">
+                                <div class="start">Wenig</div>
+                                <div class="end">Viel</div>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+
+
+
+                <!-- RADAR CHART   -->
+                <div class="flex-container radar">
+                    <div class="flex-child">
+                        <div class="title">Radardiagramm für relative Daten</div>
+                        <div class="radarChart"></div>
+                        <div class="color-legend">
+                            <div class="focus">
+                                <div>Fokussiertes Bundesland</div>
+                            </div>
+                            <div class="comparision">Verglichende Bundesländer</div>
+                        </div>
+
+                    </div>
+                </div>
+
+
             </div>
 
             <!--    ABSOLUTE DATA  -->
-            <div class="flex-item absolute-data">
-                <div class="subheader">Absolute Daten</div>
+            <!-- <div class="flex-item absolute-data"> -->
+                <!-- <div class="subheader">Absolute Daten</div> -->
                 
                 <!-- DISPLAY: Absolute values -->
-                <div class="grid-container">
+                <!-- <div class="grid-container">
 
                     <div class="grid-item header" id="absolute-value-col-header-1">Achse</div>
                     <div class="grid-item header" id="absolute-value-col-header-2">Max-Wert (100%)</div>
@@ -215,9 +296,627 @@
                     <div class="grid-item"  id="absolute-value-Finanzierungsrate-current">0</div> 
 
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
+
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------->
+
+<script>
+   /**********************************************************************************************/
+    /****************************************[GLOBAL VARIABLES]************************************/
+    /**********************************************************************************************/
+
+    //////////////////////// RADAR-CHART ////////////////////////////// 
+
+    var margin = { top: 100, right: 100, bottom: 100, left: 100 },
+      width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+      height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20); 
+
+    var color = d3.scale.ordinal()
+      .range(["#EDC951", "#CC333F", "#00A0B0"]);
+
+    var radarChartOptions = {
+      w: width,
+      h: height,
+      margin: margin,
+      maxValue: 0.5,
+      levels: 5,
+      roundStrokes: true,
+      color: color
+    };
+
+
+    /*  bitmask for radarchart-blobs. 
+     *  true  == visualize blob
+     *  false == don't
+     *  example: arr[4] == 1 means bundeslaenderNames[4]  is visulized in radarChart as a blob
+     */
+    
+    var blobIndizes = [];
+    for(let i=0; i < lenBundeslaenderNames; i++){
+      blobIndizes.push(false);
+    }
+
+    /*  alle HTML-Obj. for checkboxes (radarchart) */
+    var checkboxObjects = [];
+    let allInputs  = document.getElementsByTagName("input");
+
+    // filter only checkboxes with value is a bundesland
+    for(let i=0; i<allInputs.length; i++){
+      if( allInputs[i].getAttribute("type") == "checkbox" 
+      &&  bundeslaenderNames.includes(allInputs[i].getAttribute("value"))){
+        checkboxObjects.push(allInputs[i])
+      }
+    }
+   
+
+    //////////////////////// GERMANY-MAP ////////////////////////////// 
+    var focused = null;
+    var focusStateObject = null;
+    var defocusStateObject = null;
+
+    /*  alle HTML-Obj. for german-states (germany map) */
+    var germanyMapStatesObjects = null;
+
+    /////////////////////// GENERAL ////////////////////////////// 
+
+    var data = bundeslaenderObjectData;
+    var i_bundesland = 0;
+    var i_reviewBoard = 0;
+    var i_axis = 0;
+
+
+  /**********************************************************************************************/
+  /******************************************[Load CSV-Files]************************************/
+  /**********************************************************************************************/
+
+  /*  to access files in my folder with d3.csv-function */
+  const path = "../D3_Bundeslaender/";
+  const csvBundeslaenderAlle = "EXPORT_D3_all.csv";
+  const csvCompressedPercentage = "EXPORT_D3_compressed_percentage.csv";
+  
+  let csvSupportData = null;
+  let csvData = null;
+  const csvFileNames = [
+    "EXPORT_D3_Mecklenburg_Vorpommern.csv",
+    "EXPORT_D3_Schleswig_Holstein.csv",
+    "EXPORT_D3_Niedersachsen.csv",
+    "EXPORT_D3_Bremen.csv",
+
+    "EXPORT_D3_Sachsen_Anhalt.csv",
+    "EXPORT_D3_Brandenburg.csv",
+    "EXPORT_D3_Berlin.csv",
+    "EXPORT_D3_Nordrhein_Westfalen.csv",
+
+    "EXPORT_D3_Hessen.csv",
+    "EXPORT_D3_Thueringen.csv",
+    "EXPORT_D3_Sachsen.csv",
+    "EXPORT_D3_Rheinland_Pfalz.csv",
+
+    "EXPORT_D3_Saarland.csv",
+    "EXPORT_D3_Baden_Wuerttemberg.csv",
+    "EXPORT_D3_Bayern.csv",
+    "EXPORT_D3_Hamburg.csv",
+  ];
+
+  /*  store csv-file in variable  */
+  let csvFilesNamesLen = csvFileNames.length;
+  d3.csv(path + csvBundeslaenderAlle, 
+      (supportData) => { 
+        csvSupportData = initSupportData(supportData)
+        console.log("[SUCCESS]  - initSupportData()")
+        console.log(csvSupportData)
+      }
+  );
+
+  d3.csv(path + csvCompressedPercentage,
+    (mainData) => {
+      csvData = initBundeslaenderObjectData(mainData);
+      console.log("[SUCCESS]  - csvData()")
+      data = csvData;
+      console.log(data)
+    } 
+  );
+  
+  /*  wait until csv-files are loaded */
+  setTimeout( () => {
+ 
+
+    //Call function to draw the Radar chart
+    drawRadarChart();
+
+
+    // ### test
+    changeGridAbsoluteValues();
+
+    /**********************************************************************************************/
+    /*********************************************[Germany Map]************************************/
+    /**********************************************************************************************/
+    var width = 500, //960,
+      height = 300, //500,
+      // focused = null,
+      geoPath;
+
+    var svg = d3.select(".germanyMap")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    svg.append("rect")
+      .attr("class", "background")
+      .attr("width", width)
+      .attr("height", height);
+
+    var g = svg.append("g")
+      .append("g")
+      .attr("id", "states")
+
+    d3.json("./bundeslaenderJSON.json", function (collection) {
+
+      /*  store german states objects in global variable */
+      germanyMapStatesObjects = collection.features;
+
+      var bounds = d3.geo.bounds(collection),
+          bottomLeft = bounds[0],
+          topRight = bounds[1],
+          rotLong = -(topRight[0] + bottomLeft[0]) / 2;
+          center = [(topRight[0] + bottomLeft[0]) / 2 + rotLong, (topRight[1] + bottomLeft[1]) / 2],
+
+          //default scale projection
+          projection = d3.geo.albers()
+            .parallels([bottomLeft[1], topRight[1]])
+            .rotate([rotLong, 0, 0])
+            .translate([width / 2, height / 2])
+            .center(center),
+
+          bottomLeftPx = projection(bottomLeft),
+          topRightPx = projection(topRight),
+          scaleFactor = 1.00 * Math.min(width / (topRightPx[0] - bottomLeftPx[0]), height / (-topRightPx[1] + bottomLeftPx[1])),
+
+          projection = d3.geo.albers()
+            .parallels([bottomLeft[1], topRight[1]])
+            .rotate([rotLong, 0, 0])
+            .translate([width / 2, height / 2])
+            .scale(scaleFactor * 0.975 * 1000)
+            //.scale(4*1000)  //1000 is default for USA map
+            .center(center);
+
+          geoPath = d3.geo.path().projection(projection);
+
+      var graticule = d3.geo.graticule()
+        .step([1, 1]);
+
+      g.append("path")
+        .datum(graticule)
+        .attr("class", "graticuleLine")
+        .attr("d", geoPath);
+
+      /*  [NEW]   [EXPLANATION]
+       *  Access to german-states-rect 
+       *
+       */
+
+       g.selectAll("path.feature")
+        .data(collection.features)
+        .enter()
+        .append("path")
+        .attr("class", "feature")
+        .attr("d", geoPath)
+        .on("click", changeVisualizations);
+
+      // console.log("d3.json: bounds = " + bounds);
+      // console.log("d3.json: bottomLeft = " + bottomLeft);
+      // console.log("d3.json: topRight = " + topRight);
+      // console.log("d3.json: center = " + center);
+      // console.log("d3.json: projection(center) = " + projection(center));
+      // console.log("d3.json: projection(bottomLeft) = " + projection(bottomLeft));
+      // console.log("d3.json: projection(topRight) = " + projection(topRight));
+      // console.log("d3.json: topRightPx = " + topRightPx);
+      // console.log("d3.json: bottomLeftPx = " + bottomLeftPx);
+      // console.log("d3.json: scaleFactor x axis = " + width / (topRightPx[0] - bottomLeftPx[0]));
+      // console.log("d3.json: scaleFactor y axis = " + height / (-topRightPx[1] + bottomLeftPx[1]));
+      // console.log("d3.json: scaleFactor = " + scaleFactor);
+    });
+
+
+
+   focusStateObject = (d) => {
+      updateCheckedRadioButton(d.properties.NAME_1);
+
+      var x = width / 2,
+        y = height / 2,
+        k = 1,
+        name = d.properties.NAME_1;
+
+      g.selectAll("text")
+        .remove();
+      if ((focused === null) || !(focused === d)) {
+        var centroid = geoPath.centroid(d),
+          x = +centroid[0],
+          y = +centroid[1],
+          k = 1.75;
+        focused = d;
+
+        g.append("text")
+          .text(name)
+          .attr("x", x)
+          .attr("y", y)
+          .style("text-anchor", "middle")
+          .style("font-size", "8px")
+          .style("stroke-width", "0px")
+          .style("fill", "black")
+          .style("font-family", "Times New Roman")
+          .on("click", defocusStateObject);
+      }
+      else {
+        focused = null;
+      };
+
+      g.selectAll("path")
+        .classed("active", focused && function (d) { return d === focused; });
+
+      g.transition()
+        .duration(1000)
+        .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")scale(" + k + ")translate(" + (-x) + "," + (-y) + ")")
+        .style("stroke-width", 1.75 / k + "px");
+    }
+
+
+    defocusStateObject = (d) => {
+      focused = null;
+      g.selectAll("text")
+        .remove();
+      g.selectAll("path")
+        .classed("active", 0);
+      g.transition()
+        .duration(1000)
+        .attr("transform", "scale(" + 1 + ")translate(" + 0 + "," + 0 + ")")
+        .style("stroke-width", 1.00 + "px");
+    }
+
+
+  }, 1000); // wait 1s till csv-data is loaded
+
+/**********************************************************************************************/
+/****************************************[BUTTON-FUNCTIONS]************************************/
+/**********************************************************************************************/
+
+
+                /*********************[REVIEW-BOARD BUTTONS]***********************/
+/** 
+  * onclick-function for review-board-buttons
+  * 
+  * 1)  update global variable i_reviewBoard
+  * 2)  refresh germany-map
+  * 3)  draw radarChart again
+  */
+function onclickHandlerReviewBoard(id,index){
+    changeReviewBoardIndex(id, index);
+    defineGermanStateColor();
+    drawRadarChart();
+}
+
+
+/**
+ *  change global i_reviewBoard
+ */
+function changeReviewBoardIndex(id,index){
+  if(i_reviewBoard != index){
+    i_reviewBoard = index;
+    toggleReviewBoardActive(id);
+  }
+  return;
+}
+
+function toggleReviewBoardActive(id){
+  let activeObj = document.getElementsByClassName("flex-child-review-board active");
+  
+  for(let i=0; i < activeObj.length; i++){
+    activeObj[i].classList.remove("active")
+  }
+  let obj = document.getElementById(id);
+  obj.classList.toggle("active");
+}
+
+
+                /****************************[AXIS BUTTONS]***********************/
+/** 
+  * onclick-function for axis-buttons
+  * 
+  * 1)  update global variable i_axis 
+  * 2)  refresh germany-map
+  */
+function onclickHandlerAxis(id,index){
+  changeAxisIndex(id,index);
+  defineGermanStateColor();
+}
+
+/**
+ *  change global i_axis
+ */
+ function changeAxisIndex(id,index){
+  if(i_axis != index){
+    i_axis = index;
+    toggleAxisActive(id);
+    drawRadarChart();
+  }
+  return;
+}
+
+function toggleAxisActive(id){
+  let activeObj = document.getElementsByClassName("flex-child-axis active");
+  
+  for(let i=0; i < activeObj.length; i++){
+    activeObj[i].classList.remove("active")
+  }
+  let obj = document.getElementById(id);
+  obj.classList.toggle("active");
+}
+
+/**********************************************************************************************/
+/*************************************[RADIO-BUTTON-FUNCTIONS]*********************************/
+/**********************************************************************************************/
+
+
+function onclickHandlerRadioButton(radioButton){
+  let bundesland = radioButton.value;
+  let index = mapBundeslandToNumber(bundesland);
+
+  let bundeslandObject = null;
+
+  // bundesland does exist
+  if(index >= 0){
+     let filteredObjects = germanyMapStatesObjects.filter(entry => entry.properties.NAME_1 == bundesland)
+     bundeslandObject = filteredObjects[0];
+  }
+  // no specif bundesland was chosen
+  else{
+    i_bundesland = -1;
+    defocusStateObject(bundeslandObject);
+    drawRadarChart();
+  }
+
+  changeVisualizations(bundeslandObject)
+}
+
+/*
+ *  toggle radio-buttons for german-map based on a bundesland-name
+ *  radio-button with value=bundesland name has to be active, rest not
+ */
+function updateCheckedRadioButton(bundesland){
+  let radioButtons = document.getElementsByTagName("input");
+  let radioButtonsFiltered = [];
+
+  // filter only radio-buttons
+  for(let i=0; i<radioButtons.length; i++){
+    if(radioButtons[i].getAttribute("type") == "radio"){
+      radioButtonsFiltered.push(radioButtons[i])
+    }
+  }
+
+  // toggle checked-propertie
+  for(let i=0; i<radioButtonsFiltered.length; i++){
+    radioButtonsFiltered[i].checked = (radioButtonsFiltered[i].value == bundesland) ? true : false;
+  }
+
+}
+
+/**********************************************************************************************/
+/*****************************************[CHECKBOX-FUNCTIONS]*********************************/
+/**********************************************************************************************/
+
+/*  onclick-function for checkbox (radar-chart) 
+ *  
+ *  1)  manipulates bitmask for displayed blobs in radar-chart
+ *  2)  updates radar-chart
+ */
+function onclickHandlerCheckbox(checkbox){
+  let bundesland = checkbox.value;
+  let index = mapBundeslandToNumber(bundesland);
+
+  // "Bundesland"
+  if(0 <= index && index <= blobIndizes.length){
+    blobIndizes[index] = checkboxObjects[index].checked
+
+    // uncheck "Keins" 
+    document.getElementById("checkbox-Keins").checked =  false;
+    
+  }
+
+  // "Keins"
+  else{
+    // reset bitmask to false
+    for(let i=0; i< blobIndizes.length; i++){
+      blobIndizes[i] = false;
+    }
+
+    // uncheck all other checkboxes
+    uncheckAllCheckboxex();
+  }
+  /*  update radardiagramm  */
+  drawRadarChart();
+
+}
+
+function uncheckAllCheckboxex(){
+  let len = checkboxObjects.length;
+  for(let i=0; i<len; i++){
+    checkboxObjects[i].checked = false;
+  }
+}
+
+
+
+/**********************************************************************************************/
+/**************************************[GRID-ABSOLUTE-FUNCTIONS]*******************************/
+/**********************************************************************************************/
+
+function changeGridAbsoluteValues(){
+
+  const idStart   = "absolute-value-";
+  const idEnd     = ["-max", "-current"];
+  const lenIdEnd  = idEnd.length;
+
+  /*  a specfic bundesland was selected per radio-button or click in germany-map  */
+  if(0 <= i_bundesland && i_bundesland <= bundeslaenderNames.length){
+
+      /*  calc max & current values  */
+    let valuesMax = [];
+    let valuesCurrent = [];
+
+    for(let i=0; i< lenRadarAxis; i++){
+      valuesMax.push(csvSupportData[i].valueAbsolute[i_reviewBoard]);
+      valuesCurrent.push(csvData[i_bundesland][i].valueAbsolute[i_reviewBoard]);
+    }
+
+    /*  manipulate html-content (grid)  */
+    for(let i=0; i < lenRadarAxis; i++){
+      for(let k=0; k < lenIdEnd; k++ ){
+        document.getElementById(idStart+radarAxis[i]+idEnd[k]).innerHTML =  
+          (k%2 == 0) ?  valuesMax[i] : valuesCurrent[i];
+      }
+    }
+
+    /*  change bundeslandname */
+    document.getElementById("absolute-value-col-header-3").innerHTML = 
+        bundeslaenderNames[i_bundesland];
+  }
+
+  /*  no specific bundesland, but e.g. "Keins" was selected with RadioButton/GermanyMap*/
+  else{
+    /*  manipulate html-content (grid)  */
+    for(let i=0; i < lenRadarAxis; i++){
+      for(let k=0; k < lenIdEnd; k++ ){
+        document.getElementById(idStart+radarAxis[i]+idEnd[k]).innerHTML =  0;
+      }
+    }
+
+    /*  change bundeslandname */
+    document.getElementById("absolute-value-col-header-3").innerHTML = "Bundesland"
+  }
+
+
+}
+
+
+/**********************************************************************************************/
+/****************************************[SUPPORT-FUNCTIONS]***********************************/
+/**********************************************************************************************/
+
+/*
+ *  onclick-function for: germany-map-states
+ *  1.a)  updates global variable i_bundesland
+ *  2)    focuses on current state
+ *  3)    repaint radar
+ */
+function changeVisualizations(bundeslandObject) {
+      let currentBundesland = bundeslandObject.properties.NAME_1;
+
+      // check if view is already focused & update data for radardiagramm
+      if ((focused === null) || !(focused === bundeslandObject)) {
+        i_bundesland = mapBundeslandToNumber(currentBundesland);
+
+        /* focus in germany-map */
+        focusStateObject(bundeslandObject);
+      }
+      else {
+        // i_bundesland = -1;
+        defocusStateObject(bundeslandObject);
+      }
+
+      /*  update radardiagramm  */
+      drawRadarChart();
+
+
+    }
+
+/*
+ *  draws radar-chart completly new
+ */
+function drawRadarChart(){
+
+  /*  update grid for absolute-values*/
+  changeGridAbsoluteValues();
+
+  RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard, blobIndizes);
+}
+
+
+/**
+ *  defines color of german-states individually, based on entries in csv-data (value-array)
+ *  based on review_board
+ *  based on axis in radar-chart 
+ */
+function defineGermanStateColor(){
+  /*  indizes   */
+  let k_axis = i_axis;
+  let k_review = i_reviewBoard;
+
+  /*  color     */
+  let COLOR_LIMITS = {
+    RED   :{  min: 123, max: 0,   },
+    GREEN :{  min: 185, max: 68,  },
+    BLUE  :{  min: 220, max: 170, },
+  }
+
+  COLOR_LIMITS = {
+    RED   :{  min: 123, max: 0,   difference : COLOR_LIMITS.RED.min - COLOR_LIMITS.RED.max },
+    GREEN :{  min: 185, max: 68,  difference : COLOR_LIMITS.GREEN.min - COLOR_LIMITS.GREEN.max },
+    BLUE  :{  min: 220, max: 170, difference : COLOR_LIMITS.BLUE.min - COLOR_LIMITS.BLUE.max },
+  }
+
+  let statesArray = document.getElementsByClassName("feature");
+
+  for(let i=0; i<statesArray.length; i++){
+    let bundeslandName = statesArray[i].__data__.properties.NAME_1;
+    let i_bundesland = mapBundeslandToNumber(bundeslandName);
+
+    /* calc color */
+    const valuePercent_Between_0_And_1    =  data[i_bundesland][k_axis].value[k_review];
+    const valuePercent_Between_1_And_100  =  valuePercent_Between_0_And_1 * 100;
+    
+    const valueRed = COLOR_LIMITS.RED.min - ( (COLOR_LIMITS.RED.difference/100) * valuePercent_Between_1_And_100 );
+    const valueGreen = COLOR_LIMITS.GREEN.min - ( (COLOR_LIMITS.GREEN.difference/100) * valuePercent_Between_1_And_100 );
+    const valueBlue = COLOR_LIMITS.BLUE.min - ( (COLOR_LIMITS.BLUE.difference/100) * valuePercent_Between_1_And_100 );
+
+    let fill = "rgb("+valueRed+","+valueGreen+","+valueBlue+")"
+    statesArray[i].style.fill = fill;
+    // console.log("axis[" + i_axis + "]"
+    //       +" reviewboard[" + i_review + "]: " 
+    //       +" 0-1 - " + valuePercent_Between_0_And_1 + ", "
+    //       +" 1-100 - " + valuePercent_Between_1_And_100 + ", "
+    //       +" red " + valueRed + " "
+
+    // )
+  }
+
+}
+
+function mapBundeslandToNumber(name){
+  let len = data.length;
+  for(let i=0; i<len; i++){
+    if(data[i][0].name == name){
+      // console.log(name +": "+ i)
+      return i;
+    }
+  }
+  return -1;
+}
+
+
+
+</script>
 </body>
 </html>

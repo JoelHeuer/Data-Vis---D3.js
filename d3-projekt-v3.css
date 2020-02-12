@@ -2,13 +2,15 @@
     --blob-color-focus: red;
     --blob-color-comparision: blue;
 
-    --germany-map-low-color: green;
-    --germany-map-high-color: green;
-    --germany-map-color: green;
+    --germany-map-low-color: rgb(107, 225, 255);
+    --germany-map-high-color: rgb(0, 116, 145);
+    --germany-map-color: rgb(33, 144, 172);
 
     --text-color-normal: #000000;
     --text-color-white:  #FFFFFF;
     
+
+    --border-radius-default: 20px;
   }
 
 *{
@@ -22,8 +24,6 @@
   /*==================================================================*/
   
 .visualisation-joel{
-    border: 3px solid green;
-
     font-size: 15px;
     letter-spacing: 1px;
     font-family: monospace;
@@ -39,8 +39,6 @@
 
 
 .visualisation-joel > .header{
-    border: 2px solid red;
-
     position: relative;
     text-align: center;
 }
@@ -62,8 +60,6 @@
 /**************************************************/
 
 .visualisation-joel > .main-content{
-    border: 2px solid blueviolet;
-
     position: relative;
     width: 100%;
     margin-top: 3%;
@@ -75,14 +71,15 @@
 }
 
 .visualisation-joel > .main-content > .flex-item{
-    border: 1px solid black;
+
+
     flex-shrink: 1;
     flex-basis: 100%;   /*  all items have same width   */
 
     text-align: center;
 }
 
-.visualisation-joel > .main-content >.flex-item > .subheader{
+.visualisation-joel > .main-content .flex-item > .subheader{
     text-decoration: underline;
     font-weight: 600;
     margin-top: 3%;
@@ -103,7 +100,7 @@
 }
 
 .visualisation-joel > .main-content input[type="radio"]:nth-child(1){
-    margin-top: 4%;
+    margin-top: 6%;
 }
 
 .visualisation-joel > .main-content input[type="checkbox"]{
@@ -111,7 +108,7 @@
 }
 
 .visualisation-joel > .main-content input[type="checkbox"]:nth-child(1){
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 
@@ -120,78 +117,101 @@
 /********************[INTERACTION]*****************/
 /**************************************************/
 
-.visualisation-joel > .main-content > .interaction{
-
+.main-content > .interaction >  .flex-container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
 }
 
-.visualisation-joel > .main-content > .interaction > .container-bundeslaender{
-    border: 1px solid black;
-    border-radius: 20px;
+.main-content > .interaction >  .flex-container > .container-bundeslaender{
+    border-radius: var(--border-radius-default);
 }
 
-.visualisation-joel > .main-content > .interaction > .container-bundeslaender > h3{
+.main-content > .interaction >  .flex-container > .container-bundeslaender > h3{
     margin-bottom: 2%;
 }
 
     /********************[RADIO-AND-CHECKBOX]*****************/
-
-.visualisation-joel > .main-content > .interaction > .container-bundeslaender >.radio-and-checkbox{
-    border: 1px solid black;
+ .main-content > .interaction >  .flex-container > .container-bundeslaender >  .flex-container {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+    
+
+.main-content > .interaction >  .flex-container > .container-bundeslaender > .flex-container > .radio-and-checkbox{
+    position: relative;
+    padding: 2%;
+    /* width: 100%; */
 
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    border: black 1px solid;
+    border-radius: var(--border-radius-default);
 }
 
-.visualisation-joel > .main-content > .interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item{
-    border: 1px solid black;
+ .main-content > .interaction  >  .flex-container > .container-bundeslaender >  .flex-container > .radio-and-checkbox > .flex-item{
     flex-shrink: 1;
-
-    text-align: center;
+    text-align: left;
 }
 
 
-.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item > .col-title{
+.main-content > .interaction  >  .flex-container > .container-bundeslaender >  .flex-container > .radio-and-checkbox > .flex-item > .col-title{
+    font-weight: 600;
 }
 
 
-.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.bundesland{
+.main-content > .interaction  >  .flex-container > .container-bundeslaender >  .flex-container > .radio-and-checkbox > .flex-item.bundesland{
     flex-grow: 2;
 }
-.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.radio > .col-title{
+.main-content > .interaction  >  .flex-container > .container-bundeslaender >  .flex-container > .radio-and-checkbox > .flex-item.radio > .col-title{
     color: var(--text-color-white);
     background-color: var(--blob-color-focus);
 }
-.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.checkbox > .col-title{
+.main-content > .interaction  >  .flex-container > .container-bundeslaender >  .flex-container > .radio-and-checkbox > .flex-item.checkbox > .col-title{
     color:  var(--text-color-white);
     background-color: var(--blob-color-comparision);
 }
 
 
-.interaction  > .container-bundeslaender > .radio-and-checkbox ol {
+.main-content > .interaction  >  .flex-container > .container-bundeslaender >  .flex-container > .radio-and-checkbox ol {
+    list-style-type: none;
     text-align: left;
 }
 
 
     /*************************[Filter]***********************/
-.visualisation-joel > .main-content > .interaction > .container-filter{
-    border: 1px solid;
-    border-radius: 20px;
-    margin-top: 5%;
+.main-content > .interaction >  .flex-container > .container-filter{
+    margin-top: 1%;
+    margin-left: 5%;
 }
 
-.visualisation-joel > .main-content > .interaction > .container-filter > h3{
+.main-content > .interaction >  .flex-container > .container-filter > h3{
     margin-bottom: 2%;
 }
 
-.interaction > .container-filter > .subcontainer-filter{
+.main-content > .interaction >  .flex-container > .container-filter > .flex-container{
     position: relative;
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.main-content > .interaction >  .flex-container > .container-filter > .flex-container > .subcontainer-filter{
+    position: relative;
     display: flex;
     flex-direction: row;
     align-content: center;
+
 }
+
 .subcontainer-filter > .flex-item{
     flex-basis: 100%;
 }
@@ -199,7 +219,15 @@
 
 .subcontainer-filter > .filter-wrapper{
     position: relative;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: var(--border-radius-default);
+}
 
+.subcontainer-filter > .filter-wrapper > .filter-name{
+    font-weight: bold;
+    margin-top: 4% ;
+    margin-bottom: 4% ;
 }
 
 /*      Filter Wrapper    */
@@ -207,6 +235,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+
 }
 
 /*      Filter Kategorie    */
@@ -220,7 +249,9 @@
     opacity: 0.85;
     color:  var(--text-color-white);
     transform: all 0.5s ease;
+
   }
+
   
 .subcontainer-filter > .filter-wrapper > .filter > .flex-item-kategorie.active{
     font-weight: bold;
@@ -253,42 +284,158 @@
     transform: all 0.5s ease;
 }
 
-/**************************************************/
-/********************[VISUALISATION]***************/
-/**************************************************/
 
-.visualisation-joel > .main-content > .visualisation{
-
-}
-
-
-/**************************************************/
-/******************[ABSOLUTE-DATA]*****************/
-/**************************************************/
-
-.visualisation-joel > .main-content > .absolute-data{
-
-}
-
-/********************************************/
-/************[GRID ABS. Value]***************/
-/********************************************/
-.absolute-data > .grid-container{
-    border: 1px solid black;
-
+    /*************************[GRID - ABSOLUTE DATA]***********************/
+.main-content > .interaction > .container-absolute-data{
     position: relative;
-  
+    margin-top: 5%;
+}
+
+.main-content > .interaction > .container-absolute-data > .absolute-data >  .flex-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
+.main-content > .interaction > .container-absolute-data  > .absolute-data > .flex-container > .grid-container{
+    position: relative;
+    width : 70%;
+
     display: grid;
     grid-template-columns: auto auto auto;
     
+    border: 1px solid black;
+    border-radius: var(--border-radius-default);
+
 }
   
-.absolute-data > .grid-container > .grid-item{
-    border: 1px solid black;
+ .main-content > .interaction > .container-absolute-data > .absolute-data >  .flex-container > .grid-container > .grid-item{
+    
+    /* border: 1px solid black; */
     text-align: left;
     padding: 5%;
 }
   
-.absolute-data > .grid-container >.grid-item.header{
+.main-content > .interaction > .container-absolute-data > .absolute-data >  .flex-container > .grid-container >.grid-item.header{
     font-weight: bold;
+}
+
+
+
+/**************************************************/
+/********************[VISUALISATION]***************/
+/**************************************************/
+
+
+.visualisation-joel > .main-content > .visualisation > .flex-container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.visualisation-joel > .main-content > .visualisation > .flex-container > .flex-child{
+    position: relative;
+    border: 1px solid black;
+    border-radius: var(--border-radius-default);
+    width: 90%;
+}
+
+.visualisation-joel > .main-content > .visualisation > .flex-container > .flex-child > .title{
+    margin-bottom: 2%;
+}
+
+/************[GERMANY MAP]************/
+
+.background {
+    fill: none;
+    /*fill: rgb(239, 237, 245);*/
+    /* stroke: black;
+    stroke-width: 3.5px; */
+    pointer-events: all;
+  }
+  
+#states {
+    fill: rgb(188, 189, 220);
+    stroke: #fff;
+    stroke-width: 1.25px;
+    opacity: 0.85;
+}
+  
+#states .active {
+    /*fill: lightblue;*/
+    fill: rgb(117, 107, 177);
+}
+  
+.graticuleLine {
+    fill: none;
+    stroke: #777;
+    stroke-width: 0.5px;
+}
+
+
+.visualisation > .flex-container.map > .flex-child > .color-legend{
+    padding: 2%;
+}
+.visualisation > .flex-container.map > .flex-child > .color-legend > .wrapper{
+    color: var(--text-color-normal);
+    border-radius: var(--border-radius-default);
+    padding: 2%;
+    background-image: linear-gradient(to right, 
+        var(--germany-map-low-color),
+        var(--germany-map-high-color)
+    );
+}
+
+.visualisation > .flex-container.map > .flex-child > .color-legend > .wrapper > .start{
+    float: left;
+}
+.visualisation > .flex-container.map > .flex-child > .color-legend > .wrapper > .end{
+    text-align: right;
+}
+        /**********[RADAR-DIAGRAMM]***********/
+/* body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    fill: #242424;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    cursor: default;
+  } */
+  
+  .legend {
+    font-family: 'Raleway', sans-serif;
+    fill: #333333;
+  }
+  
+  .tooltip {
+    fill: #333333;
+  }
+  
+.visualisation-joel > .main-content > .visualisation > .flex-container.radar > .flex-child{
+    margin-top: 5%;
+}
+
+.flex-container.radar > .flex-child > .color-legend{
+    padding: 2%;
+    color: var(--text-color-white)
+}
+
+.flex-container.radar > .flex-child > .color-legend > .focus{
+    padding: 2%;
+    background-color: var(--blob-color-focus);
+    border-radius: var(--border-radius-default);
+    float: left;
+    /* margin-right: 10%; */
+}
+
+.flex-container.radar > .flex-child > .color-legend > .comparision{
+    padding: 2%;
+
+    background-color: var(--blob-color-comparision);
+    border-radius: var(--border-radius-default);
 }
