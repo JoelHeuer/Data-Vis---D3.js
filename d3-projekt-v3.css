@@ -4,7 +4,7 @@
 
     --germany-map-low-color: rgb(123, 185, 220);
     --germany-map-high-color: rgb(0, 68, 170);
-    --germany-map-color: rgb(33, 144, 172);
+    --germany-map-color: rgb(70, 120, 200);
 
     --text-color-normal: #000000;
     --text-color-white:  #FFFFFF;
@@ -358,15 +358,14 @@
   }
   
 #states {
-    fill: rgb(188, 189, 220);
+    fill: var(--germany-map-color);
     stroke: white;
     stroke-width: 1.25px;
     opacity: 0.85;
 }
   
 #states .active {
-    /*fill: lightblue;*/
-    fill: rgb(117, 107, 177);
+    fill: var(--germany-map-color);
 }
   
 /*  Background of map*/
