@@ -269,3 +269,26 @@
 .visualisation-joel > .main-content > .absolute-data{
 
 }
+
+/********************************************/
+/************[GRID ABS. Value]***************/
+/********************************************/
+.absolute-data > .grid-container{
+    border: 1px solid black;
+
+    position: relative;
+  
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+}
+  
+.absolute-data > .grid-container > .grid-item{
+    border: 1px solid black;
+    text-align: left;
+    padding: 5%;
+}
+  
+.absolute-data > .grid-container >.grid-item.header{
+    font-weight: bold;
+}
