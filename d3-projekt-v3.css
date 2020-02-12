@@ -397,6 +397,16 @@
     text-align: right;
 }
 
+
+.visualisation > .flex-container.map > .flex-child > .color-legend > .wrapper > .bar{
+    position: absolute;
+    width: 8%;
+    bottom: 3%;
+    height: 15%;
+    border-left: 5px solid var(--text-color-white);
+    left: 0%;
+}
+
   .legend {
     font-family: 'Raleway', sans-serif;
     fill: #333333;

@@ -239,6 +239,7 @@
                             <div class="wrapper">
                                 <div class="start">low</div>
                                 <div class="end">high</div>
+                                <div class="bar" id="color-legend-bar"></div>
                             </div>
                         </div>
     
@@ -413,7 +414,6 @@
     /**********************************************************************************************/
     var width = 500, //960,
       height = 300, //500,
-      // focused = null,
       geoPath;
 
     var svg = d3.select(".germanyMap")
@@ -483,18 +483,6 @@
         .attr("d", geoPath)
         .on("click", changeVisualizations);
 
-      // console.log("d3.json: bounds = " + bounds);
-      // console.log("d3.json: bottomLeft = " + bottomLeft);
-      // console.log("d3.json: topRight = " + topRight);
-      // console.log("d3.json: center = " + center);
-      // console.log("d3.json: projection(center) = " + projection(center));
-      // console.log("d3.json: projection(bottomLeft) = " + projection(bottomLeft));
-      // console.log("d3.json: projection(topRight) = " + projection(topRight));
-      // console.log("d3.json: topRightPx = " + topRightPx);
-      // console.log("d3.json: bottomLeftPx = " + bottomLeftPx);
-      // console.log("d3.json: scaleFactor x axis = " + width / (topRightPx[0] - bottomLeftPx[0]));
-      // console.log("d3.json: scaleFactor y axis = " + height / (-topRightPx[1] + bottomLeftPx[1]));
-      // console.log("d3.json: scaleFactor = " + scaleFactor);
     });
 
 
@@ -821,11 +809,13 @@ function changeVisualizations(bundeslandObject) {
  *  draws radar-chart completly new
  */
 function drawRadarChart(){
-
   /*  update grid for absolute-values*/
   changeGridAbsoluteValues();
 
   RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard, blobIndizes);
+
+  /*    draw germany map colors     */
+  defineGermanStateColor();
 }
 
 
@@ -870,6 +860,15 @@ function defineGermanStateColor(){
     statesArray[i].style.fill = fill;
 
     // copy percentage value if this is current bundesland
+    if(i_bundes == i_bundesland){
+        console.log(valuePercent_Between_1_And_100)
+        console.log(bundeslaenderNames[i_bundes])
+        let leftValue = valuePercent_Between_1_And_100;
+        if(leftValue < 3) leftValue = 3;
+        if(95 < leftValue) leftValue = 95;
+
+        document.getElementById("color-legend-bar").style.left = leftValue +"%"
+    }
 
     // console.log("axis[" + i_axis + "]"
     //       +" reviewboard[" + i_review + "]: " 
