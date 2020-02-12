@@ -737,7 +737,7 @@ function changeGridAbsoluteValues(){
     let valuesCurrent =  [];
     let valuesMax = [];
 
-    // valuesMax = calcMaxValues();    // new ###
+    // console.log(calcMaxValues());    // new ###
 
     for(let i=0; i< lenRadarAxis; i++){
       valuesMax.push(csvSupportData[i].valueAbsolute[i_reviewBoard]);
@@ -812,11 +812,10 @@ function drawRadarChart(){
   /*  update grid for absolute-values*/
   changeGridAbsoluteValues();
 
-
   /*    draw germany map colors     */
   defineGermanStateColor();
 
-  
+
   RadarChart(".radarChart", data,radarChartOptions, i_bundesland, i_reviewBoard, blobIndizes);
 
 }
@@ -852,8 +851,6 @@ function defineGermanStateColor(){
     let bundeslandName = statesArray[i].__data__.properties.NAME_1;
     let i_bundes = mapBundeslandToNumber(bundeslandName);
 
-    console.log("hi")
-
     /* calc color */
     const valuePercent_Between_0_And_1    =  data[i_bundes][k_axis].value[k_review];
     const valuePercent_Between_1_And_100  =  valuePercent_Between_0_And_1 * 100;
@@ -874,7 +871,6 @@ function defineGermanStateColor(){
         document.getElementById("color-legend-bar").style.left = leftValue +"%"
     }
     else if(i_bundesland < 0){
-        console.log("hu")
         document.getElementById("color-legend-bar").style.left =  "0%"
     }
 
@@ -932,26 +928,33 @@ function clearVisualisation(){
 
 /*  
  *  calcs max-values for each category/axis
- *
+ *  DOES NOT WORK
  */
 function calcMaxValues(){
-    let maxArr = []
-    /*  calculate verticalle    */
+
+    /*  DOES NOT WORK */
+
+    let maxArr = [];
+
+    /*  for each axis   */
     for(let i_ax=0; i_ax < lenRadarAxis; i_ax++){
+        /*  for each bundesland */
         let maxValue = 0;
-        for(let i_bundes=0; i_bundes<lenBundeslaenderNames; i_bundes++ ){
-            let currentValue = csvData[i_bundes][i_ax].valueAbsolute[i_reviewBoard];
+        for(let i_bun=0; i_bun < lenBundeslaenderNames; i_bun++){
+
+            let currentValue = csvData[i_bun][i_ax].valueAbsolute[i_reviewBoard];
             if(maxValue < currentValue){
                 maxValue = currentValue;
             }
         }
+
         maxArr.push(maxValue);
     }
-
-    console.log(data)
-    console.log("maxArr")
-    console.log(maxArr)
+    
     return maxArr;
+   
+    
+    
 }
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

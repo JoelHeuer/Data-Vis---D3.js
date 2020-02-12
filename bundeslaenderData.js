@@ -110,6 +110,14 @@ const csvKeys_valueAbsolute = [
     CSV_KEYS.AVG_FUNDATION_DUR
 ];
 
+
+const csvKeys_valueAbsoluteMax = [
+    CSV_KEYS.BIP,
+    CSV_KEYS.MAX_INSTITUTION_ID,
+    CSV_KEYS.MAX_PROJECT_ID,
+    CSV_KEYS.MAX_SUBJECT_AREA,
+    CSV_KEYS.MAX_AVG_FUNDATION_DUR
+];
 /*==============================[EXPORT_D3_all.csv]=============================*/
 /**
  *  variable for imported csv-Data (EXPORT_D3_all.csv)
@@ -140,7 +148,7 @@ function initSupportData(csv){
         // for each entry in newArray
         for(let i_keys =0; i_keys < lenNewArray; i_keys++){
             newArray[i_keys].value[i_reviewBoard]           = +csv[i_reviewBoard][csvKeys_value[i_keys]];
-            newArray[i_keys].valueAbsolute[i_reviewBoard]   = +csv[i_reviewBoard][csvKeys_valueAbsolute[i_keys]];
+            newArray[i_keys].valueAbsolute[i_reviewBoard]   = +csv[i_reviewBoard][csvKeys_valueAbsoluteMax[i_keys]];
 
         }
     }
