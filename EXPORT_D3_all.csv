@@ -1,0 +1,7 @@
+bundesland,review_board,bip,max_bip,%bip,#subject_area,max_subject_area,%subject_area,#institution_id,max_institution_id,%institution_id,#project_id,max_project_id,%project_id,average_fundation,max_average_fundation,%average_fundation
+Alle,Alle,66633266,14656729,1.0,23,23,1.0,469,81,1.0,1335,343,1.0,4.5063670411985015,5.104956268221574,1.0
+Alle,Informatik,66633266,14656729,1.0,9,9,1.0,222,37,1.0,393,76,1.0,4.030534351145038,4.75,1.0
+Alle,Mathematik,66633266,14656729,1.0,1,1,1.0,160,33,1.0,426,172,1.0,5.44131455399061,6.277777777777778,1.0
+Alle,Psychologie,66633266,14656729,1.0,5,5,1.0,150,34,1.0,263,75,1.0,4.083650190114068,7.0,1.0
+Alle,Theologie,66633266,14656729,1.0,3,3,1.0,70,12,1.0,100,15,1.0,3.96,7.0,1.0
+Alle,Sprachwissenschaften,66633266,14656729,1.0,5,5,1.0,102,21,1.0,180,55,1.0,4.455555555555556,12.0,1.0

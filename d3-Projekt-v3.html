@@ -779,8 +779,10 @@ function changeGridAbsoluteValues(){
   if(0 <= i_bundesland && i_bundesland <= bundeslaenderNames.length){
 
       /*  calc max & current values  */
+    let valuesCurrent =  [];
     let valuesMax = [];
-    let valuesCurrent = [];
+
+    // valuesMax = calcMaxValues();    // new ###
 
     for(let i=0; i< lenRadarAxis; i++){
       valuesMax.push(csvSupportData[i].valueAbsolute[i_reviewBoard]);
@@ -887,10 +889,10 @@ function defineGermanStateColor(){
 
   for(let i=0; i<statesArray.length; i++){
     let bundeslandName = statesArray[i].__data__.properties.NAME_1;
-    let i_bundesland = mapBundeslandToNumber(bundeslandName);
-
+    let i_bundes = mapBundeslandToNumber(bundeslandName);
+    
     /* calc color */
-    const valuePercent_Between_0_And_1    =  data[i_bundesland][k_axis].value[k_review];
+    const valuePercent_Between_0_And_1    =  data[i_bundes][k_axis].value[k_review];
     const valuePercent_Between_1_And_100  =  valuePercent_Between_0_And_1 * 100;
     
     const valueRed = COLOR_LIMITS.RED.min - ( (COLOR_LIMITS.RED.difference/100) * valuePercent_Between_1_And_100 );
@@ -899,6 +901,9 @@ function defineGermanStateColor(){
 
     let fill = "rgb("+valueRed+","+valueGreen+","+valueBlue+")"
     statesArray[i].style.fill = fill;
+
+    // copy percentage value if this is current bundesland
+
     // console.log("axis[" + i_axis + "]"
     //       +" reviewboard[" + i_review + "]: " 
     //       +" 0-1 - " + valuePercent_Between_0_And_1 + ", "
@@ -923,7 +928,7 @@ function mapBundeslandToNumber(name){
 
 
 /*
- *  sets
+ *  set inital state of joels-visu
  */
 function clearVisualisation(){
 
@@ -949,6 +954,33 @@ function clearVisualisation(){
     drawRadarChart();
 }
 
+
+
+/*  
+ *  calcs max-values for each category/axis
+ *
+ */
+// function calcMaxValues(){
+//     let maxArr = []
+//     /*  calculate verticalle    */
+//     for(let i_ax=0; i_ax < lenRadarAxis; i_ax++){
+//         let maxValue = 0;
+//         for(let i_bundes=0; i_bundes<lenBundeslaenderNames; i_bundes++ ){
+//             let currentValue = csvData[i_bundes][i_ax].valueAbsolute[i_reviewBoard];
+//             if(maxValue < currentValue){
+//                 maxValue = currentValue;
+//             }
+//         }
+//         maxArr.push(maxValue);
+//     }
+
+//     console.log(data)
+//     console.log("maxArr")
+//     console.log(maxArr)
+//     return maxArr;
+// }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 
 </script>
 </body>
