@@ -155,11 +155,11 @@
                                     <div class="flex-item filter-wrapper">
                                         <div class="filter-name">Kategorie</div>
                                         <div class="filter">
-                                            <div class="flex-item-kategorie active">BIP</div>
-                                            <div class="flex-item-kategorie">Institute</div>
-                                            <div class="flex-item-kategorie">Projekte</div>
-                                            <div class="flex-item-kategorie">Spezialisierungen</div>
-                                            <div class="flex-item-kategorie">Finanzierungsrate</div>
+                                            <div class="flex-item-kategorie active" id="axis-bip"       onclick="onclickHandlerAxis(this.id, 0)">BIP</div>
+                                            <div class="flex-item-kategorie"        id="axis-institute" onclick="onclickHandlerAxis(this.id, 1)">Institute</div>
+                                            <div class="flex-item-kategorie"        id="axis-projekte"  onclick="onclickHandlerAxis(this.id, 2)">Projekte</div>
+                                            <div class="flex-item-kategorie"        id="axis-spezialisierungen"  onclick="onclickHandlerAxis(this.id, 3)">Spezialisierungen</div>
+                                            <div class="flex-item-kategorie"        id="axis-finanzierungsrate"  onclick="onclickHandlerAxis(this.id, 4)">Finanzierungsrate</div>
                                             <div class="flex-item-kategorie">F</div>
                                         </div>
                                     </div>
@@ -549,14 +549,18 @@
           k = 1.75;
         focused = d;
 
+        /*  [NEW]   [EXPLANATION]   
+         *  Access text of current german state
+         */
         g.append("text")
           .text(name)
           .attr("x", x)
           .attr("y", y)
           .style("text-anchor", "middle")
-          .style("font-size", "8px")
+          .style("font-size", "15px")
           .style("stroke-width", "0px")
           .style("fill", "black")
+          .style("font-weight", "600")
           .style("font-family", "Times New Roman")
           .on("click", defocusStateObject);
       }
@@ -656,7 +660,7 @@ function onclickHandlerAxis(id,index){
 }
 
 function toggleAxisActive(id){
-  let activeObj = document.getElementsByClassName("flex-child-axis active");
+  let activeObj = document.getElementsByClassName("flex-item-kategorie active");
   
   for(let i=0; i < activeObj.length; i++){
     activeObj[i].classList.remove("active")
