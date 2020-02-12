@@ -1,0 +1,190 @@
+:root {
+    --blob-color-focus: red;
+    --blob-color-comparision: blue;
+
+    --germany-map-low-color: green;
+    --germany-map-high-color: green;
+    --germany-map-color: green;
+
+    --text-color-normal: black;
+    
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /*==================================================================*/
+  /*=========================[JOEL'S VISUALISATION]===================*/ 
+  /*==================================================================*/
+  
+.visualisation-joel{
+    border: 3px solid green;
+
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-family: monospace;
+    color: var(--text-color-normal);
+    width: 100vw;
+}
+
+/**************************************************/
+/**************************************************/
+/*********************[HEADER]*********************/
+/**************************************************/
+/**************************************************/
+
+
+.visualisation-joel > .header{
+    border: 2px solid red;
+
+    position: relative;
+    text-align: center;
+}
+
+.visualisation-joel > .header > h1{
+    margin-top: 3%;
+    text-decoration: underline;
+}
+.visualisation-joel > .header > h2{
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+
+/**************************************************/
+/**************************************************/
+/*******************[MAIN-CONTENT]*****************/
+/**************************************************/
+/**************************************************/
+
+.visualisation-joel > .main-content{
+    border: 2px solid blueviolet;
+
+    position: relative;
+    width: 100%;
+    margin-top: 3%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.visualisation-joel > .main-content > .flex-item{
+    border: 1px solid black;
+    flex-shrink: 1;
+    flex-basis: 100%;   /*  all items have same width   */
+
+    text-align: center;
+}
+
+.visualisation-joel > .main-content >.flex-item > .subheader{
+    text-decoration: underline;
+    font-weight: 600;
+    margin-top: 3%;
+    margin-bottom: 3%;
+
+}
+
+.visualisation-joel > .main-content fieldset{
+    border: none;
+}
+.visualisation-joel > .main-content input{
+    display: block;
+}
+
+
+.visualisation-joel > .main-content input[type="radio"]{
+    margin-top: 9.5%;
+}
+
+.visualisation-joel > .main-content input[type="radio"]:nth-child(1){
+    margin-top: 4%;
+}
+
+.visualisation-joel > .main-content input[type="checkbox"]{
+    margin-top: 5.3%;
+}
+
+.visualisation-joel > .main-content input[type="checkbox"]:nth-child(1){
+    margin-top: 3%;
+}
+
+
+
+/**************************************************/
+/********************[INTERACTION]*****************/
+/**************************************************/
+
+.visualisation-joel > .main-content > .interaction{
+
+}
+
+.visualisation-joel > .main-content > .interaction > .container-bundeslaender{
+    border: 1px solid black;
+}
+
+    /********************[RADIO-AND-CHECKBOX]*****************/
+
+.visualisation-joel > .main-content > .interaction > .container-bundeslaender >.radio-and-checkbox{
+    border: 1px solid black;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.visualisation-joel > .main-content > .interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item{
+    border: 1px solid black;
+    flex-shrink: 1;
+
+    text-align: center;
+}
+
+
+.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item > .col-title{
+}
+
+
+.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.bundesland{
+    flex-grow: 2;
+}
+.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.radio > .col-title{
+    color: white;
+    background-color: var(--blob-color-focus);
+}
+.interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.checkbox > .col-title{
+    color: white;
+    background-color: var(--blob-color-comparision);
+}
+
+
+.interaction  > .container-bundeslaender > .radio-and-checkbox ol {
+    text-align: left;
+}
+
+
+    /*************************[Filter]***********************/
+    
+
+
+/**************************************************/
+/********************[VISUALISATION]***************/
+/**************************************************/
+
+.visualisation-joel > .main-content > .visualisation{
+
+}
+
+
+/**************************************************/
+/******************[ABSOLUTE-DATA]*****************/
+/**************************************************/
+
+.visualisation-joel > .main-content > .absolute-data{
+
+}

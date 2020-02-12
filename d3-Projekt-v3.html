@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- General -->
+  <title>DataViz: D3-Projekt</title>
+  <meta charset="utf-8">
+  
+  <!-- JSON-File for german states-->
+  <script type="text/javascript" src="setupBundeslaenderData.js"></script>
+
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+
+  <!-- Radar-Chart -->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+  <!-- Google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <script src="./radarChart.js"></script>
+
+  <!--  bundeslaenderData (calculated with gepris-data) -->
+  <script type="text/javascript" src="bundeslaenderData.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="d3-projekt-v3.css">
+
+</head>
+
+<body>
+    <div class="visualisation-joel">
+
+        <!--    HEADER  -->
+        <div class="header">
+            <h1 class="visualisation-header">Bundeslandweiter Vergleich deutscher Forschung</h1>
+            <h2 clas="visualisation-header">GERPIS-Daten vom Zeitraum 1991-2018</h2>
+        </div>
+
+        <!--    MAIN    -->
+        <div class="main-content">
+
+            <!--    INTERAKTION  -->
+            <div class="flex-item interaction">
+                <div class="subheader">Interaktion</div>
+
+                <!-- Bundeslaender (Radio & Checkbox)-->
+                <div class="container-bundeslaender">
+                    <h3>Bundesländer</h3>
+                    <div class="radio-and-checkbox">
+                        <div class="flex-item bundesland">
+                            <div class="col-title">Bundesland</div>
+                            <ol>
+                                <li>Keins</li>
+                                <li>Mecklenburg-Vorpommern</li>
+                                <li>Schleswig-Holstein</li>
+                                <li>Niedersachsen</li>
+                                <li>Bremen</li>
+
+                                <li>Sachsen-Anhalt</li>
+                                <li>Brandenburg</li>
+                                <li>Berlin</li>
+                                <li>Nordrhein-Westfalen</li>
+
+                                <li>Hessen</li>
+                                <li>Thüringen</li>
+                                <li>Sachsen</li>
+                                <li>Rheinland-Pfalz</li>
+                                
+                                <li>Saarland</li>
+                                <li>Baden-Württemberg</li>
+                                <li>Bayern</li>
+                                <li>Hamburg</li>
+                            </ol>
+                        </div>
+                        <div class="flex-item radio">
+                            <div class="col-title">Fokus</div>
+                            <form>
+                                <fieldset>
+                                    <input type="radio" name="blob-focus">
+
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                    <input type="radio" name="blob-focus">
+                                <fieldset>
+                            </form>
+                        </div>
+                        <div class="flex-item checkbox">
+                            <div class="col-title">Vergleich</div>
+                            <form>
+                                <fieldset>
+                                    <input type="checkbox" name="blob-comparision">
+
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+                                    <input type="checkbox" name="blob-comparision">
+
+                                </fieldset>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Filter-->
+                <div class="container-filter">
+                    
+                </div>
+
+            </div>
+
+            <!--    VISUALISIERUNG  -->
+            <div class="flex-item visualisation">
+                <div class="subheader">Visualisierung</div>
+            </div>
+
+            <!--    ABSOLUTE DATA  -->
+            <div class="flex-item absolute-data">
+                <div class="subheader">Absolute Daten</div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

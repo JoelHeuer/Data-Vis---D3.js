@@ -180,6 +180,7 @@ body {
 .radio-buttons > form > fieldset > div{
   position: relative;
   text-align: left;
+  color: red;
 }
 
 /********************************************/
