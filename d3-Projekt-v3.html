@@ -34,8 +34,8 @@
 
         <!--    HEADER  -->
         <div class="header">
-            <h1 class="visualisation-header">Bundeslandweiter Vergleich deutscher Forschung</h1>
-            <h2 clas="visualisation-header">GERPIS-Daten vom Zeitraum 1991-2018</h2>
+            <h1 class="visualisation-header">Statewide comparison of german research</h1>
+            <h2 clas="visualisation-header">GERPIS data for the period 1991-2018</h2>
         </div>
 
         <!--    MAIN    -->
@@ -43,13 +43,13 @@
 
             <!--    INTERAKTION  -->
             <div class="flex-item interaction">
-                <div class="subheader">[INTERAKTION]</div>
+                <div class="subheader">[INTERACTION]</div>
 
                 <div class="flex-container">
 
                     <!-- Bundeslaender (Radio & Checkbox)-->
                     <div class="container-bundeslaender">
-                        <h3>Auswahl des Bundeslands</h3>
+                        <h3>Select a state</h3>
                         <div class="flex-container">
                             <div class="radio-and-checkbox">
                                 <!-- col 1 Namen-->
@@ -154,27 +154,27 @@
 
                                     <!-- Filter Kategorie -->
                                     <div class="flex-item filter-wrapper">
-                                        <div class="filter-name">Kategorie</div>
+                                        <div class="filter-name">category</div>
                                         <div class="filter">
-                                            <div class="flex-item-kategorie active" id="axis-bip"       onclick="onclickHandlerAxis(this.id, 0)">BIP</div>
-                                            <div class="flex-item-kategorie"        id="axis-institute" onclick="onclickHandlerAxis(this.id, 1)">Institute</div>
-                                            <div class="flex-item-kategorie"        id="axis-projekte"  onclick="onclickHandlerAxis(this.id, 2)">Projekte</div>
-                                            <div class="flex-item-kategorie"        id="axis-spezialisierungen"  onclick="onclickHandlerAxis(this.id, 3)">Spezialisierungen</div>
-                                            <div class="flex-item-kategorie"        id="axis-finanzierungsrate"  onclick="onclickHandlerAxis(this.id, 4)">Finanzierungsrate</div>
+                                            <div class="flex-item-kategorie active" id="axis-bip"       onclick="onclickHandlerAxis(this.id, 0)">GDP</div>
+                                            <div class="flex-item-kategorie"        id="axis-institute" onclick="onclickHandlerAxis(this.id, 1)">institutions</div>
+                                            <div class="flex-item-kategorie"        id="axis-projekte"  onclick="onclickHandlerAxis(this.id, 2)">projects</div>
+                                            <div class="flex-item-kategorie"        id="axis-spezialisierungen"  onclick="onclickHandlerAxis(this.id, 3)">subjects</div>
+                                            <div class="flex-item-kategorie"        id="axis-finanzierungsrate"  onclick="onclickHandlerAxis(this.id, 4)">funding duration</div>
                                             <div class="flex-item-kategorie">F</div>
                                         </div>
                                     </div>
 
                                     <!-- Filter Fach -->
                                     <div class="flex-item filter-wrapper">
-                                        <div class="filter-name">Fach</div>
+                                        <div class="filter-name">review-board</div>
                                         <div class="filter">
-                                            <div class="flex-item-fach active"  id="rb-alle"                    onclick="onclickHandlerReviewBoard(this.id, 0)">Alle</div>
-                                            <div class="flex-item-fach"         id="rb-informatik"              onclick="onclickHandlerReviewBoard(this.id, 1)">Informatik</div>
-                                            <div class="flex-item-fach"         id="rb-mathematik"              onclick="onclickHandlerReviewBoard(this.id, 2)">Mathematik</div>
-                                            <div class="flex-item-fach"         id="rb-psychologie"             onclick="onclickHandlerReviewBoard(this.id, 3)">Psychologie</div>
-                                            <div class="flex-item-fach"         id="rb-theologie"               onclick="onclickHandlerReviewBoard(this.id, 4)">Theologie</div>
-                                            <div class="flex-item-fach"         id="rb-sprachwissenschaften"    onclick="onclickHandlerReviewBoard(this.id, 5)">Sprachwissenschaften</div>
+                                            <div class="flex-item-fach active"  id="rb-alle"                    onclick="onclickHandlerReviewBoard(this.id, 0)">all</div>
+                                            <div class="flex-item-fach"         id="rb-informatik"              onclick="onclickHandlerReviewBoard(this.id, 1)">computer science</div>
+                                            <div class="flex-item-fach"         id="rb-mathematik"              onclick="onclickHandlerReviewBoard(this.id, 2)">maths</div>
+                                            <div class="flex-item-fach"         id="rb-psychologie"             onclick="onclickHandlerReviewBoard(this.id, 3)">psychology</div>
+                                            <div class="flex-item-fach"         id="rb-theologie"               onclick="onclickHandlerReviewBoard(this.id, 4)">theology</div>
+                                            <div class="flex-item-fach"         id="rb-sprachwissenschaften"    onclick="onclickHandlerReviewBoard(this.id, 5)">linguistics</div>
                                         </div>
                                     </div>
                                 
@@ -189,35 +189,35 @@
                 <!--    ABSOLUTE DATA  -->
                 <div class="container-absolute-data">
                     <div class="flex-item absolute-data">
-                        <div class="subheader">[ABSOLUTE DATEN]</div>
+                        <div class="subheader">[ABSOLUTE DATA]</div>
                         
                         <div class="flex-container">
                             <!-- DISPLAY: Absolute values -->
                             <div class="grid-container">
 
-                                <div class="grid-item header" id="absolute-value-col-header-1">Achse</div>
-                                <div class="grid-item header" id="absolute-value-col-header-2">Max-Wert (100%)</div>
-                                <div class="grid-item header focus" id="absolute-value-col-header-3">Bundeslandname</div>  
+                                <div class="grid-item header" id="absolute-value-col-header-1">axis</div>
+                                <div class="grid-item header" id="absolute-value-col-header-2">max. value (100%)</div>
+                                <div class="grid-item header focus" id="absolute-value-col-header-3">State</div>  
                                 
-                                <div class="grid-item"  id="absolute-value-row-header-BIP">BIP in €</div>
-                                <div class="grid-item"  id="absolute-value-BIP-max">0</div>
-                                <div class="grid-item focus"  id="absolute-value-BIP-current">0</div>  
+                                <div class="grid-item"  id="absolute-value-row-header-GDP">GDP in €</div>
+                                <div class="grid-item"  id="absolute-value-GDP-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-GDP-current">0</div>  
 
-                                <div class="grid-item"  id="absolute-value-row-header-Institute">#Institute</div>
-                                <div class="grid-item"  id="absolute-value-Institute-max">0</div>
-                                <div class="grid-item focus"  id="absolute-value-Institute-current">0</div>  
+                                <div class="grid-item"  id="absolute-value-row-header-institutions">#institutions</div>
+                                <div class="grid-item"  id="absolute-value-institutions-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-institutions-current">0</div>  
 
-                                <div class="grid-item"  id="absolute-value-row-header-Projekte">#Projekte</div>
-                                <div class="grid-item"  id="absolute-value-Projekte-max">0</div>
-                                <div class="grid-item focus"  id="absolute-value-Projekte-current">0</div> 
+                                <div class="grid-item"  id="absolute-value-row-header-projects">#projects</div>
+                                <div class="grid-item"  id="absolute-value-projects-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-projects-current">0</div> 
 
-                                <div class="grid-item"  id="absolute-value-row-header-Spezialisierungen">#Spezialisierungen</div>
-                                <div class="grid-item"  id="absolute-value-Spezialisierungen-max">0</div>
-                                <div class="grid-item focus"  id="absolute-value-Spezialisierungen-current">0</div> 
+                                <div class="grid-item"  id="absolute-value-row-header-subject-areas">#subject-areas</div>
+                                <div class="grid-item"  id="absolute-value-subject-areas-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-subject-areas-current">0</div> 
 
-                                <div class="grid-item"  id="absolute-value-row-header-Finanzierungsrate">Finanzierungsrate</div>
-                                <div class="grid-item"  id="absolute-value-Finanzierungsrate-max">0</div>
-                                <div class="grid-item focus"  id="absolute-value-Finanzierungsrate-current">0</div> 
+                                <div class="grid-item"  id="absolute-value-row-header-funding-duration">Øfunding-duration</div>
+                                <div class="grid-item"  id="absolute-value-funding-duration-max">0</div>
+                                <div class="grid-item focus"  id="absolute-value-funding-duration-current">0</div> 
 
                             </div>
                         </div>
@@ -228,17 +228,17 @@
 
             <!--    VISUALISIERUNG  -->
             <div class="flex-item visualisation">
-                <div class="subheader">[VISUALISIERUNGEN]</div>
+                <div class="subheader">[VISUALISATION]</div>
 
                 <!-- GERMANY MAP    -->
                 <div class="flex-container map">
                     <div class="flex-child">
-                        <div class="title">Interaktive Deutschlandkarte</div>
+                        <div class="title">interactive germany map</div>
                         <div class="germanyMap"></div>
                         <div class="color-legend">
                             <div class="wrapper">
-                                <div class="start">Wenig</div>
-                                <div class="end">Viel</div>
+                                <div class="start">low</div>
+                                <div class="end">high</div>
                             </div>
                         </div>
     
@@ -250,13 +250,13 @@
                 <!-- RADAR CHART   -->
                 <div class="flex-container radar">
                     <div class="flex-child">
-                        <div class="title">Radardiagramm für relative Daten</div>
+                        <div class="title">radarchart (relative data)</div>
                         <div class="radarChart"></div>
                         <div class="color-legend">
                             <div class="focus">
-                                <div>Fokussiertes Bundesland</div>
+                                <div>focused state</div>
                             </div>
-                            <div class="comparision">Verglichende Bundesländer</div>
+                            <div class="comparision">compared states</div>
                         </div>
 
                     </div>
@@ -779,7 +779,7 @@ function changeGridAbsoluteValues(){
     }
 
     /*  change bundeslandname */
-    document.getElementById("absolute-value-col-header-3").innerHTML = "Bundesland"
+    document.getElementById("absolute-value-col-header-3").innerHTML = "state"
   }
 
 

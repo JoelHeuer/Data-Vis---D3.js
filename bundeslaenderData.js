@@ -52,11 +52,11 @@ const lenReviewBoards = reviewBoards.length;
 
 /*  Strings for radar-chart axis-labels */
 const RADAR_AXIS_LABELS = {
-    BIP                 :   "BIP",
-    INSTITUTE           :   "Institute",
-    PROJEKTE            :   "Projekte",
-    SPEZIALISIERUNG     :   "Spezialisierungen",
-    FINANZIERUNGSDAUER  :   "Finanzierungsrate"
+    BIP                 :   "GDP",
+    INSTITUTE           :   "institutions",
+    PROJEKTE            :   "projects",
+    SPEZIALISIERUNG     :   "subject-areas",
+    FINANZIERUNGSDAUER  :   "funding-duration"
 }
 
 const radarAxis = [
