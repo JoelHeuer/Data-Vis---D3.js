@@ -1,6 +1,6 @@
 :root {
-    --blob-color-focus: red;
-    --blob-color-comparision: blue;
+    --blob-color-focus: #FE0101;
+    --blob-color-comparision: #000;
 
     --germany-map-low-color: rgb(107, 225, 255);
     --germany-map-high-color: rgb(0, 116, 145);

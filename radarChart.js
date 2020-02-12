@@ -295,7 +295,11 @@ function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard, bl
 		.attr("cx", function(d,i){ return rScale(d.value[i_reviewBoard]) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("cy", function(d,i){ return rScale(d.value[i_reviewBoard]) * Math.sin(angleSlice*i - Math.PI/2); })
 		.style("fill", function(d,i,j) {
-			return j==i_bundesland ? "#FE0101" : "#000";
+			/*	[NEW]	[EXPLANATION]
+			 *	
+			 *	Manipulate axis-points of all blobs
+			 */
+			return mapBundeslandToNumber(d.name) == i_bundesland ? cfg.blobAreaColorBlack : cfg.blobAreaColorRed;
 		})
 		.style("fill-opacity", function(d,i, j){
 			return j==i_bundesland ? 1 : 0.2;

@@ -591,6 +591,8 @@
     }
 
 
+    clearVisualisation();
+
   }, 1000); // wait 1s till csv-data is loaded
 
 /**********************************************************************************************/
@@ -747,14 +749,14 @@ function onclickHandlerCheckbox(checkbox){
     }
 
     // uncheck all other checkboxes
-    uncheckAllCheckboxex();
+    uncheckAllCheckboxes();
   }
   /*  update radardiagramm  */
   drawRadarChart();
 
 }
 
-function uncheckAllCheckboxex(){
+function uncheckAllCheckboxes(){
   let len = checkboxObjects.length;
   for(let i=0; i<len; i++){
     checkboxObjects[i].checked = false;
@@ -919,6 +921,33 @@ function mapBundeslandToNumber(name){
   return -1;
 }
 
+
+/*
+ *  sets
+ */
+function clearVisualisation(){
+
+    console.log("hi")
+    i_axis = 0;
+    i_bundesland = -1;
+    i_reviewBoard = 0;
+
+    /*  uncheck radio-button    */
+    updateCheckedRadioButton(bundeslaenderNames[i_bundesland]);
+
+    /*  uncheck checkbox        */
+    uncheckAllCheckboxes();
+
+    /*  remove .active class in filters */
+    let id = "rb-alle";
+    toggleReviewBoardActive(id);
+    id ="axis-bip"
+    toggleAxisActive(id);
+
+
+    defineGermanStateColor();
+    drawRadarChart();
+}
 
 
 </script>
