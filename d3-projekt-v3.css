@@ -1,9 +1,9 @@
 :root {
-    --blob-color-focus: #FE0101;
+    --blob-color-focus:rgba(222,0,0,0.8 );
     --blob-color-comparision: #000;
 
-    --germany-map-low-color: rgb(107, 225, 255);
-    --germany-map-high-color: rgb(0, 116, 145);
+    --germany-map-low-color: rgb(123, 185, 220);
+    --germany-map-high-color: rgb(0, 68, 170);
     --germany-map-color: rgb(33, 144, 172);
 
     --text-color-normal: #000000;
@@ -26,7 +26,7 @@
 .visualisation-joel{
     font-size: 15px;
     letter-spacing: 1px;
-    font-family: monospace;
+    font-family: "Lato", sans-sarif;
     color: var(--text-color-normal);
     width: 100vw;
 }
@@ -248,8 +248,7 @@
     font-weight: normal;
     opacity: 0.85;
     color:  var(--text-color-white);
-    transform: all 0.5s ease;
-
+    transition: all 0.3s ease;
   }
 
   
@@ -257,7 +256,7 @@
     font-weight: bold;
     color: var(--text-color-normal);
     opacity: 1;
-    transform: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .subcontainer-filter > .filter-wrapper > .filter > .flex-item-kategorie:last-child{
@@ -275,13 +274,13 @@
     font-weight: normal;
     opacity: 0.85;
     color:  var(--text-color-white);
-    transform: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 .subcontainer-filter > .filter-wrapper > .filter > .flex-item-fach.active{
     font-weight: bold;
     color: var(--text-color-normal);
     opacity: 1;
-    transform: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 
@@ -395,19 +394,10 @@
     float: left;
 }
 .visualisation > .flex-container.map > .flex-child > .color-legend > .wrapper > .end{
+    color: var(--text-color-white);
     text-align: right;
 }
-        /**********[RADAR-DIAGRAMM]***********/
-/* body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
-    fill: #242424;
-    text-align: center;
-    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
-    cursor: default;
-  } */
-  
+
   .legend {
     font-family: 'Raleway', sans-serif;
     fill: #333333;

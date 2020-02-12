@@ -196,7 +196,7 @@ function RadarChart(id, data, radarChartOptions, i_bundesland, i_reviewBoard, bl
 			 *	choose which entries of data you want to display in radardiagram
 			 *	push them into new array
 			 */ 
-			newData = [];
+			let newData = [];
 
 			for(let k=0; k<blobIndizes.length; k++){
 				if(k == i_bundesland){
