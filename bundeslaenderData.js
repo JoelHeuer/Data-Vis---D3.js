@@ -112,7 +112,7 @@ const csvKeys_valueAbsolute = [
 
 
 const csvKeys_valueAbsoluteMax = [
-    CSV_KEYS.BIP,
+    CSV_KEYS.MAX_BIP,
     CSV_KEYS.MAX_INSTITUTION_ID,
     CSV_KEYS.MAX_PROJECT_ID,
     CSV_KEYS.MAX_SUBJECT_AREA,
