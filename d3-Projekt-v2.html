@@ -29,283 +29,286 @@
 </head>
 
 </body>
+  <div class="visualisation-joel">
+    <h1 class="visualisation-header">Bundeslandweiter Vergleich deutscher Forschung</h1>
+    <h2 clas="visualisation-header">GERPIS-Daten vom Zeitraum 1991-2018</h2>
+    <div class="flex-container-germany-visu">
+    
+      <!-- row 1 -->
+      <div class="flex-child-germany-visu container-germany-map">
 
-  <div class="flex-container-germany-visu">
-  
-    <!-- row 1 -->
-    <div class="flex-child-germany-visu container-germany-map">
-
-      <!-- col 1-->
-      <div class="filter">
-        <!-- Filter: Axis -->
-        <div class="flex-container-axis">
-          <div class="flex-child-axis active" id="axis-bip"         onclick="onclickHandlerAxis(this.id, 0)">BIP</div>
-          <div class="flex-child-axis" id="axis-institute"          onclick="onclickHandlerAxis(this.id, 1)">Institute</div>
-          <div class="flex-child-axis" id="axis-projekte"           onclick="onclickHandlerAxis(this.id, 2)">Projekte</div>
-          <div class="flex-child-axis" id="axis-spezialisierungen"  onclick="onclickHandlerAxis(this.id, 3)">Spezialisierungen</div>
-          <div class="flex-child-axis" id="axis-finanzierungsrate"  onclick="onclickHandlerAxis(this.id, 4)">Finanzierungsrate</div>
+        <!-- col 1-->
+        <div class="filter">
+          <!-- Filter: Axis -->
+          <div class="flex-container-axis">
+            <div class="flex-child-axis active" id="axis-bip"         onclick="onclickHandlerAxis(this.id, 0)">BIP</div>
+            <div class="flex-child-axis" id="axis-institute"          onclick="onclickHandlerAxis(this.id, 1)">Institute</div>
+            <div class="flex-child-axis" id="axis-projekte"           onclick="onclickHandlerAxis(this.id, 2)">Projekte</div>
+            <div class="flex-child-axis" id="axis-spezialisierungen"  onclick="onclickHandlerAxis(this.id, 3)">Spezialisierungen</div>
+            <div class="flex-child-axis" id="axis-finanzierungsrate"  onclick="onclickHandlerAxis(this.id, 4)">Finanzierungsrate</div>
+          </div>
         </div>
-      </div>
 
-      <!-- col 2-->
-      <div class="visualisation">
-        <!-- Visu: germany-map-->
-        <div class="germanyMap"></div>
-      </div>
+        <!-- col 2-->
+        <div class="visualisation">
+          <!-- Visu: germany-map-->
+          <div class="germanyMap"></div>
+        </div>
 
-      <!-- col 3-->
-      <div class="radio-buttons">
-        <!-- Radio-Buttons: Bundeslaender-->
-        <form>
-          <fieldset>
-            <div>
-              <input type="radio" id="radio-Keins" name="BundeslandGermanyMap" value="Keins" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Keins">Keins</label> 
-            </div>
+        <!-- col 3-->
+        <div class="radio-buttons">
+          <!-- Radio-Buttons: Bundeslaender-->
+          <form>
+            <fieldset>
+              <div>
+                <input type="radio" id="radio-Keins" name="BundeslandGermanyMap" value="Keins" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Keins">Keins</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Mecklenburg-Vorpommern" name="BundeslandGermanyMap" value="Mecklenburg-Vorpommern" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Mecklenburg-Vorpommern" name="BundeslandGermanyMap" value="Mecklenburg-Vorpommern" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Schleswig-Holstein" name="BundeslandGermanyMap" value="Schleswig-Holstein" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Schleswig-Holstein">Schleswig-Holstein</label> 
-            </div>
-            
-            <div>
-              <input type="radio" id="radio-Niedersachsen" name="BundeslandGermanyMap" value="Niedersachsen" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Niedersachsen">Niedersachsen</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Schleswig-Holstein" name="BundeslandGermanyMap" value="Schleswig-Holstein" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Schleswig-Holstein">Schleswig-Holstein</label> 
+              </div>
               
-            <div>
-              <input type="radio" id="radio-Bremen" name="BundeslandGermanyMap" value="Bremen" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Bremen">Bremen</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Niedersachsen" name="BundeslandGermanyMap" value="Niedersachsen" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Niedersachsen">Niedersachsen</label> 
+              </div>
+                
+              <div>
+                <input type="radio" id="radio-Bremen" name="BundeslandGermanyMap" value="Bremen" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Bremen">Bremen</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Sachsen-Anhalt" name="BundeslandGermanyMap" value="Sachsen-Anhalt" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Sachsen-Anhalt">Sachsen-Anhalt</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Sachsen-Anhalt" name="BundeslandGermanyMap" value="Sachsen-Anhalt" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Sachsen-Anhalt">Sachsen-Anhalt</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Brandenburg" name="BundeslandGermanyMap" value="Brandenburg" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Brandenburg">Brandenburg</label> 
-            </div>
-              
-            <div>
-              <input type="radio" id="radio-Berlin" name="BundeslandGermanyMap" value="Berlin" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Berlin">Berlin</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Brandenburg" name="BundeslandGermanyMap" value="Brandenburg" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Brandenburg">Brandenburg</label> 
+              </div>
+                
+              <div>
+                <input type="radio" id="radio-Berlin" name="BundeslandGermanyMap" value="Berlin" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Berlin">Berlin</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Nordrhein-Westfalen" name="BundeslandGermanyMap" value="Nordrhein-Westfalen" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Nordrhein-Westfalen">Nordrhein-Westfalen</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Nordrhein-Westfalen" name="BundeslandGermanyMap" value="Nordrhein-Westfalen" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Nordrhein-Westfalen">Nordrhein-Westfalen</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Hessen" name="BundeslandGermanyMap" value="Hessen" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Hessen">Hessen</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Hessen" name="BundeslandGermanyMap" value="Hessen" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Hessen">Hessen</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Thüringen" name="BundeslandGermanyMap" value="Thüringen" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Thüringen">Thüringen</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Thüringen" name="BundeslandGermanyMap" value="Thüringen" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Thüringen">Thüringen</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Sachsen" name="BundeslandGermanyMap" value="Sachsen" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Sachsen">Sachsen</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Sachsen" name="BundeslandGermanyMap" value="Sachsen" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Sachsen">Sachsen</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Rheinland-Pfalz" name="BundeslandGermanyMap" value="Rheinland-Pfalz" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Rheinland-Pfalz">Rheinland-Pfalz</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Rheinland-Pfalz" name="BundeslandGermanyMap" value="Rheinland-Pfalz" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Rheinland-Pfalz">Rheinland-Pfalz</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Saarland" name="BundeslandGermanyMap" value="Saarland" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Saarland">Saarland</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Saarland" name="BundeslandGermanyMap" value="Saarland" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Saarland">Saarland</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Baden-Württemberg" name="BundeslandGermanyMap" value="Baden-Württemberg" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Baden-Württemberg">Baden-Württemberg</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Baden-Württemberg" name="BundeslandGermanyMap" value="Baden-Württemberg" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Baden-Württemberg">Baden-Württemberg</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Bayern" name="BundeslandGermanyMap" value="Bayern" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Bayern">Bayern</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Bayern" name="BundeslandGermanyMap" value="Bayern" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Bayern">Bayern</label> 
+              </div>
 
-            <div>
-              <input type="radio" id="radio-Hamburg" name="BundeslandGermanyMap" value="Hamburg" onclick="onclickHandlerRadioButton(this)">
-              <label for="radio-Hamburg">Hamburg</label> 
-            </div>
+              <div>
+                <input type="radio" id="radio-Hamburg" name="BundeslandGermanyMap" value="Hamburg" onclick="onclickHandlerRadioButton(this)">
+                <label for="radio-Hamburg">Hamburg</label> 
+              </div>
 
-          </fieldset>
-        </form>
-
-      </div>
-    </div>
-
-    <!-- row 2 -->
-    <div class="flex-child-germany-visu container-radar-chart">
-      
-      <!-- col 1-->
-      <div class="filter">
-        <!-- Filter: Axis -->
-        <div class="flex-container-review-board">
-          <div class="flex-child-review-board active" id="rb-alle"            onclick="onclickHandlerReviewBoard(this.id, 0)">Alle</div>
-          <div class="flex-child-review-board" id="rb-informatik"             onclick="onclickHandlerReviewBoard(this.id, 1)"> Informatik</div>
-          <div class="flex-child-review-board" id="rb-mathematik"             onclick="onclickHandlerReviewBoard(this.id, 2)">Mathematik</div>
-          <div class="flex-child-review-board" id="rb-psychologie"            onclick="onclickHandlerReviewBoard(this.id, 3)">Psychologie</div>
-          <div class="flex-child-review-board" id="rb-theologie"              onclick="onclickHandlerReviewBoard(this.id, 4)">Theologie</div>
-          <div class="flex-child-review-board" id="rb-sprachwissenschaften"   onclick="onclickHandlerReviewBoard(this.id, 5)">Sprachwissenschaften</div>
-        </div>
-
-        <!-- DISPLAY: Absolute values -->
-        <div class="grid-container-absolute-values">
-
-          <div class="grid-item-absolute-values header" id="absolute-value-col-header-1">Achse</div>
-          <div class="grid-item-absolute-values header" id="absolute-value-col-header-2">Max-Wert (100%)</div>
-          <div class="grid-item-absolute-values header" id="absolute-value-col-header-3">Bundeslandname</div>  
-          
-          <div class="grid-item-absolute-values"  id="absolute-value-row-header-BIP">BIP in €</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-BIP-max">0</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-BIP-current">0</div>  
-
-          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Institute">#Institute</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Institute-max">0</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Institute-current">0</div>  
-
-          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Projekte">#Projekte</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Projekte-max">0</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Projekte-current">0</div> 
-
-          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Spezialisierungen">#Spezialisierungen</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Spezialisierungen-max">0</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Spezialisierungen-current">0</div> 
-
-          <div class="grid-item-absolute-values"  id="absolute-value-row-header-Finanzierungsrate">Finanzierungsrate</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Finanzierungsrate-max">0</div>
-          <div class="grid-item-absolute-values"  id="absolute-value-Finanzierungsrate-current">0</div> 
+            </fieldset>
+          </form>
 
         </div>
       </div>
-      
-      <!-- col 2-->
-      <div class="visualisation">
-        <!-- Visu: radar-chart-->
-        <div class="radarChart"></div>
-      </div>
-      
-      <!-- col 3-->
-      <div class="checkbox-buttons">
-        <!-- CHECKBOX: Bundeslaender  -->
-        <form>
-          <fieldset>
 
-            <div>
-              <input type="checkbox" id="checkbox-Keins" name="BundeslandRadarBlobs" value="Keins" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Keins">Keins</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Mecklenburg-Vorpommern" name="BundeslandRadarBlobs" value="Mecklenburg-Vorpommern" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Schleswig-Holstein" name="BundeslandRadarBlobs" value="Schleswig-Holstein" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Schleswig-Holstein">Schleswig-Holstein</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Niedersachsen" name="BundeslandRadarBlobs" value="Niedersachsen" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Niedersachsen">Niedersachsen</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Bremen" name="BundeslandRadarBlobs" value="Bremen" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Bremen">Bremen</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Sachsen-Anhalt" name="BundeslandRadarBlobs" value="Sachsen-Anhalt" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Sachsen-Anhalt">Sachsen-Anhalt</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Brandenburg" name="BundeslandRadarBlobs" value="Brandenburg" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Brandenburg">Brandenburg</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Berlin" name="BundeslandRadarBlobs" value="Berlin" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Berlin">Berlin</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Nordrhein-Westfalen" name="BundeslandRadarBlobs" value="Nordrhein-Westfalen" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Nordrhein-Westfalen">Nordrhein-Westfalen</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Hessen" name="BundeslandRadarBlobs" value="Hessen" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Hessen">Hessen</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Thüringen" name="BundeslandRadarBlobs" value="Thüringen" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Thüringen">Thüringen</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Sachsen" name="BundeslandRadarBlobs" value="Sachsen" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Sachsen">Sachsen</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Rheinland-Pfalz" name="BundeslandRadarBlobs" value="Rheinland-Pfalz" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Rheinland-Pfalz">Rheinland-Pfalz</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Saarland" name="BundeslandRadarBlobs" value="Saarland" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Saarland">Saarland</label>
-            </div>
-
-
-            <div>
-              <input type="checkbox" id="checkbox-Baden-Württemberg" name="BundeslandRadarBlobs" value="Baden-Württemberg" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Baden-Württemberg">Baden-Württemberg</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Bayern" name="BundeslandRadarBlobs" value="Bayern" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Bayern">Bayern</label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="checkbox-Hamburg" name="BundeslandRadarBlobs" value="Hamburg" onclick="onclickHandlerCheckbox(this)">
-              <label for="checkbox-Hamburg">Hamburg</label>
-            </div>
-
-          </fieldset>
-        </form>
+      <!-- row 2 -->
+      <div class="flex-child-germany-visu container-radar-chart">
         
-      </div>  
-      
-    </div>
+        <!-- col 1-->
+        <div class="filter">
+          <!-- Filter: Axis -->
+          <div class="flex-container-review-board">
+            <div class="flex-child-review-board active" id="rb-alle"            onclick="onclickHandlerReviewBoard(this.id, 0)">Alle</div>
+            <div class="flex-child-review-board" id="rb-informatik"             onclick="onclickHandlerReviewBoard(this.id, 1)"> Informatik</div>
+            <div class="flex-child-review-board" id="rb-mathematik"             onclick="onclickHandlerReviewBoard(this.id, 2)">Mathematik</div>
+            <div class="flex-child-review-board" id="rb-psychologie"            onclick="onclickHandlerReviewBoard(this.id, 3)">Psychologie</div>
+            <div class="flex-child-review-board" id="rb-theologie"              onclick="onclickHandlerReviewBoard(this.id, 4)">Theologie</div>
+            <div class="flex-child-review-board" id="rb-sprachwissenschaften"   onclick="onclickHandlerReviewBoard(this.id, 5)">Sprachwissenschaften</div>
+          </div>
 
-  </div>
+          <!-- DISPLAY: Absolute values -->
+          <div class="grid-container-absolute-values">
+
+            <div class="grid-item-absolute-values header" id="absolute-value-col-header-1">Achse</div>
+            <div class="grid-item-absolute-values header" id="absolute-value-col-header-2">Max-Wert (100%)</div>
+            <div class="grid-item-absolute-values header" id="absolute-value-col-header-3">Bundeslandname</div>  
+            
+            <div class="grid-item-absolute-values"  id="absolute-value-row-header-BIP">BIP in €</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-BIP-max">0</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-BIP-current">0</div>  
+
+            <div class="grid-item-absolute-values"  id="absolute-value-row-header-Institute">#Institute</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Institute-max">0</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Institute-current">0</div>  
+
+            <div class="grid-item-absolute-values"  id="absolute-value-row-header-Projekte">#Projekte</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Projekte-max">0</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Projekte-current">0</div> 
+
+            <div class="grid-item-absolute-values"  id="absolute-value-row-header-Spezialisierungen">#Spezialisierungen</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Spezialisierungen-max">0</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Spezialisierungen-current">0</div> 
+
+            <div class="grid-item-absolute-values"  id="absolute-value-row-header-Finanzierungsrate">Finanzierungsrate</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Finanzierungsrate-max">0</div>
+            <div class="grid-item-absolute-values"  id="absolute-value-Finanzierungsrate-current">0</div> 
+
+          </div>
+        </div>
+        
+        <!-- col 2-->
+        <div class="visualisation">
+          <!-- Visu: radar-chart-->
+          <div class="radarChart"></div>
+        </div>
+        
+        <!-- col 3-->
+        <div class="checkbox-buttons">
+          <!-- CHECKBOX: Bundeslaender  -->
+          <form>
+            <fieldset>
+
+              <div>
+                <input type="checkbox" id="checkbox-Keins" name="BundeslandRadarBlobs" value="Keins" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Keins">Keins</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Mecklenburg-Vorpommern" name="BundeslandRadarBlobs" value="Mecklenburg-Vorpommern" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Schleswig-Holstein" name="BundeslandRadarBlobs" value="Schleswig-Holstein" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Schleswig-Holstein">Schleswig-Holstein</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Niedersachsen" name="BundeslandRadarBlobs" value="Niedersachsen" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Niedersachsen">Niedersachsen</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Bremen" name="BundeslandRadarBlobs" value="Bremen" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Bremen">Bremen</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Sachsen-Anhalt" name="BundeslandRadarBlobs" value="Sachsen-Anhalt" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Sachsen-Anhalt">Sachsen-Anhalt</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Brandenburg" name="BundeslandRadarBlobs" value="Brandenburg" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Brandenburg">Brandenburg</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Berlin" name="BundeslandRadarBlobs" value="Berlin" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Berlin">Berlin</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Nordrhein-Westfalen" name="BundeslandRadarBlobs" value="Nordrhein-Westfalen" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Nordrhein-Westfalen">Nordrhein-Westfalen</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Hessen" name="BundeslandRadarBlobs" value="Hessen" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Hessen">Hessen</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Thüringen" name="BundeslandRadarBlobs" value="Thüringen" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Thüringen">Thüringen</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Sachsen" name="BundeslandRadarBlobs" value="Sachsen" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Sachsen">Sachsen</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Rheinland-Pfalz" name="BundeslandRadarBlobs" value="Rheinland-Pfalz" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Rheinland-Pfalz">Rheinland-Pfalz</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Saarland" name="BundeslandRadarBlobs" value="Saarland" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Saarland">Saarland</label>
+              </div>
+
+
+              <div>
+                <input type="checkbox" id="checkbox-Baden-Württemberg" name="BundeslandRadarBlobs" value="Baden-Württemberg" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Baden-Württemberg">Baden-Württemberg</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Bayern" name="BundeslandRadarBlobs" value="Bayern" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Bayern">Bayern</label>
+              </div>
+
+              <div>
+                <input type="checkbox" id="checkbox-Hamburg" name="BundeslandRadarBlobs" value="Hamburg" onclick="onclickHandlerCheckbox(this)">
+                <label for="checkbox-Hamburg">Hamburg</label>
+              </div>
+
+            </fieldset>
+          </form>
+          
+        </div>  
+        
+      </div>
+
+    </div>
+</div>
 
 <script>
 

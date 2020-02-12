@@ -4,9 +4,25 @@
   box-sizing: border-box;
 }
 
+/*==================================================================*/
+/*=========================[JOEL'S VISUALISATION]===================*/ 
+/*==================================================================*/
+.visualisation-joel > .visualisation-header{
+  position: relative;
+  color: black;
+}
+
+.visualisation-joel > h1{
+  margin-top: 3%;
+}
+.visualisation-joel > h2{
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
 
 /**************************************************/
-/**********[GERMAN-VISUALISATION (JOEL)]***********/
+/*************[GERMAN-VISUALISATION]***************/
 /**************************************************/
 
 .flex-container-germany-visu{
