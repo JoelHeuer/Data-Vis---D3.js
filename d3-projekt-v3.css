@@ -6,7 +6,8 @@
     --germany-map-high-color: green;
     --germany-map-color: green;
 
-    --text-color-normal: black;
+    --text-color-normal: #000000;
+    --text-color-white:  #FFFFFF;
     
   }
 
@@ -125,6 +126,11 @@
 
 .visualisation-joel > .main-content > .interaction > .container-bundeslaender{
     border: 1px solid black;
+    border-radius: 20px;
+}
+
+.visualisation-joel > .main-content > .interaction > .container-bundeslaender > h3{
+    margin-bottom: 2%;
 }
 
     /********************[RADIO-AND-CHECKBOX]*****************/
@@ -154,11 +160,11 @@
     flex-grow: 2;
 }
 .interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.radio > .col-title{
-    color: white;
+    color: var(--text-color-white);
     background-color: var(--blob-color-focus);
 }
 .interaction  > .container-bundeslaender > .radio-and-checkbox > .flex-item.checkbox > .col-title{
-    color: white;
+    color:  var(--text-color-white);
     background-color: var(--blob-color-comparision);
 }
 
@@ -169,8 +175,83 @@
 
 
     /*************************[Filter]***********************/
-    
+.visualisation-joel > .main-content > .interaction > .container-filter{
+    border: 1px solid;
+    border-radius: 20px;
+    margin-top: 5%;
+}
 
+.visualisation-joel > .main-content > .interaction > .container-filter > h3{
+    margin-bottom: 2%;
+}
+
+.interaction > .container-filter > .subcontainer-filter{
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+.subcontainer-filter > .flex-item{
+    flex-basis: 100%;
+}
+
+
+.subcontainer-filter > .filter-wrapper{
+    position: relative;
+
+}
+
+/*      Filter Wrapper    */
+.subcontainer-filter > .filter-wrapper > .filter{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/*      Filter Kategorie    */
+.subcontainer-filter > .filter-wrapper > .filter > .flex-item-kategorie{
+    padding: 10px;
+    border: 1px solid white;
+    background-color: var(--germany-map-color);
+    
+  
+    font-weight: normal;
+    opacity: 0.85;
+    color:  var(--text-color-white);
+    transform: all 0.5s ease;
+  }
+  
+.subcontainer-filter > .filter-wrapper > .filter > .flex-item-kategorie.active{
+    font-weight: bold;
+    color: var(--text-color-normal);
+    opacity: 1;
+    transform: all 0.5s ease;
+}
+
+.subcontainer-filter > .filter-wrapper > .filter > .flex-item-kategorie:last-child{
+    color: var(--germany-map-color)
+}
+
+
+/*      Filter Fach    */
+.subcontainer-filter > .filter-wrapper > .filter > .flex-item-fach{
+    padding: 10px;
+    border: 1px solid white;
+    background-color: var(--blob-color-focus);
+    
+  
+    font-weight: normal;
+    opacity: 0.85;
+    color:  var(--text-color-white);
+    transform: all 0.5s ease;
+}
+.subcontainer-filter > .filter-wrapper > .filter > .flex-item-fach.active{
+    font-weight: bold;
+    color: var(--text-color-normal);
+    opacity: 1;
+    transform: all 0.5s ease;
+}
 
 /**************************************************/
 /********************[VISUALISATION]***************/
