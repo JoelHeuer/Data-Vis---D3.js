@@ -15,9 +15,6 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 4. [Designprinzipien](#designprinzipien)
   * [Domain Situation](#design-level1)
   * [Abstraction](#design-level2)
-        * [Taskabstraction] (#design-level2-1)
-        * [Dataabstraction] (#design-level2-2)
-        * [Aggregation & Filter] (#design-level2-3)
 
   3. [Idiom](#design-level3)
   4. [Algorithm](#design-level4)
