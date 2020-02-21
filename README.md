@@ -35,7 +35,7 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 <a name="allgemeines"/>
 
 # Allgemeines
-Diese Visualisierung umfasst zwei Teilvisualisierungen. Der ganze Code ist [hier](https://github.com/arademann) zu finden.
+Diese Visualisierung umfasst zwei Teilvisualisierungen. Der ganze Code ist [hier](https://github.com/arademann/datavis19-3) zu finden.
 
 1. Globale Karte zur Visualisierung von Institutionsbeziehungen
 2. Choroplethen eines Staates und einem dazugehörigen Radar-Diagramm zur Visualisierung der Forschungssituation in diesem Staat und seiner Bundesländer (aufgrund von Zeitmangel wurde nur Deutschland technisch umgesetzt) 
