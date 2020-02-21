@@ -15,9 +15,8 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 4. [Designprinzipien](#designprinzipien)
   * [Domain Situation](#design-level1)
   * [Abstraction](#design-level2)
-
-  3. [Idiom](#design-level3)
-  4. [Algorithm](#design-level4)
+  * [Idiom](#design-level3)
+  * [Algorithm](#design-level4)
 
 5. [Validierung](#validation)
   * [Domain Situation](#validation-level1)
