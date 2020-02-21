@@ -179,15 +179,15 @@ beziehen.
   * **Interaktionstypen** 
      * Filter - Nutzer können nach Kategorie (BIP, Projekte, Institute, Finanzierungsdauer, Forscher) und review-board (Informatik, Mathematik, ...) filtern.
 
-     *Warum?*
+     *Warum?* Hierdurch können Nutzer gezielter nach relevanten Informationen suchen. Eventuell interessieren Nutzern nur Informatikprojekte und besonders die durchschnittliche Finanzierungsdauer von diesem. Solche Abfragen sind durch die Filter möglich und bieten mit Möglichkeiten in der Visualisierung. 
 
      * Radiobuttons und Checkboxen
      
-     *Warum?*
+     *Warum?* Radiobuttons wurden eingefügt, falls Nutzer nicht auf die Karte klicken wollen, z. B. weil sie die Lage eines bestimmten Bundeslandes nicht kennen, sondern nur dessen Name. Checkboxen dagegen sind ein elementares Element, um die Vergleichs-Bundesländer im Radardiagramm zu aktivieren und fördern somit Query (Vergleich). 
 
-     * **Choropleth-Map**
+     * Choropleth-Map
  
-     *Warum?*
+     *Warum?* Durch ein Klickevent auf ein Bundesland wird an dieses herangezoomt. Das erleichtert die Auswahl und fördert Look-Up. 
 
  
 
@@ -208,7 +208,8 @@ beziehen.
         *Warum?* Durch das Herzan- und Wegzoomen, wenn ein Bundesland angeklickt wird, sollen Anwender schneller verstehen, welches Bundesland aktuell im Fokus der Betrachtung steht. 
 
   * **Radar-Diagramm**
-    * Marks: Flächen (2D mark)
+    * Marks: Die Ausschläge auf den einzelnen Axen im Radar-Digramm können als Flächen (2D mark) betrachtet werden
+
     * Visuelle Kanäle
         * **Farbe**: Codiert, ob ein Bundesland im Fokus (rot) oder nur ein Vergleichs-Bundesland (schwarz) ist.
 
@@ -235,7 +236,99 @@ beziehen.
 Interagieren Nutzer danach mit der Visualisierung, werden im JSON nur Indizes verschoben, welche sich alle schnell berechnen lassen.
 Das einzige Problem, das sich daraus ergibt, ist, die Daten zu erweitern. Würde man Daten aus zukünftigen Jahren mit in die Visualisierung einfließen lassen, müsste man den Datengenerierungs-Code in Python geringfügig anpassen und eine neue CSV-Datei erstellen, welche das JavaScript-Script anschließend laden kann.
 
-# Validation (nach Munzner)
-Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen und Studenten beschränkt ist, ist es uns nur möglich Studenten die Visualisierung auszutesten.
 
-... in Arbeit
+
+
+# Validation (nach Munzner)
+Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen und Studenten beschränkt ist, ist es uns nur möglich Studenten die Visualisierung testen und bewerten zu lassen.
+
+### Level 1 - Domain Validation
+
+##### immediate form of validation
+Nutzer wurden während des Gebrauchs der Visualisierung befragt und beobachtet. Sie sollten herausfinden, welchen Zweck die Visualisierung erfüllt. 
+
+Bei der Befragung ergab sich, dass die Studenten den Zweck der einzelnen Teilvisualisierungen gut erfassen konnten. Schwierigkeiten stellten sich jedoch, sobald nach der Verbindung beider Visualisierungen gefragt wurde. Auf Anhieb war dies den Testern nicht ersichtlich. Mithilfe der Überschrift über der Weltkarte konnten Nutzer allerdings zutreffende Vermutungen zum Sinn der Visualisierung aufstellen. 
+
+*Verbesserungen und Gelerntes*
+
+Die Verbindung zwischen beiden Teilvisualisierungen sollte mehr verdeutlicht werden. Beispielweise kann dies umgesetzt werden, indem in der Teilvisualisierung für Staatenansicht noch ein Bezug zum zuletzt angeklickten Institut bereitgestellt wird. Gelernt haben wir vor allem wie viel  Orientierung ein Titel den Nutzern geben kann. Weiter mit Text das Verständnis zu erhöhen wollen wir allerdings nicht. Unser zukünftiges Ziel ist  noch selbsterklärendere Visualisierungen zu entwickeln. 
+
+##### downstream form of validation
+
+*Welche Tools wurden genutzt?*
+
+1. Teilvisualisierung für Institutionsbeziehungen
+  *  **Dropdown**  zur Auswahl von Instituten wurde bei allen Testern mit als erstes genutzt
+  *  **Texteingabe** im Dropdown als Mittel zur Suche 
+  * **Hovern** über Institutionen (visualisiert als Kreise auf der Weltkarte), sodass die Namen dieser angezeigt werden. 
+  
+2. Teilvisualisierung für Staatenansicht
+  * Die **Detailansicht** für Staaten scheint Nutzern zu gefallen. Sie versuchten neben Deutschland auch andere Staaten per Doppelklick anzusprechen, um somit die Ansicht auch dort auszulösen. 
+  * Beide **Filter** (Kategorie und review-board) wurden ausgiebig benutzt. Dabei wurden vor allem Veränderungen in der Choroplethenkarte und im Radar-Diagramm wahrgenommen, zweitrangig in der Tabelle für absolute Daten.
+
+
+*Welche Tools wurden weniger bis gar nicht genutzt?*
+
+1. Teilvisualisierung für Institutionsbeziehungen
+  * **Tabellarisch angeordnete Informationen** zur ausgewählten Institution und seinen Kooperationspartern unter der Weltkarte
+
+
+2. Teilvisualisierung für Staatenansicht
+  * **Radiobuttons und Checkboxen** wurden kaum beachtet. Die Funktionalität im Radardiagramm mehrere Bundesländer zu vergleichen wurde selten wahrgenommen
+  * **Tabelle für absolute Daten** wurde im Vergleich zu den restlichen Komponenten der Visualisierung weniger beachtet. 
+
+*Verbesserungen und Gelerntes*
+
+In Zukunft wollen wir unsere Visualisierungen mit weniger Elementen füllen, sondern kompakter halten. Für alle textbasierten Komponenten wie z. B. Tabellen sollten verstärkte Gestaltungen angewandt werden, um den Bezug zu Visualisierungen herzustellen (linking). 
+
+### Level 2 - Abstraction Validation 
+
+Es soll herausgefunden werden, ob die Visualisierung samt seinem Funktionsumfang der eigentlich Zielsetzung (Hypothesenbildung) gerecht wird.
+
+##### immediate form of validation
+Bei der Testung durch Studenten wurden glücklicherweise Hypothesen aufgestellt, warum manche Institutionen mit anderen zusammenarbeiten. Da die aktuelle Version der Visualisierung  die Detailsansicht nur für Deutschland bereitstellt, wurden dementsprechend auch nur deutsche Institutionen betrachtet. 
+
+##### downstream form of validation
+Aufgrund von Komplexität nicht durchgeführt.
+
+### Level 3 - Idiom Validation
+Manche Designentscheidungen haben zur optimalen Wissensvermittlung beigetragen, andere wiederum nicht. 
+
+##### immediate form of validation
+
+*Designentscheidungen, die der Vermittlung dienlich waren*
+
+1. Teilvisualisierung für Institutionsbeziehungen
+ 
+  * **Weltkarte** wurde von Nutzern als perfektes Mittel für die Visualisierung zwischen Institutionen bezeichnet, ein z. B. ein Network keine Informationen über die geografische Lage verraten hätte. Nutzer waren allerdings sehr interessiert an der Lage in der Weltkarte.
+ *  **Farbkanal** um Beziehungen zwischen Institutionen mithilfe von Linien anzuzeigen war besonders effektiv. Nutzer verschoben die Position in der Weltkarte je nach Linie, die sie verfolgten. 
+ *  **Farbkanal** für Institutionen, die als Kreise dargestellt wurden, war verständlich. Nutzer verstanden, dass komplett schwarz ausgemalte Kreise die ausgewählte Institution und nicht ausgemalte Kreise die Institutionen darstellen, mit dem das ausgewählte zusammengearbeitet hat. 
+ 
+2. Teilvisualisierung für Staatenansicht
+
+  * **Dashboard-Ansicht** wurde nutzerfreundlich wahrgenommen, weil dadurch *"nerviges Scrollen"* (Zitat) vermieden wird und Nutzer alle Veränderungen mitverfolgen können.  
+  * **Farbkanal** der Choroplethenkarte in Verbindung mit der Farblegende und der Anzeige für das Bundesland in welchem Bereich sich das ausgewählte Bundesland in der Farblegende befindet, wurde auf Anhieb von Studenten verstanden.
+  *  **Bewegungskanal** in der Choroplethenkarte hat den Nutzern Orientierung gegeben. Laut Testern wurde dadurch die Interaktivität visuell verfolgbar, ähnlich wie bei einer Animation. Außerdem erinnerte es sie nach einer gewissen Zeit für die Analyse der restlichen Veränderungen in der Visualisierung welches Bundesland sie fokussiert hatten. 
+  *  **Farbkanal** im Radar-Diagramm erwies sich als nützlich, um das fokussierte Bundesland von den Vergleichsbundesländern abzugrenzen
+  *  **Größenkanal** im Radar-Diagramm war nach Angaben der Tester besonders unterstützend, um einen konkreten Vergleich zwischen dem aktuell und den später fokussierten Bundesländern ziehen zu können.
+
+*Designentscheidungen, die überarbeitet werden sollten*
+
+1. Teilvisualisierung für Institutionsbeziehungen
+  
+  * **Kein Bewegungskanal** Sobald Nutzer eine Institution über das Dropdown auswählten, waren sie für kurze Zeit verwirrt, weil auf der Weltkarte teilweise keine offensichtliche Veränderung stattgefunden hat. Optimaler wäre es gewesen, wenn wir nach der Auswahl an den Staat/das Land der Institution herangezoomt hätten.  
+
+2. Teilvisualisierung für Staatenansicht
+
+ * **Radiobuttons und Checkboxen** haben keinen zusätzlichen Mehrwert zu Visualisierung beigetragen und sollten entweder entfernt oder überarbeitet werden.
+ * **Farbkanal** mancher Tabellenzeilen und Filter haben Nutzer verwirrt, wobei diese anzeigen sollten, worauf sich die Visualisierungskomponente bezieht (z. B. rot für das fokussierte Bundesland) 
+
+##### downstream form of validation 
+
+Aufgrund von Komplexität nicht durchgeführt.
+
+
+# Verbesserungen und Gelerntes
+
+Durch die Validierung haben wir einige neue Eindrücke über unsere Visualisierung gewonnen. Die ein oder andere Gefahr auf den verschiedenen Leveln (Munzner) konnten wir gut abwenden, andere nicht. Während des Schreibens dieser Dokumentation wurde uns immer klarer, dass alle Ebenen miteinander verbunden sind: Wird ein visueller Kanal von Nutzern gut aufgenommen (Idiom) erhöht das die Verständlichkeit, wodurch Nutzer den Zweck der Visualisierung schneller begreifen können (Domain). 
+Insgesamt haben wir die Macht von visuellen Kanälen aus verschiedenen Perspektiven kennengelernt. Sie können den Nutzer eine enorme Hilfe sein oder eine Gefahr darstellen und zur Verwirrung führen. Bei Interaktionsmöglichkeiten sollte die Visualisierung immer den Schritt der Veränderung verständlich illustrieren. Außerdem muss zu jeder Zeit verständlich sein, worauf der aktuelle Fokus liegt. Größtenteils reagierten Nutzer allerdings sehr positiv und waren auch von der schnellen Antwort des Algorithmus fasziniert. Der Übergang von Overview zu Detail wurde besonders gemocht. Nichtsdestotrotz kann man die Visualisierung ausbessern, wobei hier mehr Zeit für das Projekt und Wissen über D3 notwendig gewesen wäre. 
