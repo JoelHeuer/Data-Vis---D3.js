@@ -29,7 +29,7 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 <a name="entwickler"/>
 
 # Entwickler
-* [Alexander](https://github.com/arademann) (Weltkarte für Institutionsbeziehungen)
+* [Alexander Rademann](https://github.com/arademann) (Weltkarte für Institutionsbeziehungen)
 * [Joel Heuer](https://github.com/JoelHeuer) (Choroplethen-Deutschlandkarte + Radar-Diagramm)
 
 <a name="allgemeines"/>
