@@ -166,7 +166,7 @@ beziehen.
 ##### Data Abstraction
 1. **Gesamtvisualisierung**  
   
-  Stelle wird zum Abschnitt *Data Abstraction* der beiden Teilvisualisierung verlinkt.
+  An dieser Stelle wird zum Abschnitt *Data Abstraction* der beiden Teilvisualisierung verlinkt.
 
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
