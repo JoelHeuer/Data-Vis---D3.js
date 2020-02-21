@@ -294,13 +294,13 @@ Das einzige Problem, das sich daraus ergibt, ist, die Daten zu erweitern. Würde
 
 
 
-<a name="validaiton"/>
+<a name="validation"/>
 
 # Validation (nach Munzner)
 Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen und Studenten beschränkt ist, ist es uns nur möglich Studenten die Visualisierung testen und bewerten zu lassen.
 
 
-<a name="validaiton-level1"/>
+<a name="validation-level1"/>
 
 ### Level 1 - Domain Validation
 
@@ -342,7 +342,7 @@ Die Verbindung zwischen beiden Teilvisualisierungen sollte mehr verdeutlicht wer
 In Zukunft wollen wir unsere Visualisierungen mit weniger Elementen füllen, sondern kompakter halten. Für alle textbasierten Komponenten wie z. B. Tabellen sollten verstärkte Gestaltungen angewandt werden, um den Bezug zu Visualisierungen herzustellen (linking). 
 
 
-<a name="validaiton-level2"/>
+<a name="validation-level2"/>
 
 ### Level 2 - Abstraction Validation 
 
@@ -355,7 +355,7 @@ Bei der Testung durch Studenten wurden glücklicherweise Hypothesen aufgestellt,
 Aufgrund von Komplexität nicht durchgeführt.
 
 
-<a name="validaiton-level3"/>
+<a name="validation-level3"/>
 
 ### Level 3 - Idiom Validation
 Manche Designentscheidungen haben zur optimalen Wissensvermittlung beigetragen, andere wiederum nicht. 
