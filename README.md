@@ -154,7 +154,7 @@ beziehen.
     * **Locate**: Finden eines Bundeslands das in einer Kategorie und/oder Filterung im Vergleich zu anderen Bundesländern am besten abschneidet
         * Mithilfe von Filterung und der Farblegende der Choroplethenkarte besteht die Möglichkeit auf Anhieb das am geringsten/stärksten betroffene Bundesland bezüglich der Häufigkeit einer Kategorie (BIP, #Projekte, ..) zu lokalisieren.
 
-  *  Low-Level - Query 
+  * Low-Level - Query
     * **Vergleich**: Bundesländer, Kategorien (BIP, #Institute, …) und review-boards können verglichen werden
         * Durch den Filter im Interface betrachtet der Algorithmus gezielt nur das wünschenswerte review-board (Informatik, Mathematik, Alle, …). Dadurch sind Filterungen wie „Anzahl von Informatik im review-board Informatik in Berlin“ möglich.
         * Anhand eines ausgewählten Bundeslandes können Kategorien auf dem Radar-Diagramm schnell verglichen werden. 
@@ -215,20 +215,20 @@ beziehen.
     * EXPORT D3 all.csv 
     * EXPORT D3 compressed percentage.csv
 
-    Allen voran *EXPORT D3 compressed percentage.csv* wird für die Visualisierungen genutzt. Diese Datei enthält 16 Bundesländer x 5 review-boards Zeilen. Jede Zeile speichert neben dem Bundesland und der review-board auch relative und absolute numerische Daten für z. B. Projekte, Institute, durchschnittliche Finanzierungsdauer. Genau jener Aufbau der CSV-Datei erspart dem JavaScript-Algorithmus viel Rechenarbeit. Dieser kann nämlich auf Interaktionen in den Visualisierungen mit Indexverschiebungen reagieren und die gewünschten Werte preisgeben.
+       Allen voran *EXPORT D3 compressed percentage.csv* wird für die Visualisierungen genutzt. Diese Datei enthält 16 Bundesländer x 5 review-boards Zeilen. Jede Zeile speichert neben dem Bundesland und der review-board auch relative und absolute numerische Daten für z. B. Projekte, Institute, durchschnittliche Finanzierungsdauer. Genau jener Aufbau der CSV-Datei erspart dem JavaScript-Algorithmus viel Rechenarbeit. Dieser kann nämlich auf Interaktionen in den Visualisierungen mit Indexverschiebungen reagieren und die gewünschten Werte preisgeben.
 
 <a name="design-level3"/>
 
 ### Level 3 - Idiom 
 1. **Gesamtvisualisierung** 
   
- An dieser Stelle wird zum Abschnitt *Idiom* der beiden Teilvisualisierungen verlinkt. 
+     An dieser Stelle wird zum Abschnitt *Idiom* der beiden Teilvisualisierungen verlinkt. 
   * In der Teilvisualisierung für Institutionsbeziehungen wurde unter der Weltkarte eine Information zum Doppelklick-Event eingefügt. Diese soll die Visualisierungsnutzer darauf hinweisen, dass in der Visualisierung **overview-detail** angewandt wird. Somit können Nutzer von der Übersicht (Weltkarte) beim Doppelklick auf einen Staat in das Detail wechseln (Choroplethenkarte). Bislang wurde allerdings nur Deutschland als Detailansicht integriert.
 
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
 
- Die ganze Teilvisualisierung wurde als ein **Dashboard** umgesetzt, sodass alle Komponenten (Filter, Karte, Radar, Tabellen) auf einen Blick erfassbar sind. Das ist insofern sinnvoll, weil sich durch die Interaktionen viele Komponenten auf mehreren visuellen Kanälen und auch inhaltlich ändern. Durch das kompakte Layout müssen Anwender nicht scrollen und können die Veränderungen besser nachvollziehen.
+     Die ganze Teilvisualisierung wurde als ein **Dashboard** umgesetzt, sodass alle Komponenten (Filter, Karte, Radar, Tabellen) auf einen Blick erfassbar sind. Das ist insofern sinnvoll, weil sich durch die Interaktionen viele Komponenten auf mehreren visuellen Kanälen und auch inhaltlich ändern. Durch das kompakte Layout müssen Anwender nicht scrollen und können die Veränderungen besser nachvollziehen.
 
   * **Interaktionstypen** 
      * Filter - Nutzer können nach Kategorie (BIP, Projekte, Institute, Finanzierungsdauer, Forscher) und review-board (Informatik, Mathematik, ...) filtern.
@@ -284,7 +284,7 @@ beziehen.
 ### Level 4 - Algorithm
 1. **Gesamtvisualisierung** 
 
-  An dieser Stelle wird zum Abschnitt *Algorithm* der beiden Teilvisualisierungen verwiesen.
+     An dieser Stelle wird zum Abschnitt *Algorithm* der beiden Teilvisualisierungen verwiesen.
   * Wird die Visualisierung aufgerufen, wird zuerst der Algorithmus von der *Teilvisualisierung für Instutiuonsbeziehungen* ausgeführt. Doppelklickt man ausgehend von der Weltkarte auf einen Staat (Deutschland), wird anschließend der Algorithmus *Teilvisualisierung für Staatenansicht* ausgeführt. 
 
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
