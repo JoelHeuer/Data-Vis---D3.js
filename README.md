@@ -29,13 +29,13 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 <a name="entwickler"/>
 
 # Entwickler
-* [Alexander Rademann](https://github.com/arademann) (Weltkarte für Institutionsbeziehungen)
-* [Joel Heuer](https://github.com/JoelHeuer) (Choroplethen-Deutschlandkarte + Radar-Diagramm)
+* [Alexander Rademann](https://github.com/arademann)(Weltkarte für Institutionsbeziehungen)
+* [Joel Heuer](https://github.com/JoelHeuer)(Choroplethen-Deutschlandkarte + Radar-Diagramm)
 
 <a name="allgemeines"/>
 
 # Allgemeines
-Diese Visualisierung umfasst zwei Teilvisualisierungen. 
+Diese Visualisierung umfasst zwei Teilvisualisierungen. Der ganze Code ist [hier](https://github.com/arademann) zu finden.
 
 1. Globale Karte zur Visualisierung von Institutionsbeziehungen
 2. Choroplethen eines Staates und einem dazugehörigen Radar-Diagramm zur Visualisierung der Forschungssituation in diesem Staat und seiner Bundesländer (aufgrund von Zeitmangel wurde nur Deutschland technisch umgesetzt) 
@@ -45,7 +45,7 @@ Sollten entsprechende Datensätze vorliegen (u. a. BIP von Staaten und deren Bun
 <a name="screencast"/>
 
 ### Screencast
-Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein Screencast bereitgestellt. Damit soll der schnellere Einstieg in die Bedienung der Visualisierung unterstützt werden.
+Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein Screencast bereitgestellt. Damit soll der schnellere Einstieg in die Bedienung der Visualisierung unterstützt werden. Falls der Download über GitHub nicht funktionieren sollte, bitte über die Shell herunterladen.
 
 <a name="quellen"/>
 
