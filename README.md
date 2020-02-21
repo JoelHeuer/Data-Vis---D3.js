@@ -1,10 +1,36 @@
-# Live Code & Syntax (delete me)
-https://www.markdownguide.org/basic-syntax/
-https://markdownlivepreview.com/
+# Projektname
+Analysetool für mögliche Gründe der Zusammenarbeit zwischen Institutionen
+
+# Kurzbeschreibung
+Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur Hypothesenbildung bezüglich der Zusammenarbeit zwischen Institutionen beitragen.
+
+# Gliederung
+1. [Entwickler](#entwickler)
+2. [Allgemeines](#allgemeines)
+  1. [Screencast](#screencast)
+  2. [Quellen](#Quellen)
+  3. [Installation](#installation)
+
+3. [Zweck](#zweck)
+4. [Designprinzipien](#designprinzipien)
+  1. [Domain Situation](#design-level1)
+  2. [Abstraction](#design-level2)
+  3. [Idiom](#design-level3)
+  4. [Algorithm](#design-level4)
+
+5. [Validierung](#validation)
+  1. [Domain Situation](#validation-level1)
+  2. [Abstraction](#validation-level2)
+  3. [Idiom](#validation-level3)
+
+6. [Data Copyright](#copyright)
+
+<a name="entwickler"/>
 
 # Entwickler
 * Alexander (Weltkarte für Institutionsbeziehungen)
 * Joel Heuer (Choroplethen-Deutschlandkarte + Radar-Diagramm)
+
 
 # Allgemeines
 Diese Visualisierung umfasst zwei Teilvisualisierungen. 
