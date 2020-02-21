@@ -155,7 +155,6 @@ beziehen.
         * Mithilfe von Filterung und der Farblegende der Choroplethenkarte besteht die Möglichkeit auf Anhieb das am geringsten/stärksten betroffene Bundesland bezüglich der Häufigkeit einer Kategorie (BIP, #Projekte, ..) zu lokalisieren.
 
   *  Low-Level - Query 
-  
     * **Vergleich**: Bundesländer, Kategorien (BIP, #Institute, …) und review-boards können verglichen werden
         * Durch den Filter im Interface betrachtet der Algorithmus gezielt nur das wünschenswerte review-board (Informatik, Mathematik, Alle, …). Dadurch sind Filterungen wie „Anzahl von Informatik im review-board Informatik in Berlin“ möglich.
         * Anhand eines ausgewählten Bundeslandes können Kategorien auf dem Radar-Diagramm schnell verglichen werden. 
@@ -167,7 +166,7 @@ beziehen.
 ##### Data Abstraction
 1. **Gesamtvisualisierung**  
   
-  An dieser Stelle wird zum Abschnitt *Data Abstraction* der beiden Teilvisualisierung verlinkt.
+    An dieser Stelle wird zum Abschnitt *Data Abstraction* der beiden Teilvisualisierung verlinkt.
 
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
