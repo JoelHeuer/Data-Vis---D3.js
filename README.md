@@ -75,17 +75,17 @@ npm install
 npm start
 ```
 
-Eine Liveversion des Projekts ist online als [Github-Page](https://arademann.github.io/datavis19-3/) zu verfügbar.
+Eine Liveversion des Projekts ist online als [Github-Page](https://arademann.github.io/datavis19-3/) verfügbar.
 
 <a name="Zweck"/>
 
 # Zweck
-* Mithilfe der Weltkarte soll die Visualisierung einen interaktiven Überblick zu globalen Institutionsbeziehungen geben. Fragen wie "Mit welchen in- und ausländischen Instituten hat Institut XY zusammengearbeitet?" können beantwortet werden.
+* Mit Hilfe der Weltkarte soll die Visualisierung einen interaktiven Überblick zu globalen Institutionsbeziehungen geben. Fragen wie "Mit welchen in- und ausländischen Instituten hat Institut XY zusammengearbeitet?" können beantwortet werden.
 
-* Mithilfe der Choroplethenkarte für Deutschland und dem dazugehörigen Radar-Diagramm erhält man nähere Informationen zu diesem Staat und seinen Bundesländern, z. B. Bruttoinlandsprodukt (BIP), #Projekte oder #Institute. Viele dieser Kategorien sind nach review-boards filterbar. Diese Visualisierung kann unabhängig von der Visualisierung für Institutionsbeziehungen Fragen wie "Was ist das Bundesland, welches am meisten Informatikprojekte finanziert hat?" beantworten.
+* Mit Hilfe der Choroplethenkarte für Deutschland und dem dazugehörigen Radar-Diagramm erhält man nähere Informationen zu diesem Staat und seinen Bundesländern, z. B. Bruttoinlandsprodukt (BIP), #Projekte oder #Institute. Viele dieser Kategorien sind nach Review-Boards filterbar. Diese Visualisierung kann unabhängig von der Visualisierung für Institutionsbeziehungen Fragen wie "Was ist das Bundesland, welches am meisten Informatikprojekte finanziert hat?" beantworten.
 
 * Beide Teilvisualisierungen ergänzen sich. In Kombination bieten sie eine ideale Hilfestellung zur Hypothesenbildung durch Analyse der globalen und lokalen Forschungssituation. 
-Zum Beispiel ist es Nutzern der Visualisierung möglich, Hypothesen aufstellen, welche Kriterien für eine ausgewählte Institution relevant sein können (z. B. hohes BIP, hohe #Forscher im Staat/Bundesland), um eine Kooperation mit in- oder ausländischen Institutionen einzugehen.
+Zum Beispiel ist es Nutzern der Visualisierung möglich, Hypothesen aufstellen, welche Kriterien für eine ausgewählte Institution relevant sein können (z. B. hohes BIP, hohe #Forschende im Staat/Bundesland), um eine Kooperation mit in- oder ausländischen Institutionen einzugehen.
 
 
 
@@ -105,21 +105,22 @@ beziehen.
 <a name="design-level1"/>
 
 ### Level 1 - Domain Situation
-1. **Gesamtvisualisierung** 
-  * Forscher und Studenten ... 
+**1. Gesamtvisualisierung** 
+  * Forschende und Studierende, ... 
     * die sich für die möglichen Faktoren von Kooperationen zwischen Institutionen interessieren, um damit Forschung zu betreiben. Fragen wie "Erhöht ein hohes BIP eines Staates die Chance auf ausländische Forschungskooperation?" können beantwortet werden.
     * die sich für die Forschungssituation in einem bestimmten Staat interessieren (bislang nur Deutschland). Fragen unabhängig von den Institutionsbeziehungen können beantwortet werden.
-
-  * Institutionen ...
-    * die ihre internationale und lokale Zusammenarbeit mit anderen Institutionen visualisiert haben möchten. Diese könnten sich fragen, ob sie mehr Forschung mit aus- oder inländischen Partnern zusammenarbeiten.
-    * die, bevor sie Kooperationen mit ausländischen Institutionen eingehen, die Forschungs- und Wirtschaftssituation der jeweiligen Staaten/Bundesländer prüfen wollen. Somit können sich Institutionen und Sponsore vergewissern, ob der Kandidat zur Kooperation gute Bedingungen für die Zusammenarbeit erfüllt.
-  * Staaten und Bundesländer ...
-    * die ihren eigenen Stand in der internationalen und lokalen Forschungssituation analysieren möchten. Anhand der Erkenntnisse könnten diese Staaten den Behörden auf neue Zielsetzungen hinweisen, z. B. verstärkte inländische Zusammenarbeit oder Ausbau von bestimmten review-boards.
-
-
-2. **Teilvisualisierung für Instutiuonsbeziehungen**
-3. **Teilvisualisierung für Staatenansicht (Deutschland)**
-  * Studenten und Forscher, die ...
+  * Institutionen, ...
+    * die, bevor sie Kooperationen mit ausländischen Institutionen eingehen, die Forschungs- und Wirtschaftssituation der jeweiligen Staaten/Bundesländer prüfen wollen. Somit können sich Institutionen und Sponsoren vergewissern, ob Institutionen vorgegebene Bedingungen für die Zusammenarbeit erfüllen.
+  * Staaten und Bundesländer, ...
+    * die ihren eigenen Stand in der internationalen und lokalen Forschungssituation analysieren möchten. Anhand der Erkenntnisse könnten diese Staaten den Behörden auf neue Zielsetzungen hinweisen, z. B. verstärkte inländische Zusammenarbeit oder Ausbau von bestimmten Review-Boards.
+    
+**2. Teilvisualisierung für Instutiuonsbeziehungen**
+  * Institutionen, ...
+    * die ihre internationale und lokale Zusammenarbeit mit anderen Institutionen visualisieren möchten. Diese können sehen, ob sie bei Forschungsprojekten mit aus- oder inländischen Partnern zusammenarbeiten.
+    * die Informationen über Institutionen, mit denen gemeinsame Projekte geführt werden, tabellarisch darstellen wollen.
+    
+**3. Teilvisualisierung für Staatenansicht (Deutschland)**
+  * Forschende und Studierende, ... 
     * eine wissenschaftliche Karriere anstreben und überprüfen wollen in welchem Bundesland viele Institute für ihre Fachrichtungen/Spezialisierung existieren (z. B. „Welches ist das Bundesland mit dem höchsten Auftreten von Instituten bei Linguistik-Projekten?“). 
     * die durchschnittliche Finanzierungsdauer von Projekten in ausgewählten review-boards vergleichen möchten, um die Visualisierung als unterstützende Funktion bei der Auswahl von Universitäten zu nutzen.     
     * die Forschungssituation in Deutschland analysieren wollen und dabei Faktoren wie das BIP berücksichtigen, um z. B. damit weitere Forschung betreiben zu wollen.
@@ -136,7 +137,6 @@ beziehen.
 <a name="design-level2-1"/>
 
 ##### Task Abstraction
-1. **Gesamtvisualisierung** 
   * High-Level - Analyze
     * **Konsumieren (Discover)**
         * Nutzer der Visualisierung können durch die diversen Interaktions- und Filtermöglichkeiten beider Teilvisualisierungen Informationen gewinnen, miteinander in Verbindung setzen und daraus z. B. Hypothesen bilden.
@@ -146,15 +146,11 @@ beziehen.
         * Per Dropdown-Auswahl oder Eingabe kann eine spezifische Institution ausgewählt werden. Nähere Informationen werden hierzu angezeigt (kooperierte Institutionen, Adresse, ...)
         * In der Nahansicht von Staaten (bisher nur Deutschland) kann per Klick ein bestimmtes Bundesland ausgewählt werden. Dazu werden nähere Informationen im Radar-Diagramm und der nebenstehenden Tabelle für absolute Daten angezeigt. 
 
- 
-2. **Teilvisualisierung für Instutiuonsbeziehungen**
-3. **Teilvisualisierung für Staatenansicht (Deutschland)**
-
   * High Level - Analyze
     * **Konsumieren (Discover)**: Zusammenhänge zwischen Kategorien (z. B. BIP und #Projekte) in Bundesländern und ganz Deutschland erkennen.
         * Durch verschiedene Filterung und die Färbung in der Choropleth-Map kann man die Eigenschaften der Bundesländer neu entdecken. Somit erfährt man z. B. umgehend welches Bundesland in Deutschland für Informatikprojekte die meisten Institute ausweist oder welches Bundesland die höchste durchschnittliche Finanzierungsdauer für Theologieprojekte bereitstellt. Neben dieser Information bietet die Tabelle für absolute Daten noch genauere Informationen zu jenem Bundesland und allen Kategorien an.
 
-    * **Präsentieren**: Erkenntnisse zu Bundesländern/Deutschland/review-boards Dritten vorstellen
+    * **Präsentieren**: Erkenntnisse zu Bundesländern/Deutschland/Review-Boards Dritten vorstellen
         * (Un)gefilterte Daten können Dritten je nach Schwerpunkt vorgestellt werden, z. B. Vergleich zwischen Bundesländern, Kategorien oder Filterungen. Die Interaktivität im Interface bietet in Kombinationen mit den Visualisierungen und Tabellen genügend Spielraum. Animationen tragen zum Verständnis bei.
 
   * Mid-Level - Search
@@ -166,7 +162,7 @@ beziehen.
         * Mithilfe von Filterung und der Farblegende der Choroplethenkarte besteht die Möglichkeit auf Anhieb das am geringsten/stärksten betroffene Bundesland bezüglich der Häufigkeit einer Kategorie (BIP, #Projekte, ..) zu lokalisieren.
 
   * Low-Level - Query
-    * **Vergleich**: Bundesländer, Kategorien (BIP, #Institute, …) und review-boards können verglichen werden
+    * **Vergleich**: Bundesländer, Kategorien (BIP, #Institute, …) und Review-Boards können verglichen werden
         * Durch den Filter im Interface betrachtet der Algorithmus gezielt nur das wünschenswerte review-board (Informatik, Mathematik, Alle, …). Dadurch sind Filterungen wie „Anzahl von Informatik im review-board Informatik in Berlin“ möglich.
         * Anhand eines ausgewählten Bundeslandes können Kategorien auf dem Radar-Diagramm schnell verglichen werden. 
         * Anhand einer ausgewählten Kategorie können Bundesländer auf der Choropleth-Map schnell verglichen werden. 
@@ -175,12 +171,8 @@ beziehen.
 <a name="design-level2-2"/>
 
 ##### Data Abstraction
-1. **Gesamtvisualisierung**  
   
     An dieser Stelle wird zum Abschnitt *Data Abstraction* der beiden Teilvisualisierung verlinkt.
-
-2. **Teilvisualisierung für Instutiuonsbeziehungen**
-3. **Teilvisualisierung für Staatenansicht (Deutschland)**
 
   * Datentypen:
     * GEPRIS-Datenquelle: Bis auf die zwei numerischen Daten (ratio) funding_start_year und funding_end_year sind alle Daten nominaler Natur, z. B. Namen und Adressen.
@@ -203,12 +195,22 @@ beziehen.
 <a name="design-level2-3"/>
 
 ##### Aggregation and filtering of data
-1. **Gesamtvisualisierung** 
+**1. Gesamtvisualisierung** 
 
     An dieser Stelle wird zum Abschnitt *Aggregation of data* der beiden Teilvisualisierung verlinkt.
 
-2. **Teilvisualisierung für Instutiuonsbeziehungen**
-3. **Teilvisualisierung für Staatenansicht (Deutschland)**
+**2. Teilvisualisierung für Instutiuonsbeziehungen**
+
+    Die unten genutzten Dateien aus dem GEPRIS-Datensatz wurden gefiltert und in JSON umgewandelt. Für alle Institutionen wurden Geocode-Lookups durchgeführt und die jeweiligen Antworten als <Instiutions-ID>.json gespeichert und anschließend in eine Datei zusammengefasset. Die Berechnung der Institutiosnbeziehungen erfolgte über die Betrachtung gemeinsamer Projekte.    
+
+  * genutzte CSV-Dateien aus GEPRIS-Datensatz
+    * extracted_institution_data.csv
+    * project_institution_relations.csv   
+    
+  * externe Dateien
+    * world_low.geo.json
+
+**3. Teilvisualisierung für Staatenansicht (Deutschland)**
 
      Unten aufgelistete CSV- und externe Dateien wurden sowohl zusammengefasst als auch gefiltert, um komprimierte CSV-Dateien zu erstellen. Die erste Filterung sortierte alle Daten mit einer Adresse aus, die sich nicht in Deutschland befindet. Ausgehend von den übrigen Daten wurde weiter gefiltert: Alle Projekte, die keinen Informatik-, Psychologie-, Sprachwissenschaften-, Mathematik- oder Theologiebezug aufwiesen, wurden entfernt. 
   * genutzte CSV-Dateien aus GEPRIS-Datensatz
@@ -226,23 +228,46 @@ beziehen.
     * EXPORT D3 all.csv 
     * EXPORT D3 compressed percentage.csv
 
-       Allen voran *EXPORT D3 compressed percentage.csv* wird für die Visualisierungen genutzt. Diese Datei enthält 16 Bundesländer x 5 review-boards Zeilen. Jede Zeile speichert neben dem Bundesland und der review-board auch relative und absolute numerische Daten für z. B. Projekte, Institute, durchschnittliche Finanzierungsdauer. Genau jener Aufbau der CSV-Datei erspart dem JavaScript-Algorithmus viel Rechenarbeit. Dieser kann nämlich auf Interaktionen in den Visualisierungen mit Indexverschiebungen reagieren und die gewünschten Werte preisgeben.
+       Allen voran *EXPORT D3 compressed percentage.csv* wird für die Visualisierungen genutzt. Diese Datei enthält 16 Bundesländer x 5 Review-Boards Zeilen. Jede Zeile speichert neben dem Bundesland und der review-board auch relative und absolute numerische Daten für z. B. Projekte, Institute, durchschnittliche Finanzierungsdauer. Genau jener Aufbau der CSV-Datei erspart dem JavaScript-Algorithmus viel Rechenarbeit. Dieser kann nämlich auf Interaktionen in den Visualisierungen mit Indexverschiebungen reagieren und die gewünschten Werte preisgeben.
 
 <a name="design-level3"/>
 
 ### Level 3 - Idiom 
-1. **Gesamtvisualisierung** 
+**1. Gesamtvisualisierung** 
   
      An dieser Stelle wird zum Abschnitt *Idiom* der beiden Teilvisualisierungen verlinkt. 
   * In der Teilvisualisierung für Institutionsbeziehungen wurde unter der Weltkarte eine Information zum Doppelklick-Event eingefügt. Diese soll die Visualisierungsnutzer darauf hinweisen, dass in der Visualisierung **overview-detail** angewandt wird. Somit können Nutzer von der Übersicht (Weltkarte) beim Doppelklick auf einen Staat in das Detail wechseln (Choroplethenkarte). Bislang wurde allerdings nur Deutschland als Detailansicht integriert.
 
-2. **Teilvisualisierung für Instutiuonsbeziehungen**
-3. **Teilvisualisierung für Staatenansicht (Deutschland)**
+**2. Teilvisualisierung für Instutiuonsbeziehungen**
 
-     Die ganze Teilvisualisierung wurde als ein **Dashboard** umgesetzt, sodass alle Komponenten (Filter, Karte, Radar, Tabellen) auf einen Blick erfassbar sind. Das ist insofern sinnvoll, weil sich durch die Interaktionen viele Komponenten auf mehreren visuellen Kanälen und auch inhaltlich ändern. Durch das kompakte Layout müssen Anwender nicht scrollen und können die Veränderungen besser nachvollziehen.
+  * **Institutions-Suche**
+  
+    * Durch das Suchfeld, das bei einem Klick eine alphabetisch sortierte Auflistung der Institutionen anzeigt und mit einer Autovervollständigung ausgestattet ist, lässt sich ein Überblick über alle Institutionen gewinnen und die gewünschte Institution selektieren. 
+    
+  * **Weltkarte**
+  
+    * Die Karte zeichnet alle Länder mit ihren Grenzen und bietet als Navigation Zooming und Panning. Sie zeichnet die Verbindungen zwischen Institutionen graphisch als Verbindungslinien, damit Nutzer ein Gefühl für die globalen Beziehungen erhalten. 
+    
+    * Visuelle Kanäle
+      * **Farbe der Karte**: Für die Farbe der Karte wurde sich für Weiß/Schwarz/Grautönen entschieden (*"Get it right in black and white"*). 
+      
+      * **Farbe der Beziehungen**: Um die Beziehungen von dem Rest der Karte abzuheben, sie jedoch gleichzeitig nicht zu verdecken, wurde ein durchsichtiger Rotton gewählt.
+      
+      * **Füllung der Beziehungen**: Für die Unterscheidung zwischen der ausgewählten Institution und den Institutionen, zu denen sie Verbindungen hat.
+    
+  * **Institutions-Tabellen**
+  
+    * Für die Auflistung aller Informationen über die selektierte und die verbundenen Institutionen.
+    
+       *Warum?* Hierdurch lassen sich Informationen über die Institutionen, wie zum Beispiel die genaue Adresse oder die Kontaktdaten, auf übersichtliche Weise darstellen.
+       Zudem soll auf diese Weise das Problem gelöst werden, dass nicht für alle Institutionen Geodaten vorliegen, weswegen sie nicht auf der Karte eingezeichnet werden können. 
+
+**3. Teilvisualisierung für Staatenansicht (Deutschland)**
+
+Die ganze Teilvisualisierung wurde als ein **Dashboard** umgesetzt, sodass alle Komponenten (Filter, Karte, Radar, Tabellen) auf einen Blick erfassbar sind. Das ist insofern sinnvoll, weil sich durch die Interaktionen viele Komponenten auf mehreren visuellen Kanälen und auch inhaltlich ändern. Durch das kompakte Layout müssen Anwender nicht scrollen und können die Veränderungen besser nachvollziehen.
 
   * **Interaktionstypen** 
-     * Filter - Nutzer können nach Kategorie (BIP, Projekte, Institute, Finanzierungsdauer, Forscher) und review-board (Informatik, Mathematik, ...) filtern.
+     * Filter - Nutzer können nach Kategorie (BIP, Projekte, Institute, Finanzierungsdauer, Froschende) und review-board (Informatik, Mathematik, ...) filtern.
 
         *Warum?* Hierdurch können Nutzer gezielter nach relevanten Informationen suchen. Eventuell interessieren Nutzern nur Informatikprojekte und besonders die durchschnittliche Finanzierungsdauer von diesem. Solche Abfragen sind durch die Filter möglich und bieten mit Möglichkeiten in der Visualisierung. 
 
@@ -284,7 +309,6 @@ beziehen.
 
           *Warum?*  Die einzelnen Kategorien können schnell verglichen werden und es bietet eine einfache Art Korrelationen zu erkennen (z. B. Großer Ausschlag bei BIP → großer Ausschlag bei #Projekte). 
 
-
         * **Form**: Jedes Bundesland hat im Radar durch die verschiedenen Daten ein einzigartiges Aussehen. 
  
           *Warum?*  Durch die Individualität lassen sich Bundesländer besser mit anderen im Radar vergleichen. 
@@ -293,13 +317,17 @@ beziehen.
 <a name="design-level4"/>
 
 ### Level 4 - Algorithm
-1. **Gesamtvisualisierung** 
+**1. Gesamtvisualisierung** 
 
      An dieser Stelle wird zum Abschnitt *Algorithm* der beiden Teilvisualisierungen verwiesen.
   * Wird die Visualisierung aufgerufen, wird zuerst der Algorithmus von der *Teilvisualisierung für Instutiuonsbeziehungen* ausgeführt. Doppelklickt man ausgehend von der Weltkarte auf einen Staat (Deutschland), wird anschließend der Algorithmus *Teilvisualisierung für Staatenansicht* ausgeführt. 
 
-2. **Teilvisualisierung für Instutiuonsbeziehungen**
-3. **Teilvisualisierung für Staatenansicht (Deutschland)**
+**2. Teilvisualisierung für Instutiuonsbeziehungen**
+  * Auf eine Berechnung der Institutionsbeziehungen zur Laufzeit wird verzichtet, da sich diese Berechnung spürbar auf die Geschwindigkeit und das Reaktionsverhalten der Anwendung ausgewirkt hat.
+  * Der Großteil der Daten wurde soweit präpariert, dass zur Laufzeit ein Lookup mit Hilfe der Institutions-ID ausreicht, um an die notwendigen Informationen zu gelangen. Mit diesem Vorgehen konnte unter anderem die Berechnung der Beziehungen zur Laufzeit eingespart werden.
+  * Durch die Nutzung von React werden unnötige Render vermieden. Insbesondere muss dadurch der Großteil der Karte nicht bei jeder Aktualisierung neugezeichnet werden.
+  
+**3. Teilvisualisierung für Staatenansicht (Deutschland)**
   * Durch den zusammengefassten Aufbau der genutzten CSV-Datei ist der Algorithmus sehr schnell. Die CSV-Datei muss nur einmal beim Aufruf der Visualisierung/HTML-Page geladen und in ein JSON algorithmisch umgewandelt werden. 
 Interagieren Nutzer danach mit der Visualisierung, werden im JSON nur Indizes verschoben, welche sich alle schnell berechnen lassen.
 Das einzige Problem, das sich daraus ergibt, ist, die Daten zu erweitern. Würde man Daten aus zukünftigen Jahren mit in die Visualisierung einfließen lassen, müsste man den Datengenerierungs-Code in Python geringfügig anpassen und eine neue CSV-Datei erstellen, welche das JavaScript-Script anschließend laden kann.
@@ -309,7 +337,7 @@ Das einzige Problem, das sich daraus ergibt, ist, die Daten zu erweitern. Würde
 <a name="validation"/>
 
 # Validation (nach Munzner)
-Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen und Studenten beschränkt ist, ist es uns nur möglich Studenten die Visualisierung testen und bewerten zu lassen.
+Da sich unsere Zielgruppe auf Forschende, Staaten, Bundesländer, Institutionen und Studierende beschränkt, ist es uns nur möglich, Studierende die Visualisierung testen und bewerten zu lassen.
 
 
 <a name="validation-level1"/>
@@ -319,7 +347,7 @@ Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen un
 ##### immediate form of validation
 Nutzer wurden während des Gebrauchs der Visualisierung befragt und beobachtet. Sie sollten herausfinden, welchen Zweck die Visualisierung erfüllt. 
 
-Bei der Befragung ergab sich, dass die Studenten den Zweck der einzelnen Teilvisualisierungen gut erfassen konnten. Schwierigkeiten stellten sich jedoch, sobald nach der Verbindung beider Visualisierungen gefragt wurde. Auf Anhieb war dies den Testern nicht ersichtlich. Mithilfe der Überschrift über der Weltkarte konnten Nutzer allerdings zutreffende Vermutungen zum Sinn der Visualisierung aufstellen. 
+Bei der Befragung ergab sich, dass die Studierenden den Zweck der einzelnen Teilvisualisierungen gut erfassen konnten. Schwierigkeiten stellten sich jedoch, sobald nach der Verbindung beider Visualisierungen gefragt wurde. Auf Anhieb war dies den Testern nicht ersichtlich. Mithilfe der Überschrift über der Weltkarte konnten Nutzer allerdings zutreffende Vermutungen zum Sinn der Visualisierung aufstellen. 
 
 *Verbesserungen und Gelerntes*
 
@@ -361,7 +389,7 @@ In Zukunft wollen wir unsere Visualisierungen mit weniger Elementen füllen, son
 Es soll herausgefunden werden, ob die Visualisierung samt seinem Funktionsumfang der eigentlich Zielsetzung (Hypothesenbildung) gerecht wird.
 
 ##### immediate form of validation
-Bei der Testung durch Studenten wurden glücklicherweise Hypothesen aufgestellt, warum manche Institutionen mit anderen zusammenarbeiten. Da die aktuelle Version der Visualisierung  die Detailsansicht nur für Deutschland bereitstellt, wurden dementsprechend auch nur deutsche Institutionen betrachtet. 
+Bei der Testung durch Studierende wurden glücklicherweise Hypothesen aufgestellt, warum manche Institutionen mit anderen zusammenarbeiten. Da die aktuelle Version der Visualisierung  die Detailsansicht nur für Deutschland bereitstellt, wurden dementsprechend auch nur deutsche Institutionen betrachtet. 
 
 ##### downstream form of validation
 Aufgrund von Komplexität nicht durchgeführt.
@@ -385,7 +413,7 @@ Manche Designentscheidungen haben zur optimalen Wissensvermittlung beigetragen, 
 2. Teilvisualisierung für Staatenansicht
 
   * **Dashboard-Ansicht** wurde nutzerfreundlich wahrgenommen, weil dadurch *"nerviges Scrollen"* (Zitat) vermieden wird und Nutzer alle Veränderungen mitverfolgen können.  
-  * **Farbkanal** der Choroplethenkarte in Verbindung mit der Farblegende und der Anzeige für das Bundesland in welchem Bereich sich das ausgewählte Bundesland in der Farblegende befindet, wurde auf Anhieb von Studenten verstanden.
+  * **Farbkanal** der Choroplethenkarte in Verbindung mit der Farblegende und der Anzeige für das Bundesland in welchem Bereich sich das ausgewählte Bundesland in der Farblegende befindet, wurde auf Anhieb von Studierenden verstanden.
   *  **Bewegungskanal** in der Choroplethenkarte hat den Nutzern Orientierung gegeben. Laut Testern wurde dadurch die Interaktivität visuell verfolgbar, ähnlich wie bei einer Animation. Außerdem erinnerte es sie nach einer gewissen Zeit für die Analyse der restlichen Veränderungen in der Visualisierung welches Bundesland sie fokussiert hatten. 
   *  **Farbkanal** im Radar-Diagramm erwies sich als nützlich, um das fokussierte Bundesland von den Vergleichsbundesländern abzugrenzen
   *  **Größenkanal** im Radar-Diagramm war nach Angaben der Tester besonders unterstützend, um einen konkreten Vergleich zwischen dem aktuell und den später fokussierten Bundesländern ziehen zu können.
