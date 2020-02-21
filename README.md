@@ -199,7 +199,7 @@ beziehen.
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
 
- Unten aufgelistete CSV- und externe Dateien wurden sowohl zusammengefasst als auch gefiltert, um komprimierte CSV-Dateien zu erstellen. Die erste Filterung sortierte alle Daten mit einer Adresse aus, die sich nicht in Deutschland befindet. Ausgehend von den übrigen Daten wurde weiter gefiltert: Alle Projekte, die keinen Informatik-, Psychologie-, Sprachwissenschaften-, Mathematik- oder Theologiebezug aufwiesen, wurden entfernt. 
+     Unten aufgelistete CSV- und externe Dateien wurden sowohl zusammengefasst als auch gefiltert, um komprimierte CSV-Dateien zu erstellen. Die erste Filterung sortierte alle Daten mit einer Adresse aus, die sich nicht in Deutschland befindet. Ausgehend von den übrigen Daten wurde weiter gefiltert: Alle Projekte, die keinen Informatik-, Psychologie-, Sprachwissenschaften-, Mathematik- oder Theologiebezug aufwiesen, wurden entfernt. 
   * genutzte CSV-Dateien aus GEPRIS-Datensatz
     * extracted institution data.csv   
     * projects listed on institution detail pages.csv
