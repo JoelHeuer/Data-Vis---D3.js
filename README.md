@@ -155,6 +155,7 @@ beziehen.
         * Mithilfe von Filterung und der Farblegende der Choroplethenkarte besteht die Möglichkeit auf Anhieb das am geringsten/stärksten betroffene Bundesland bezüglich der Häufigkeit einer Kategorie (BIP, #Projekte, ..) zu lokalisieren.
 
   *  Low-Level - Query 
+  
     * **Vergleich**: Bundesländer, Kategorien (BIP, #Institute, …) und review-boards können verglichen werden
         * Durch den Filter im Interface betrachtet der Algorithmus gezielt nur das wünschenswerte review-board (Informatik, Mathematik, Alle, …). Dadurch sind Filterungen wie „Anzahl von Informatik im review-board Informatik in Berlin“ möglich.
         * Anhand eines ausgewählten Bundeslandes können Kategorien auf dem Radar-Diagramm schnell verglichen werden. 
@@ -233,15 +234,15 @@ beziehen.
   * **Interaktionstypen** 
      * Filter - Nutzer können nach Kategorie (BIP, Projekte, Institute, Finanzierungsdauer, Forscher) und review-board (Informatik, Mathematik, ...) filtern.
 
-     *Warum?* Hierdurch können Nutzer gezielter nach relevanten Informationen suchen. Eventuell interessieren Nutzern nur Informatikprojekte und besonders die durchschnittliche Finanzierungsdauer von diesem. Solche Abfragen sind durch die Filter möglich und bieten mit Möglichkeiten in der Visualisierung. 
+        *Warum?* Hierdurch können Nutzer gezielter nach relevanten Informationen suchen. Eventuell interessieren Nutzern nur Informatikprojekte und besonders die durchschnittliche Finanzierungsdauer von diesem. Solche Abfragen sind durch die Filter möglich und bieten mit Möglichkeiten in der Visualisierung. 
 
      * Radiobuttons und Checkboxen
      
-     *Warum?* Radiobuttons wurden eingefügt, falls Nutzer nicht auf die Karte klicken wollen, z. B. weil sie die Lage eines bestimmten Bundeslandes nicht kennen, sondern nur dessen Name. Checkboxen dagegen sind ein elementares Element, um die Vergleichs-Bundesländer im Radardiagramm zu aktivieren und fördern somit Query (Vergleich). 
+        *Warum?* Radiobuttons wurden eingefügt, falls Nutzer nicht auf die Karte klicken wollen, z. B. weil sie die Lage eines bestimmten Bundeslandes nicht kennen, sondern nur dessen Name. Checkboxen dagegen sind ein elementares Element, um die Vergleichs-Bundesländer im Radardiagramm zu aktivieren und fördern somit Query (Vergleich). 
 
      * Choropleth-Map
  
-     *Warum?* Durch ein Klickevent auf ein Bundesland wird an dieses herangezoomt. Das erleichtert die Auswahl und fördert Look-Up. 
+        *Warum?* Durch ein Klickevent auf ein Bundesland wird an dieses herangezoomt. Das erleichtert die Auswahl und fördert Look-Up. 
 
  
 
@@ -251,15 +252,15 @@ beziehen.
 
         * **Farbe**:  Codiert Dichte/Anzahl von ausgewählter Kategorie Die Farblegende mit Anzeige des Standes gibt Nutzer genaue Angabe wie gering/hoch die Dichte/Anzahl ist.
          
-        *Warum?* Wir haben uns für eine Farbcodierung entschieden, um die Bundesländer untereinander zu vergleichen. 
+          *Warum?* Wir haben uns für eine Farbcodierung entschieden, um die Bundesländer untereinander zu vergleichen. 
 
         * **Größe**: Codiert die geografische Größe des Bundeslandes im Verhältnis zu anderen Bundesländern.
 
-        *Warum?* Wir wollten eine Karte, die unserer Zielgruppe bekannt ist. Jeder, der die deutsche Forschungssituation untersuchen möchte, kennt höchstwahrscheinlich auch die gängige Deutschlandkarte. Durch die Verwendung von dieser wird das Verständnis erleichtert.
+          *Warum?* Wir wollten eine Karte, die unserer Zielgruppe bekannt ist. Jeder, der die deutsche Forschungssituation untersuchen möchte, kennt höchstwahrscheinlich auch die gängige Deutschlandkarte. Durch die Verwendung von dieser wird das Verständnis erleichtert.
 
         * **Bewegung**: Codiert den Fokus auf das aktuelle Bundesland. 
 
-        *Warum?* Durch das Herzan- und Wegzoomen, wenn ein Bundesland angeklickt wird, sollen Anwender schneller verstehen, welches Bundesland aktuell im Fokus der Betrachtung steht. 
+          *Warum?* Durch das Herzan- und Wegzoomen, wenn ein Bundesland angeklickt wird, sollen Anwender schneller verstehen, welches Bundesland aktuell im Fokus der Betrachtung steht. 
 
   * **Radar-Diagramm**
     * Marks: Die Ausschläge auf den einzelnen Axen im Radar-Digramm können als Flächen (2D mark) betrachtet werden
@@ -267,16 +268,16 @@ beziehen.
     * Visuelle Kanäle
         * **Farbe**: Codiert, ob ein Bundesland im Fokus (rot) oder nur ein Vergleichs-Bundesland (schwarz) ist.
 
-        *Warum?* Durch die farbliche Unterscheidung wird eine Verbindung zur Auswahl in der interaktiven Deutschlandkarte aufgebaut. Nur eine Fläche im Radar kann zu einem Zeitpunkt rot markiert sein. Gleiches gilt für die Auswahl eines Bundeslandes in der Karte. Außerdem eine Spalte der Tabelle für absolute Daten rot markiert. Durch die Dopplung der Farbe soll untermalen werden, dass diese Daten zusammengehören.
+          *Warum?* Durch die farbliche Unterscheidung wird eine Verbindung zur Auswahl in der interaktiven Deutschlandkarte aufgebaut. Nur eine Fläche im Radar kann zu einem Zeitpunkt rot markiert sein. Gleiches gilt für die Auswahl eines Bundeslandes in der Karte. Außerdem eine Spalte der Tabelle für absolute Daten rot markiert. Durch die Dopplung der Farbe soll untermalen werden, dass diese Daten zusammengehören.
 
         * **Größe**: Codiert einerseits wie gut das fokussierte Bundesland im Vergleich zu den anderen Bundesländern in verschiedenen Kategorien abschneidet und andererseits wie verschiedene Kategorien im fokussierten Bundesland  zueinander im Verhältnis stehen.
 
-        *Warum?*  Die einzelnen Kategorien können schnell verglichen werden und es bietet eine einfache Art Korrelationen zu erkennen (z. B. Großer Ausschlag bei BIP → großer Ausschlag bei #Projekte). 
+          *Warum?*  Die einzelnen Kategorien können schnell verglichen werden und es bietet eine einfache Art Korrelationen zu erkennen (z. B. Großer Ausschlag bei BIP → großer Ausschlag bei #Projekte). 
 
 
         * **Form**: Jedes Bundesland hat im Radar durch die verschiedenen Daten ein einzigartiges Aussehen. 
  
-        *Warum?*  Durch die Individualität lassen sich Bundesländer besser mit anderen im Radar vergleichen. 
+          *Warum?*  Durch die Individualität lassen sich Bundesländer besser mit anderen im Radar vergleichen. 
 
 
 <a name="design-level4"/>
