@@ -7,21 +7,21 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 # Gliederung
 1. [Entwickler](#entwickler)
 2. [Allgemeines](#allgemeines)
-  * [Screencast](#screencast)
-  * [Quellen](#Quellen)
-  * [Installation](#installation)
+   - [Screencast](#screencast)
+   - [Quellen](#Quellen)
+   - [Installation](#installation)
 
 3. [Zweck](#zweck)
 4. [Designprinzipien](#designprinzipien)
-  * [Domain Situation](#design-level1)
-  * [Abstraction](#design-level2)
-  * [Idiom](#design-level3)
-  * [Algorithm](#design-level4)
+   * [Domain Situation](#design-level1)
+   * [Abstraction](#design-level2)
+   * [Idiom](#design-level3)
+   * [Algorithm](#design-level4)
 
 5. [Validierung](#validation)
-  * [Domain Situation](#validation-level1)
-  * [Abstraction](#validation-level2)
-  * [Idiom](#validation-level3)
+   * [Domain Situation](#validation-level1)
+   * [Abstraction](#validation-level2)
+   * [Idiom](#validation-level3)
 
 6. [Verbesserung und Gelerntes](#verbesserungen)
 7. [Data Copyright](#copyright)
@@ -51,11 +51,13 @@ Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein S
 
 ### Quellen
   * Visualisierung für Institutionsbeziehungen
+    * [GeoJSON Weltkarte](https://geojson-maps.ash.ms/)
+    * [Geocoding-API](https://locationiq.com/)
+    * [Visualisierung mit D3](https://www.d3indepth.com/geographic/)
   * Teilvisualisierung für Staatenansicht (Deutschland)
     * CSV-Dateien: 
         * [Geo-JSON-Repository](https://github.com/isellsoap/deutschlandGeoJSON) bzw. [Geo-JSON-File](https://raw.githubusercontent.com/isellsoap/deutschlandGeoJSON/master/2_bundeslaender/3_mittel.geojson)
         * [Bruttoinlandsprodukt von Deutschland](https://www.govdata.de/web/guest/suchen/-/details/vgr-der-lander-entstehungsrechnung-bruttoinlandsproduktzu-marktpreisen-nominal-bundeslander-jah) bzw. [hier](https://www.govdata.de/web/guest/suchen/-/searchresult/q/Bruttoinlandsprodukt+Bundesl%C3%A4nder/s/relevance_desc), bzw. [hier](https://www.govdata.de/web/guest/suchen/) 
-
         * [Postleitzahlen und deutsche Kreise, die einem Bundesland zugeordnet werden](https://www.datendieter.de/item/Postleitzahlen_Liste_Deutschland)
     * D3-Projekte: 
          * [Deutschlandkarte](http://bl.ocks.org/oscar6echo/4423770)
@@ -64,7 +66,16 @@ Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein S
 <a name="installation"/>
 
 ### Installation
+Um das Projekt lokal zu starten, müssen folgende Befehle in einer Shell ausgeführt werden:
 
+```shell script
+git clone --recursive https://github.com/arademann/datavis19-3.git
+cd datavis19-3/web/
+npm install
+npm start
+```
+
+Eine Liveversion des Projekts ist online als [Github-Page](https://arademann.github.io/datavis19-3/) zu verfügbar.
 
 <a name="Zweck"/>
 
