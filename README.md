@@ -17,6 +17,18 @@ Sollten entsprechende Datensätze vorliegen (u. a. BIP von Staaten und deren Bun
 ### Screencast
 Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein Screencast bereitgestellt. Damit sollen der schnellere Einstieg in die Bedienung der Visualisierung unterstützt werden.
 
+### Quellen
+  * Visualisierung für Institutionsbeziehungen
+  * Teilvisualisierung für Staatenansicht (Deutschland)
+    * CSV-Dateien: 
+        * [Geo-JSON-Repository](https://github.com/isellsoap/deutschlandGeoJSON) bzw. [Geo-JSON-File](https://raw.githubusercontent.com/isellsoap/deutschlandGeoJSON/master/2_bundeslaender/3_mittel.geojson)
+        * [Bruttoinlandsprodukt von Deutschland](https://www.govdata.de/web/guest/suchen/-/details/vgr-der-lander-entstehungsrechnung-bruttoinlandsproduktzu-marktpreisen-nominal-bundeslander-jah) bzw. [hier](https://www.govdata.de/web/guest/suchen/-/searchresult/q/Bruttoinlandsprodukt+Bundesl%C3%A4nder/s/relevance_desc), bzw. [hier](https://www.govdata.de/web/guest/suchen/) 
+
+        * [Postleitzahlen und deutsche Kreise, die einem Bundesland zugeordnet werden](https://www.datendieter.de/item/Postleitzahlen_Liste_Deutschland)
+    * D3-Projekte: 
+         * [Deutschlandkarte](http://bl.ocks.org/oscar6echo/4423770)
+         * [Radar-Diagramm](https://gist.github.com/nbremer/21746a9668ffdf6d8242#file-radarchart-js)
+
 # Zweck
 * Mithilfe der Weltkarte soll die Visualisierung einen interaktiven Überblick zu globalen Institutionsbeziehungen geben. Fragen wie "Mit welchen in- und ausländischen Instituten hat Institut XY zusammengearbeitet?" können beantwortet werden.
 
@@ -126,13 +138,15 @@ beziehen.
     * Geometrie
         * Die gesamte Deutschlandkarte ist durch die Formen der einzelnen Bundesländer ein Objekt. Wir entschieden uns für eine Karte, um unserer Zielgruppe das Verständnis zu erleichtern und so Tasks wie LookUp zu vereinfachen. 
 
-##### Aggregation of data
+##### Aggregation and filtering of data
 1. **Gesamtvisualisierung** 
 
  An dieser Stelle wird zum Abschnitt *Aggregation of data* der beiden Teilvisualisierung verlinkt.
 
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
+
+ Unten aufgelistete CSV- und externe Dateien wurden sowohl zusammengefasst als auch gefiltert, um komprimierte CSV-Dateien zu erstellen. Die erste Filterung sortierte alle Daten mit einer Adresse aus, die sich nicht in Deutschland befindet. Ausgehend von den übrigen Daten wurde weiter gefiltert: Alle Projekte, die keinen Informatik-, Psychologie-, Sprachwissenschaften-, Mathematik- oder Theologiebezug aufwiesen, wurden entfernt. 
   * genutzte CSV-Dateien aus GEPRIS-Datensatz
     * extracted institution data.csv   
     * projects listed on institution detail pages.csv
@@ -141,9 +155,8 @@ beziehen.
     * subject areas.csv
 
   * externen CSV-Dateien
-    * Bruttoinlandsprodukt für deutsche Bundesländer (mehrere Quellen, falls Link sich aktualisiert), [1](https://www.govdata.de/web/guest/suchen/-/details/vgr-der-lander-entstehungsrechnung-bruttoinlandsproduktzu-marktpreisen-nominal-bundeslander-jah), [2](https://www.govdata.de/web/guest/suchen/-/searchresult/q/Bruttoinlandsprodukt+Bundesl%C3%A4nder/s/relevance_desc),  [3](https://www.govdata.de/web/guest/suchen/) 
-
-    * [Postleitzahlen und deutsche Kreise, die einem Bundesland zugeordnet werden](https://www.datendieter.de/item/Postleitzahlen_Liste_Deutschland)
+    * Bruttoinlandsprodukt für deutsche Bundesländer 
+    * Postleitzahlen und deutsche Kreise, die einem Bundesland zugeordnet werden
 
   * daraus erstellte CSV-Dateien
     * EXPORT D3 all.csv 
@@ -161,13 +174,28 @@ beziehen.
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
 
- Die ganze Teilvisualisierung wurde als ein **Dashboard** umgesetzt, sodass alle Komponenten (Filter, Karte, Radar, Tabellen) auf einen Blick erfassbar sind. Das ist insofern sinnvoll, weil sich durch die Interaktionen viele Komponenten auf mehreren visuellen Kanälen und auch inhaltlich ändern. Durch das kompakte Layout müssen Anwender nicht scrollen und können die Veränderungen besser nachvollziehen. 
+ Die ganze Teilvisualisierung wurde als ein **Dashboard** umgesetzt, sodass alle Komponenten (Filter, Karte, Radar, Tabellen) auf einen Blick erfassbar sind. Das ist insofern sinnvoll, weil sich durch die Interaktionen viele Komponenten auf mehreren visuellen Kanälen und auch inhaltlich ändern. Durch das kompakte Layout müssen Anwender nicht scrollen und können die Veränderungen besser nachvollziehen.
+
+  * **Interaktionstypen** 
+     * Filter - Nutzer können nach Kategorie (BIP, Projekte, Institute, Finanzierungsdauer, Forscher) und review-board (Informatik, Mathematik, ...) filtern.
+
+     *Warum?*
+
+     * Radiobuttons und Checkboxen
+     
+     *Warum?*
+
+     * **Choropleth-Map**
+ 
+     *Warum?*
+
+ 
 
   * **Choropleth-Map** 
     * Marks: Die Bundesländer können als Flächen (2D mark) betrachtet werden.
     * Visuelle Kanäle
 
-        * **Farbe**:	Codiert Dichte/Anzahl von ausgewählter Kategorie Die Farblegende mit Anzeige des Standes gibt Nutzer genaue Angabe wie gering/hoch die Dichte/Anzahl ist.
+        * **Farbe**:  Codiert Dichte/Anzahl von ausgewählter Kategorie Die Farblegende mit Anzeige des Standes gibt Nutzer genaue Angabe wie gering/hoch die Dichte/Anzahl ist.
          
         *Warum?* Wir haben uns für eine Farbcodierung entschieden, um die Bundesländer untereinander zu vergleichen. 
 
@@ -208,4 +236,6 @@ Interagieren Nutzer danach mit der Visualisierung, werden im JSON nur Indizes ve
 Das einzige Problem, das sich daraus ergibt, ist, die Daten zu erweitern. Würde man Daten aus zukünftigen Jahren mit in die Visualisierung einfließen lassen, müsste man den Datengenerierungs-Code in Python geringfügig anpassen und eine neue CSV-Datei erstellen, welche das JavaScript-Script anschließend laden kann.
 
 # Validation (nach Munzner)
-...
+Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen und Studenten beschränkt ist, ist es uns nur möglich Studenten die Visualisierung auszutesten.
+
+... in Arbeit
