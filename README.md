@@ -15,6 +15,10 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 4. [Designprinzipien](#designprinzipien)
   1. [Domain Situation](#design-level1)
   2. [Abstraction](#design-level2)
+    1. [Taskabstraction] (#design-level2-1)
+    2. [Dataabstraction] (#design-level2-2)
+    3. [Aggregation & Filter] (#design-level2-3)
+
   3. [Idiom](#design-level3)
   4. [Algorithm](#design-level4)
 
@@ -23,7 +27,8 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
   2. [Abstraction](#validation-level2)
   3. [Idiom](#validation-level3)
 
-6. [Data Copyright](#copyright)
+6. [Verbesserung und Gelerntes](#verbesserungen)
+7. [Data Copyright](#copyright)
 
 <a name="entwickler"/>
 
@@ -31,6 +36,7 @@ Die Programm soll mithilfe von zwei Teilvisualisierungen (overview & detail) zur
 * Alexander (Weltkarte für Institutionsbeziehungen)
 * Joel Heuer (Choroplethen-Deutschlandkarte + Radar-Diagramm)
 
+<a name="allgemeines"/>
 
 # Allgemeines
 Diese Visualisierung umfasst zwei Teilvisualisierungen. 
@@ -40,8 +46,12 @@ Diese Visualisierung umfasst zwei Teilvisualisierungen.
 
 Sollten entsprechende Datensätze vorliegen (u. a. BIP von Staaten und deren Bundesländer, ähnliche Daten wie GEPRIS-Datensatz), skaliert die Visualisierung  entsprechend. 
 
+<a name="screencast"/>
+
 ### Screencast
 Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein Screencast bereitgestellt. Damit sollen der schnellere Einstieg in die Bedienung der Visualisierung unterstützt werden.
+
+<a name="quellen"/>
 
 ### Quellen
   * Visualisierung für Institutionsbeziehungen
@@ -55,6 +65,13 @@ Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein S
          * [Deutschlandkarte](http://bl.ocks.org/oscar6echo/4423770)
          * [Radar-Diagramm](https://gist.github.com/nbremer/21746a9668ffdf6d8242#file-radarchart-js)
 
+<a name="installation"/>
+
+# Installation
+
+
+<a name="Zweck"/>
+
 # Zweck
 * Mithilfe der Weltkarte soll die Visualisierung einen interaktiven Überblick zu globalen Institutionsbeziehungen geben. Fragen wie "Mit welchen in- und ausländischen Instituten hat Institut XY zusammengearbeitet?" können beantwortet werden.
 
@@ -63,6 +80,9 @@ Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein S
 * Beide Teilvisualisierungen ergänzen sich. In Kombination bieten sie eine ideale Hilfestellung zur Hypothesenbildung durch Analyse der globalen und lokalen Forschungssituation. 
 Zum Beispiel ist es Nutzern der Visualisierung möglich, Hypothesen aufstellen, welche Kriterien für eine ausgewählte Institution relevant sein können (z. B. hohes BIP, hohe #Forscher im Staat/Bundesland), um eine Kooperation mit in- oder ausländischen Institutionen einzugehen.
 
+
+
+<a name="designprinzipien"/>
 
 # Designprinzipien (nach Munzner)
 Im Folgenden werden die *four nested levels of visualization design* von Tamara Munzner auf die von uns bereitgestellte Visualisierung bezogen.
@@ -74,6 +94,8 @@ Unsere (Gesamt-)Visualisierung besteht aus zwei unabhängigen, sich aber ergänz
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
 
 beziehen.
+
+<a name="design-level1"/>
 
 ### Level 1 - Domain Situation
 1. **Gesamtvisualisierung** 
@@ -99,7 +121,12 @@ beziehen.
     * aufgrund des geringen Auftretens von Projekten in einem Fachbereich, Finanzierungen bereitstellen, damit dieser Mangel behoben wird (z.B. keine Theologie-Projekte in Schleswig-Holstein).
     * aufgrund der hohen Nachfrage spezieller review-boards eine stärkende Finanzierung vornehmen und den Ausbau an Studienplätzen in diesem Fachbereichen erhöhen. 
 
+
+<a name="design-level2"/>
+
 ### Level 2 - Abstraction
+
+<a name="design-level2-1"/>
 
 ##### Task Abstraction
 1. **Gesamtvisualisierung** 
@@ -138,6 +165,7 @@ beziehen.
         * Anhand einer ausgewählten Kategorie können Bundesländer auf der Choropleth-Map schnell verglichen werden. 
 
 
+<a name="design-level2-2"/>
 
 ##### Data Abstraction
 1. **Gesamtvisualisierung**  
@@ -163,6 +191,8 @@ beziehen.
 
     * Geometrie
         * Die gesamte Deutschlandkarte ist durch die Formen der einzelnen Bundesländer ein Objekt. Wir entschieden uns für eine Karte, um unserer Zielgruppe das Verständnis zu erleichtern und so Tasks wie LookUp zu vereinfachen. 
+
+<a name="design-level2-3"/>
 
 ##### Aggregation and filtering of data
 1. **Gesamtvisualisierung** 
@@ -190,6 +220,7 @@ beziehen.
 
     Allen voran *EXPORT D3 compressed percentage.csv* wird für die Visualisierungen genutzt. Diese Datei enthält 16 Bundesländer x 5 review-boards Zeilen. Jede Zeile speichert neben dem Bundesland und der review-board auch relative und absolute numerische Daten für z. B. Projekte, Institute, durchschnittliche Finanzierungsdauer. Genau jener Aufbau der CSV-Datei erspart dem JavaScript-Algorithmus viel Rechenarbeit. Dieser kann nämlich auf Interaktionen in den Visualisierungen mit Indexverschiebungen reagieren und die gewünschten Werte preisgeben.
 
+<a name="design-level3"/>
 
 ### Level 3 - Idiom 
 1. **Gesamtvisualisierung** 
@@ -250,6 +281,9 @@ beziehen.
  
         *Warum?*  Durch die Individualität lassen sich Bundesländer besser mit anderen im Radar vergleichen. 
 
+
+<a name="design-level4"/>
+
 ### Level 4 - Algorithm
 1. **Gesamtvisualisierung** 
 
@@ -264,9 +298,13 @@ Das einzige Problem, das sich daraus ergibt, ist, die Daten zu erweitern. Würde
 
 
 
+<a name="validaiton"/>
 
 # Validation (nach Munzner)
 Da sich unsere Zielgruppe auf Forscher, Staaten, Bundesländer, Institutionen und Studenten beschränkt ist, ist es uns nur möglich Studenten die Visualisierung testen und bewerten zu lassen.
+
+
+<a name="validaiton-level1"/>
 
 ### Level 1 - Domain Validation
 
@@ -307,6 +345,9 @@ Die Verbindung zwischen beiden Teilvisualisierungen sollte mehr verdeutlicht wer
 
 In Zukunft wollen wir unsere Visualisierungen mit weniger Elementen füllen, sondern kompakter halten. Für alle textbasierten Komponenten wie z. B. Tabellen sollten verstärkte Gestaltungen angewandt werden, um den Bezug zu Visualisierungen herzustellen (linking). 
 
+
+<a name="validaiton-level2"/>
+
 ### Level 2 - Abstraction Validation 
 
 Es soll herausgefunden werden, ob die Visualisierung samt seinem Funktionsumfang der eigentlich Zielsetzung (Hypothesenbildung) gerecht wird.
@@ -316,6 +357,9 @@ Bei der Testung durch Studenten wurden glücklicherweise Hypothesen aufgestellt,
 
 ##### downstream form of validation
 Aufgrund von Komplexität nicht durchgeführt.
+
+
+<a name="validaiton-level3"/>
 
 ### Level 3 - Idiom Validation
 Manche Designentscheidungen haben zur optimalen Wissensvermittlung beigetragen, andere wiederum nicht. 
@@ -353,6 +397,7 @@ Manche Designentscheidungen haben zur optimalen Wissensvermittlung beigetragen, 
 
 Aufgrund von Komplexität nicht durchgeführt.
 
+<a name="verbesserungen"/>
 
 # Verbesserungen und Gelerntes
 
