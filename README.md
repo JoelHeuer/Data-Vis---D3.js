@@ -194,7 +194,7 @@ beziehen.
 ##### Aggregation and filtering of data
 1. **Gesamtvisualisierung** 
 
- An dieser Stelle wird zum Abschnitt *Aggregation of data* der beiden Teilvisualisierung verlinkt.
+    An dieser Stelle wird zum Abschnitt *Aggregation of data* der beiden Teilvisualisierung verlinkt.
 
 2. **Teilvisualisierung für Instutiuonsbeziehungen**
 3. **Teilvisualisierung für Staatenansicht (Deutschland)**
