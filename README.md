@@ -45,7 +45,7 @@ Sollten entsprechende Datensätze vorliegen (u. a. BIP von Staaten und deren Bun
 <a name="screencast"/>
 
 ### Screencast
-Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein Screencast bereitgestellt. Damit sollen der schnellere Einstieg in die Bedienung der Visualisierung unterstützt werden.
+Um die Visualisierung und deren Funktionsumfang besser zu verstehen, wurde ein Screencast bereitgestellt. Damit soll der schnellere Einstieg in die Bedienung der Visualisierung unterstützt werden.
 
 <a name="quellen"/>
 
